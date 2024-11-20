@@ -10,3 +10,4 @@ Route::get('/test1', [MainController::class, 'index']);
 Route::get('/products', [MainController::class, 'index']);
 Route::get('/products/detail', [MainController::class, 'index']);
 Route::get('/products/checkout', [MainController::class, 'index']);
+Route::get('/login', [MainController::class, 'index']);

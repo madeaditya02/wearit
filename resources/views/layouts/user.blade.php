@@ -11,13 +11,14 @@
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap"
         rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Document</title>
+    <title>WearIt - @yield('title')</title>
 </head>
 
 <body class="font-poppins">
     <nav class="navbar px-8 sm:px-16 py-6 flex justify-between fixed top-0 left-0 right-0 z-50 transition duration-300 bg-white"
         @class(['border-b' => !Request::is('/')])>
-        <a href="#">
+        <a href="#" class="flex gap-3 items-center">
+            <img src="{{ asset('/img/logo.png') }}" class="h-8" alt="">
             <h1 class="text-3xl font-semibold">Wearit</h1>
         </a>
         <div

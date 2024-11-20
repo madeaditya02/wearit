@@ -15,7 +15,7 @@
 </head>
 
 <body class="font-poppins">
-    <nav class="navbar px-8 sm:px-16 py-6 flex justify-between fixed top-0 left-0 right-0 z-50 transition duration-300 bg-white"
+    <nav class="navbar px-8 sm:px-16 py-6 flex justify-between sticky top-0 left-0 right-0 z-50 transition duration-300 bg-white"
         @class(['border-b' => !Request::is('/')])>
         <a href="#" class="flex gap-3 items-center">
             <img src="{{ asset('/img/logo.png') }}" class="h-8" alt="">

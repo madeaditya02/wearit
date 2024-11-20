@@ -4,5 +4,5 @@
     Home
 @endsection
 @section('content')
-    <div class="h-[1000px]"></div>
+    <div></div>
 @endsection

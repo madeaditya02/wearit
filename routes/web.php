@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 
+Route::get('/cart', [MainController::class, 'index']);
+Route::get('/cart/checkout', [MainController::class, 'index']);
 Route::get('/test', [MainController::class, 'index']);
 Route::get('/test1', [MainController::class, 'index']);
 Route::get('/products', [MainController::class, 'index']);

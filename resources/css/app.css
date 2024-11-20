@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.navbar-nav {
+    @apply hidden md:flex;
+}
+.navbar-nav.show {
+    @apply flex;
+}

@@ -65,4 +65,8 @@
     </script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5128264ef8a07be763f1ababbc90675e219bf864

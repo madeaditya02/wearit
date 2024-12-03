@@ -11,10 +11,10 @@
                 <img src="/img/user.png" alt="WearIt" class="w-10 h-10">
                 <div class="ml-2">
                     <div>
-                        <h1 class="font-semibold md:text-base text-gray-700 pl-3">Christian Valentino</h1>
+                        <h1 class="font-semibold md:text-base text-gray-700 pl-3">Luis Suarez</h1>
                     </div>
                     <div>
-                        <h1 class="font-semibold text-xs md:text-base text-gray-700 pl-3">christianvalentino@gmail.com</h1>
+                        <h1 class="font-semibold text-xs md:text-base text-gray-700 pl-3">luissuarez@gmail.com</h1>
                     </div>
                 </div>
             </div>

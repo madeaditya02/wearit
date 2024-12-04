@@ -1,234 +1,86 @@
 @extends('layouts.user')
 
-@section('title', 'Cart')
+@section('title')
+Cart 
+@endsection
 
 @section('content')
+    <!-- Cart Header -->
+    <div class="flex flex-col space-y-2 p-6 ml-12">
+        <h1 class="text-4xl font-semibold font-poppins text-primary-darker leading-tight">Cart</h1>
+            <p class="text-l font-poppins text-gray-700 ml-4">2 ITEMS</p>
+      </div>
 
-
-    <!-- Group 1258 -->
-    <div class="  ">
-
-        <!-- Frame untuk konten -->
-        <div class="flex flex-col items-start p-0 gap-4 w-full h-full relative">
-
-            <!-- Produk 1 -->
-            <div class="flex items-start p-0 gap-4 w-full border-b border-gray-300 pb-8">
-
-                <!-- Checkbox -->
-                <div class="flex items-center">
-                    <input type="checkbox" id="product1" class="w-4 h-4 mt-20">
-                </div>
-
-                <!-- Gambar Produk -->
-                <div class="w-[180px] h-[180px] bg-cover bg-center"
-                    style="background-image: url('https://colorbox.co.id/cdn/shop/files/I-BSWFCR224L165_LT._PINK_2_77c94d75-a0e1-4d9d-bca2-f53f7d4cf404.jpg?v=1732775256&width=600');">
-                </div>
-
-                <!-- Informasi Produk -->
-                <div class="flex flex-col justify-between h-full flex-1">
-
-                    <!-- Nama Produk -->
-                    <p class="font-poppins font-semibold text-[25px] leading-[38px] text-[#383838] capitalize">
-                        Oversize Tshirt Christy Edition
-                    </p>
-
-                    <!-- Informasi Color dan Size -->
-                    <div class="flex flex-col gap-2">
-                        <!-- Warna -->
-                        <div class="flex items-center">
-                            <p class="font-poppins font-medium text-[20px] text-[#A2A3B1]">Color:</p>
-                            <span class="ml-2 font-poppins text-[20px] text-black">Gray</span>
-                        </div>
-                        <!-- Ukuran -->
-                        <div class="flex items-center">
-                            <p class="font-poppins font-medium text-[20px] text-[#A2A3B1]">Size:</p>
-                            <span class="ml-2 font-poppins text-[20px] text-black">XL</span>
-                        </div>
-                    </div>
-
-                    <!-- Qty dan Remove -->
-                    <div class="flex items-center justify-between w-full">
-                        <!-- Pilihan Qty -->
-                        <div class="flex items-center border border-[#A2A3B1] rounded-[4px] w-[160px] h-[52px] mt-4">
-                            <!-- Minus -->
-                            <button class="w-[20px] h-[20px] flex items-center justify-center text-[#17183B] ml-4">
-                                -
-                            </button>
-                            <!-- Jumlah -->
-                            <span class="mx-auto font-proxima-nova font-semibold text-[20px] text-[#17183B]">
-                                1
-                            </span>
-                            <!-- Plus -->
-                            <button class="w-[20px] h-[20px] flex items-center justify-center text-[#17183B] mr-4">
-                                +
-                            </button>
-                        </div>
-
-                        <!-- Tombol Remove -->
-                        <button class="font-poppins font-medium text-[#E70004] ml-44 mt-4">
-                            Remove
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Harga -->
-                <p class="font-poppins font-semibold text-[20px] leading-[30px] capitalize text-[#383838] mt-20">
-                    Rp. 300.000,00
-                </p>
-            </div>
-
-            <!-- Produk 2 -->
-            <div class="flex items-start p-0 gap-4 w-full h-[255px]">
-
-                <!-- Checkbox -->
-                <div class="flex items-center">
-                    <input type="checkbox" id="product1" class="w-4 h-4 mt-20">
-                </div>
-
-                <!-- Bungkus semua elemen lainnya -->
-                <div class="flex items-start p-0 gap-4 w-full h-full"> <!-- Tambahkan margin kiri di sini -->
-
-                    <!-- Gambar Produk -->
-                    <div class="w-[180px] h-[180px] bg-cover bg-center"
-                        style="background-image: url('https://image.uniqlo.com/UQ/ST3/id/imagesgoods/470182/item/idgoods_69_470182_3x4.jpg?width=648');">
-                    </div>
-
-                    <!-- Informasi Produk -->
-                    <div class="flex flex-col justify-between h-full flex-1">
-
-                        <!-- Nama Produk -->
-                        <p class="font-poppins font-semibold text-[25px] leading-[38px] text-[#383838] capitalize">
-                            Denim Jacket
-                        </p>
-
-                        <!-- Informasi Color -->
-                        <div class="flex items-center">
-                            <p class="font-poppins font-medium text-[20px] text-[#A2A3B1] -mt-24">Color:</p>
-                            <span class="ml-2 font-poppins text-[20px] text-black -mt-24">Sky Blue</span>
-                        </div>
-
-                        <!-- Informasi Size -->
-                        <div class="flex items-center">
-                            <p class="font-poppins font-medium text-[20px] text-[#A2A3B1] -mt-40">Size:</p>
-                            <span class="ml-2 font-poppins text-[20px] text-black -mt-40">XL</span>
-                        </div>
-
-                        <!-- Qty dan Remove -->
-                        <div class="flex items-center justify-between w-full">
-                            <!-- Pilihan Qty -->
-                            <div class="flex items-center border border-[#A2A3B1] rounded-[4px] w-[160px] h-[52px] -mt-48">
-                                <!-- Minus -->
-                                <button class="w-[20px] h-[20px] flex items-center justify-center text-[#17183B] ml-5">
-                                    -
-                                </button>
-                                <!-- Jumlah -->
-                                <span class="mx-auto font-proxima-nova font-semibold text-[20px] text-[#17183B]">
-                                    1
-                                </span>
-                                <!-- Plus -->
-                                <button class="w-[20px] h-[20px] flex items-center justify-center text-[#17183B] mr-5">
-                                    +
-                                </button>
-                            </div>
-
-                            <!-- Tombol Remove -->
-                            <button class="font-poppins font-medium text-[#E70004] ml-44 -mt-48">
-                                Remove
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Harga -->
-                    <p class="font-poppins font-semibold text-[20px] leading-[30px] capitalize text-[#383838] mt-20">
-                        Rp. 150.000,00
-                    </p>
-                </div>
-            </div>
-            </p>
+    <!-- Product List -->
+    <div class="flex flex-col border border-none w-[893px] h-[538px] p-10 ml-20 space-y-8">
+        <!-- Product 1 -->
+        <div class="flex items-start border-b border-gray-300 pb-6 space-x-4">
+          <input type="checkbox" id="product1" class="w-4 h-4 mt-5">
+            <div class="w-[180px] h-[180px] bg-cover bg-center" style="background-image: url('https://colorbox.co.id/cdn/shop/files/I-BSWFCR224L165_LT._PINK_2_77c94d75-a0e1-4d9d-bca2-f53f7d4cf404.jpg?v=1732775256&width=600');"></div>
+              <div class="flex-1 flex flex-col justify-between space-y-2">
+              <p class="text-2xl font-semibold text-gray-800 capitalize">Oversize Tshirt Christy Edition</p>
+              <div class="space-y-1">
+            <p class="text-lg font-medium text-gray-500">Color: <span class="text-black">Gray</span></p>
+          <p class="text-lg font-medium text-gray-500">Size: <span class="text-black">XL</span></p>
         </div>
-
-    </div>
-    </div>
-
-    <!-- Frame 427318186 -->
-    <div class="flex flex-col items-center w-[376px] h-[434px] left-[1200px] top-[260px] gap-[34px]">
-
-        <!-- Group 1268 -->
-        <div class="relative w-[376px] h-[351px]">
-
-            <!-- Rectangle 75 -->
-            <div class="w-full h-[351px] top-0 left-0 border-2 border-[#D9D9D9] box-border"></div>
-
-            <!-- Order Summary -->
-            <p
-                class="w-[215px] h-[38px] top-[31px] left-[81px] text-[25px] leading-[38px] font-semibold capitalize text-[#383838]">
-                Order Summary
-            </p>
-
-            <!-- Group 1260 -->
-            <div class="w-[322px] h-[29px] top-[87px] left-[35px]">
-                <!-- Price -->
-                <p class="text-[17px] leading-[26px] font-medium capitalize text-[#383838] top-[3px] left-0">
-                    Price
-                </p>
-                <p class="text-[17px] leading-[26px] font-medium capitalize text-[#383838] top-0 right-0">
-                    Rp. 150.000,00
-                </p>
-            </div>
-
-            <!-- Frame 1268 -->
-            <div class="flex flex-row justify-between items-center w-[322px] h-[26px] top-[129px] left-[35px] gap-[124px]">
-                <p class="text-[17px] leading-[26px] font-medium capitalize text-[#383838]">
-                    Shipping
-                </p>
-                <p class="text-[17px] leading-[26px] font-medium capitalize text-[#383838] text-right">
-                    -
-                </p>
-            </div>
-
-            <!-- Frame 1261 -->
-            <div class="flex flex-row justify-between items-center w-[322px] h-[26px] top-[189px] left-[35px] gap-[196px]">
-                <p class="text-[17px] leading-[26px] font-medium capitalize text-[#383838]">
-                    Quantity
-                </p>
-                <p class="text-[17px] leading-[26px] font-medium capitalize text-[#383838]">
-                    1 Item
-                </p>
-            </div>
-
-            <!-- Group 1262 -->
-            <div class="w-[322px] h-[27px] top-[226px] left-[35px]">
-                <!-- Total -->
-                <p class="text-[17px] leading-[26px] font-medium capitalize text-[#383838] top-[1px] left-0">
-                    Total
-                </p>
-                <p class="text-[17px] leading-[26px] font-medium capitalize text-[#383838] top-0 right-0">
-                    Rp. 150.000,00
-                </p>
-            </div>
-
-            <!-- Rectangle 22 -->
-            <div class="w-[300px] h-[2px] top-[170px] left-[38px] bg-[#D1D1D8]"></div>
-
-            <!-- Group 1267 -->
-            <div class="flex flex-col items-center gap-[20px] top-[265px] left-[63px]">
-
-                <!-- Proceed To Checkout -->
-                <div class="relative w-[251px] h-[49px] bg-[#002E89] rounded-[7px] mt-4">
-                    <p class="text-[18px] leading-[27px] font-semibold capitalize text-white left-[30px] top-[11px]">
-                        Proceed To Checkout
-                    </p>
-                </div>
-
-                <!-- Continue Shopping -->
-                <div
-                    class="flex justify-center items-center w-[251px] h-[49px] border-[1.5px] border-[#002E89] rounded-[7px] mt-4">
-                    <p class="text-[18px] leading-[27px] font-semibold capitalize text-[#002E89]">
-                        Continue Shopping
-                    </p>
-                </div>
-            </div>
+        <!-- Quantity and Remove Button -->
+        <div class="flex justify-between items-center mt-4">
+          <div class="flex items-center border border-gray-400 rounded w-[160px] h-[52px]">
+            <button class="px-7 text-gray-800 hover:text-gray-600 focus:outline-none">-</button>
+              <span class="mx-auto font-semibold text-lg text-gray-800">1</span>
+            <button class="px-7 text-gray-800 hover:text-gray-600 focus:outline-none">+</button>
+          </div>
+          <button class="text-red-600 font-medium hover:text-red-800 focus:outline-none">Remove</button>
         </div>
-    </div>
+        </div>
+          <p class="text-lg font-semibold text-gray-800">Rp. 300.000,00</p>
+        </div>
+        <!-- Product 2 -->
+        <div class="flex items-start border-gray-300 pb-6 space-x-4">
+          <input type="checkbox" id="product2" class="w-4 h-4 mt-5">
+            <div class="w-[180px] h-[180px] bg-cover bg-center" style="background-image: url('https://image.uniqlo.com/UQ/ST3/id/imagesgoods/470182/item/idgoods_69_470182_3x4.jpg?width=648');"></div>
+              <div class="flex-1 flex flex-col justify-between space-y-2">
+                <p class="text-2xl font-semibold text-gray-800 capitalize">Denim Jacket</p>
+                <div class="space-y-1">
+              <p class="text-lg font-medium text-gray-500">Color: <span class="text-black">Sky Blue</span></p>
+            <p class="text-lg font-medium text-gray-500">Size: <span class="text-black">XL</span></p>
+          </div>
+        <div class="flex justify-between items-center mt-4">
+          <div class="flex items-center border border-gray-400 rounded w-[160px] h-[52px]">
+            <button class="px-7 text-gray-800 hover:text-gray-600 focus:outline-none">-</button>
+              <span class="mx-auto font-semibold text-lg text-gray-800">1</span>
+                <button class="px-7 text-gray-800 hover:text-gray-600 focus:outline-none">+</button>
+                </div>
+              <button class="text-red-600 font-medium hover:text-red-800 focus:outline-none">Remove</button>
+              </div>
+            </div>
+          <p class="text-lg font-semibold text-gray-800">Rp. 150.000,00</p>
+        </div>
+      </div>
+
+    <!-- Order Summary -->
+    <div class="flex justify-end translate-y-[-500px] mr-20">
+      <div class="w-[376px] h-[434px] border-2 border-gray-300 p-6 space-y-6">
+      <p class="text-xl font-semibold font-poppins text-center capitalize">Order Summary</p>
+        <div class="flex justify-between text-lg font-medium font-poppins">
+          <p>Price</p>
+          <p>Rp. 150.000,00</p>
+        </div>
+      <div class="flex justify-between text-lg font-medium font-poppins">
+        <p>Shipping</p>
+          <p>-</p>
+        </div>
+      <div class="flex justify-between text-lg font-medium font-poppins">
+        <p>Quantity</p>
+          <p>1 Item</p>
+        </div>
+      <div class="flex justify-between text-lg font-medium font-poppins border-t pt-4">
+        <p>Total</p>
+          <p>Rp. 150.000,00</p>
+        </div>
+          <button class="w-full py-2 bg-blue-900 text-white text-lg font-semibold rounded-lg">Proceed To Checkout</button>
+            <button class="w-full py-2 border border-blue-900 text-blue-900 text-lg font-semibold rounded-lg">Continue Shopping</button>
+          </div>
+        </div>
 
 @endsection

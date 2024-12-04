@@ -59,7 +59,7 @@ Cart
       </div>
 
     <!-- Order Summary -->
-    <div class="flex justify-end translate-y-[-500px] mr-20">
+    <div class="flex justify-end mt-[-500px] mr-20">
       <div class="w-[376px] h-[434px] border-2 border-gray-300 p-6 space-y-6">
       <p class="text-xl font-semibold font-poppins text-center capitalize">Order Summary</p>
         <div class="flex justify-between text-lg font-medium font-poppins">

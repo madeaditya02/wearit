@@ -3,188 +3,100 @@
 @section('title', 'Address')
 
 @section('content')
-
-<div class="absolute w-[213px] h-[60px] left-[78px] top-[140px] font-poppins font-semibold text-[40px] leading-[60px] capitalize text-[#011F66]">
-    Check Out
-</div>
-
-<div class="absolute w-[464px] h-[24px] left-[78px] top-[220px] flex items-center space-x-4">
-    <!-- Address -->
-    <span class="font-poppins font-medium text-[25px] leading-[24px] text-[#383838]">
-        Address
-    </span>
-
-    <!-- > -->
-    <span class="font-poppins font-medium text-[25px] leading-[24px] text-[#A2A3B1]">
-        >
-    </span>
-
-    <!-- Shipping -->
-    <span class="font-poppins font-medium text-[25px] leading-[24px] text-[#A2A3B1]">
-        Shipping
-    </span>
-
-    <!-- > -->
-    <span class="font-poppins font-medium text-[25px] leading-[24px] text-[#A2A3B1]">
-        >
-    </span>
-
-    <!-- Payment -->
-    <span class="font-poppins font-medium text-[25px] leading-[24px] text-[#A2A3B1]">
-        Payment
-    </span>
-</div>
-
-<!-- alamat pertama -->
-<!-- Checkbox -->
-<div class="absolute w-[778px] h-[118px] left-[78px] top-[320px] flex items-start">
-    <div class="relative">
-        <input 
-        type="checkbox" 
-        class="appearance-none w-[20.32px] h-[20.32px] border-[1.27px] border-[#002E89] rounded-full checked:bg-[#002E89] checked:border-[#002E89] cursor-pointer"
-    />
-</div>
-
-<div class="ml-[24px] flex flex-col gap-[15px]">
-    <!-- Andi Sutedjo -->
-    <span class="font-poppins font-semibold text-[24px] leading-[20px] text-[#383838] capitalize">
-    Andi Sutedjo
-    </span>
-    <!-- Jalan Giri Kencono 29, Badung, 80361 -->
-    <span class="font-poppins font-medium text-[17px] leading-[50px] text-[#383838] capitalize">
-    Jalan Giri Kencono 29, Badung, 80361
-    </span>
-    <!-- Contact - 0815555444 -->
-    <span class="font-poppins font-medium text-[17px] leading-[26px] text-[#383838] capitalize">
-    Contact - 0815555444
-    </span>
-</div>
-
-<!-- Kanan: Edit | Remove -->
-<div class="flex items-center gap-[16px] text-[16px] font-poppins font-medium text-[#383838] absolute left-[720px] top-[40px]">
-    <span class="cursor-pointer hover:text-[#002E89]">Edit</span>
-    <span class="text-[#A2A3B1]">|</span>
-    <span class="cursor-pointer text-[#E14B4B] hover:text-[#E14B4B]">Remove</span>
-</div>
-</div>
-
-
-<!-- alamat kedua -->
-<!-- Checkbox -->
-<div class="absolute w-[778px] h-[118px] left-[78px] top-[500px] flex items-start">
-    <div class="relative">
-    <input 
-        type="checkbox" 
-        class="appearance-none w-[20.32px] h-[20.32px] border-[1.27px] border-[#002E89] rounded-full checked:bg-[#002E89] checked:border-[#002E89] cursor-pointer"
-    />
-</div>
-
-<div class="ml-[24px] flex flex-col gap-[15px]">
-    <!-- Andi Sutedjo -->
-    <span class="font-poppins font-semibold text-[24px] leading-[20px] text-[#383838] capitalize">
-    Andi Sutedjo
-    </span>
-    <!-- Jalan Giri Kencono 29, Badung, 80361 -->
-    <span class="font-poppins font-medium text-[17px] leading-[50px] text-[#383838] capitalize">
-    Jalan Giri Kencono 29, Badung, 80361
-    </span>
-    <!-- Contact - 0815555444 -->
-    <span class="font-poppins font-medium text-[17px] leading-[26px] text-[#383838] capitalize">
-    Contact - 0815555444
-    </span>
-</div>
-
-<!-- Kanan: Edit | Remove -->
-<div class="flex items-center gap-[16px] text-[16px] font-poppins font-medium text-[#383838] absolute left-[720px] top-[40px]">
-    <span class="cursor-pointer hover:text-[#002E89]">Edit</span>
-    <span class="text-[#A2A3B1]">|</span>
-    <span class="cursor-pointer text-[#E14B4B] hover:text-[#E14B4B]">Remove</span>
-</div>
-</div>
-
-<!-- Garis -->
-    <div class="absolute w-[820px] h-[3px] left-[75px] top-[680px] w-[900px] bg-[#D1D1D8]"></div>
-
-<!-- icon + add new address -->
-<div class="absolute w-[200px] h-[24px] left-[88px] top-[720px] flex items-center justify-start gap-[8px]">
-<!-- Plus Icon -->
-    <div class="w-[24px] h-[24px] relative">
-        <button class="absolute top-[20.83%] left-[50%] transform -translate-x-1/2 w-[2px] h-[60%] bg-[#002E89]"></button>
-        <button class="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-[60%] h-[2px] bg-[#002E89]"></button>
+<div class="flex flex-col space-y-2 p-6 ml-12">
+    <h1 class="text-4xl font-semibold font-poppins text-primary-darker leading-tight">Checkout</h1>
+    <div class="flex items-center space-x-4 text-xl font-poppins font-medium mt-8">
+        <span>Address</span>
+        <span class="text-gray-400">&gt;</span>
+        <span class="text-gray-400">Shipping</span>
+        <span class="text-gray-400">&gt;</span>
+        <span class="text-gray-400">Payment</span>
     </div>
-<!-- Text 'Add New Address' -->
-    <span class="font-[Proxima Nova] text-[16px] leading-[20px] tracking-[0.1px] text-[#002E89]">
-        Add New Address
-    </span>
-    </div>
-
-<!-- tulisan back to cart -->
-<div class="absolute w-[148px] h-[33px] left-1/2 -translate-x-[74px] top-[860px] font-poppins font-semibold text-[22px] leading-[33px] text-[#011F66] capitalize">
-    Back To Cart
 </div>
 
-<!-- order summary nya -->
-<div class="absolute w-[376px] h-[434px] left-[1019px] top-[346px] flex flex-col items-center p-0 gap-[34px]">
-<!-- frame nya -->
-    <div class="w-[376px] h-[351px] relative">
-    <!-- Rectangle 75 -->
-    <div class="absolute w-[376px] h-[351px] left-[200px] bottom-[40px] border-2 border-[#D9D9D9]"></div>
-
-    <!-- Order Summary -->
-    <div class="absolute w-[215px] h-[38px] left-[280px] bottom-[332px] font-poppins font-semibold text-[25px] leading-[38px] text-[#383838]">
-    Order Summary
-    </div>
-
-<!-- detail nya -->
-<div class="absolute w-[322px] left-[224px] top-[40px]">
-        <!-- Price -->
-        <div class="flex justify-between items-center w-full h-[26px] text-[#383838]">
-        <div class="font-poppins font-medium text-[17px] leading-[26px]">
-        Price
+<div class="flex justify-between mt-8 mb-8 ml-20 mr-20 gap-6">
+    <!-- Address Section -->
+    <div class="w-[65%] space-y-6">
+        <!-- alamat pertama -->
+        <div class="flex items-start gap-6">
+            <input type="checkbox" class="w-5 h-5 border rounded-full cursor-pointer border-blue-800 checked:bg-blue-800 checked:border-blue-800">
+            <div class="flex flex-col gap-4">
+                <span class="font-poppins text-2xl capitalize">Andi Sutedjo</span>
+                <span class="font-poppins text-lg capitalize">Jalan Giri Kencono 29, Badung, 80361</span>
+                <span class="font-poppins text-lg capitalize">Contact - 0815555444</span>
+            </div>
+            <div class="ml-auto flex gap-4 text-lg font-poppins">
+                <span class="cursor-pointer hover:text-blue-800">Edit</span>
+                <span class="text-gray-400">|</span>
+                <span class="cursor-pointer text-red-500 hover:text-red-500">Remove</span>
+            </div>
         </div>
-    <div class="font-poppins font-medium text-[17px] leading-[26px]">
-        Rp. 150.000,00
-    </div>
+        <!-- alamat kedua -->
+        <div class="flex items-start gap-6">
+            <input type="checkbox" class="w-5 h-5 border rounded-full cursor-pointer border-blue-800 checked:bg-blue-800 checked:border-blue-800">
+            <div class="flex flex-col gap-4">
+                <span class="font-poppins text-2xl capitalize">Bela Tobing</span>
+                <span class="font-poppins text-lg capitalize">Jalan Raya Unud, Badung, 80361</span>
+                <span class="font-poppins text-lg capitalize">Contact - 0815555444</span>
+            </div>
+            <div class="ml-auto flex gap-4 text-lg font-poppins">
+                <span class="cursor-pointer hover:text-blue-800">Edit</span>
+                <span class="text-gray-400">|</span>
+                <span class="cursor-pointer text-red-500 hover:text-red-500">Remove</span>
+            </div>
+        </div>
+        <!-- alamat ketiga -->
+        <div class="flex items-start gap-6">
+            <input type="checkbox" class="w-5 h-5 border rounded-full cursor-pointer border-blue-800 checked:bg-blue-800 checked:border-blue-800">
+            <div class="flex flex-col gap-4">
+                <span class="font-poppins text-2xl capitalize">Ananda Cahya</span>
+                <span class="font-poppins text-lg capitalize">Jalan Ngurah Rai, Badung, 80361</span>
+                <span class="font-poppins text-lg capitalize">Contact - 0815555444</span>
+            </div>
+            <div class="ml-auto flex gap-4 text-lg font-poppins">
+                <span class="cursor-pointer hover:text-blue-800">Edit</span>
+                <span class="text-gray-400">|</span>
+                <span class="cursor-pointer text-red-500 hover:text-red-500">Remove</span>
+            </div>
+        </div>
+        <div class="w-full max-w-[900px] h-px bg-gray-300"></div>
+
+        <!-- icon + add new address -->
+        <div class="w-[400px] h-[200px] flex justify-start gap-3">
+            <!-- Plus Icon Button -->
+            <button class="w-8 h-8 flex items-center justify-center bg-blue-800 text-white text-3xl font-bold rounded-full hover:bg-blue-700 focus:outline-none">
+                <span>+</span>
+            </button>
+            <!-- Text 'Add New Address' -->
+            <span class="text-lg text-blue-800">Add New Address</span>
+        </div>
+
+        <!-- Back to Cart -->
+        <div class="flex justify-center">
+            <button class="font-poppins font-semibold text-2xl text-blue-900 capitalize">Back To Cart</button>
+        </div>
     </div>
 
-    <!-- Shipping -->
-    <div class="flex justify-between items-center w-full h-[26px] mt-[20px] text-[#383838]">
-    <div class="font-poppins font-medium text-[17px] leading-[26px]">
-        Shipping
-    </div>
-    <div class="font-poppins font-medium text-[17px] leading-[26px] text-right">
-        -
-    </div>
-    </div>
-
-<!-- garis di detail nya -->
-<div class="absolute w-[320px] h-[2px] left-[2px] top-[96px] bg-[#D1D1D8]"></div>
-
-    <!-- Quantity -->
-    <div class="flex justify-between items-center w-full h-[26px] mt-[42px] text-[#383838]">
-    <div class="font-poppins font-medium text-[17px] leading-[26px]">
-        Quantity
-    </div>
-    <div class="font-poppins font-medium text-[17px] leading-[26px]">
-        1 Item
-    </div>
-    </div>
-
-    <!-- Total -->
-    <div class="flex justify-between items-center w-full h-[26px] mt-[20px] text-[#383838]">
-    <div class="font-poppins font-medium text-[17px] leading-[26px]">
-        Total
-    </div>
-    <div class="font-poppins font-medium text-[17px] leading-[26px]">
-        Rp. 150.000,00
-    </div>
-    </div>
-</div>
-
-<!-- Tulisan kotak biru -->
-<div class="absolute w-[251px] h-[49px] left-[260px] top-[240px] flex justify-center items-center bg-[#002E89] rounded-[7px] p-[11px_27px]">
-    <div class="w-[196px] h-[27px] font-poppins font-semibold text-[18px] leading-[27px] text-white capitalize">
-        Continue To Shipping
+    <!-- Order Summary Section -->
+    <div class="w-[376px] h-[370px] border-2 border-gray-300 p-6 space-y-6">
+        <p class="text-xl font-semibold font-poppins text-center capitalize">Order Summary</p>
+        <div class="flex justify-between text-lg font-medium font-poppins">
+            <p>Price</p>
+            <p>Rp. 150.000,00</p>
+        </div>
+        <div class="flex justify-between text-lg font-medium font-poppins">
+            <p>Shipping</p>
+            <p>-</p>
+        </div>
+        <div class="flex justify-between text-lg font-medium font-poppins">
+            <p>Quantity</p>
+            <p>1 Item</p>
+        </div>
+        <div class="flex justify-between text-lg font-medium font-poppins border-t pt-4">
+            <p>Total</p>
+            <p>Rp. 150.000,00</p>
+        </div>
+        <button class="w-full py-2 bg-blue-900 text-white text-lg font-semibold rounded-lg">Continue To Shipping</button>
     </div>
 </div>
 

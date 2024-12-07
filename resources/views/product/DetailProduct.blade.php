@@ -1,162 +1,82 @@
-l;@extends('layouts.user')
+@extends('layouts.user')
 
 @section('title')
     Products
 @endsection
 @section('content')
-    <div>
-        <h1>
-            <!DOCTYPE html>
-            <html lang="en">
+    <!-- Tombol Back -->
+    <div class="w-fit mx-auto mt-4 px-48">
+        <a href="/product" class="text-blue-900 font-semibold text-xl inline-flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                class="size-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+            <span>Back</span>
+        </a>
+        <!-- Grid Utama -->
+        <div class="mt-10 flex gap-28 mx-auto items-start">
 
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>WearIt - Product Page</title>
-                <style>
-                    body {
-                        font-family: Popins;
-                        margin: 0;
-                        padding: 0;
-                        background-color: #f8f9fa;
-                    }
+            <!-- Gambar Produk -->
+            <div class="bg-gray-300 p-7 rounded-lg sm:w-full md:w-10/12 lg:w-4/12">
+                <img src="https://colorbox.co.id/cdn/shop/files/I-TSKBSC502O105_2_763e644d-3c4a-4f7c-b4a6-b0eea8ec5aea.jpg?v=1717404703&width=450"
+                    alt="Product Image" class="rounded-lg">
+            </div>
 
-                    .header {
-                        background-color: #333;
-                        color: white;
-                        padding: 10px 20px;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                    }
-
-                    .header a {
-                        color: white;
-                        text-decoration: none;
-                        margin: 0 10px;
-                    }
-
-                    .product-container {
-                        display: flex;
-                        flex-wrap: wrap;
-                        margin: 20px auto;
-                        max-width: 900px;
-                        background: white;
-                        border-radius: 8px;
-                        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-                        overflow: hidden;
-                    }
-
-                    .product-image {
-                        flex: 1;
-                        padding: 20px;
-                    }
-
-                    .product-image img {
-                        max-width: 100%;
-                        border-radius: 8px;
-                    }
-
-                    .product-details {
-                        flex: 1;
-                        padding: 20px;
-                    }
-
-                    .product-details h1 {
-                        font-size: 24px;
-                        margin: 0;
-                    }
-
-                    .product-details p {
-                        margin: 10px 0;
-                    }
-
-                    .product-details .price {
-                        font-size: 20px;
-                        color: #007bff;
-                        margin: 10px 0;
-                    }
-
-                    .color-options span,
-                    .size-options span {
-                        display: inline-block;
-                        border: 1px solid #ccc;
-                        border-radius: 4px;
-                        padding: 5px 10px;
-                        margin: 5px;
-                        cursor: pointer;
-                    }
-
-                    .add-to-cart {
-                        display: block;
-                        width: 100%;
-                        padding: 10px;
-                        background-color: #007bff;
-                        color: white;
-                        text-align: center;
-                        text-decoration: none;
-                        margin-top: 10px;
-                        border-radius: 4px;
-                    }
-
-                    .add-to-cart:hover {
-                        background-color: #0056b3;
-                    }
-
-                    .favorite {
-                        text-align: right;
-                    }
-
-                    .favorite a {
-                        text-decoration: none;
-                        font-size: 20px;
-                        color: red;
-                    }
-                </style>
-
-
-                <div class="product-container">
-                    <div class="product-image">
-                        <img src="https://image.uniqlo.com/UQ/ST3/id/imagesgoods/472740/item/idgoods_11_472740_3x4.jpg?width=294"
-                            alt="Product Image">
-                    </div>
-                    <div class="product-details">
-                        <h1>Printed Loose T-shirt</h1>
-                        <div class="rating">⭐ 5.0</div>
-                        <p class="price">Rp. 500.000,00</p>
-                        <p>Relaxed-fit shirt. Camp collar and short sleeves.</p>
-                        <div class="color-options">
-                            <strong>Color:</strong>
-                            <span style="background: #ccc;"></span>
-                            <span style="background: #333;"></span>
-                            <span style="background: black;"></span>
-                            <span style="background: #b2f5e9;"></span>
-                            <span style="background: #e0e0ff;"></span>
-                        </div>
-                        <div class="size-options">
-                            <strong>Size:</strong>
-                            <span>XS</span>
-                            <span>S</span>
-                            <span>M</span>
-                            <span>L</span>
-                            <span>XL</span>
-                            <span>2XL</span>
-                        </div>
-                        <a href="#" class="add-to-cart">ADD TO CART</a>
-                        <div class="favorite">
-                            <a href="javascript:void(0)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                                    fill="red" class="w-8 h-8">
-                                    <path
-                                        d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                                </svg>
-                            </a>
-                        </div>
+            <!-- Detail Produk -->
+            <div class="bg-white rounded-lg shadow sm:mb-8 flex-grow">
+                <!-- Nama Produk -->
+                <div class="flex items-center justify-between gap-4 mt-6">
+                    <h1 class="text-gray-600 font-bold text-2xl">Printed Loose T-shirt</h1>
+                    <div class="ml-auto flex items-center text-xl">
+                        <p class="text-gray-600 mr-2">5.0</p>
+                        <span class="text-yellow-500">&#9733;</span>
                     </div>
                 </div>
-                </body>
 
-            </html>
-            </h2>
-            <h3< /h3>
+                <!-- Harga dan Rating -->
+                <p class="text-xl text-blue-600 font-semibold mt-2">Rp. 500.000,00</p>
+
+
+                <!-- Deskripsi Produk -->
+                <p class="mt-4 text-gray-600">
+                    Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.
+                </p>
+
+                <!-- Pilihan Warna -->
+                <div class="mt-6">
+                    <h2 class="font-semibold">Color</h2>
+                    <div class="flex space-x-2 mt-2">
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-300 shadow rounded border"></div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gray-400 shadow rounded border"></div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-black shadow rounded border"></div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-teal-300 shadow rounded border"></div>
+                        <div class="w-8 h-8 sm:w-10 sm:h-10 bg-blue-300 shadow rounded border"></div>
+                    </div>
+                </div>
+
+                <!-- Pilihan Ukuran -->
+                <div class="mt-6">
+                    <h2 class="font-semibold">Size</h2>
+                    <div class="flex space-x-2 sm:space-x-4 mt-2">
+                        <button class="px-2 sm:px-4 py-2 text-sm border rounded">XS</button>
+                        <button class="px-2 sm:px-4 py-2 text-sm border rounded">S</button>
+                        <button class="px-2 sm:px-4 py-2 text-sm border rounded">M</button>
+                        <button class="px-2 sm:px-4 py-2 text-sm border rounded">L</button>
+                        <button class="px-2 sm:px-4 py-2 text-sm border rounded">XL</button>
+                    </div>
+                    <a href="#" class="text-sm ml-4 sm:ml-10 text-blue-600 mt-2 inline-block">
+                        Find your size | Measurement guide
+                    </a>
+                </div>
+
+                <!-- Tombol Add to Cart -->
+                <div class="mt-6 flex items-center space-x-4">
+                    <button class="px-6 sm:px-10 py-2 bg-blue-900 text-white rounded">
+                        Add to Cart
+                    </button>
+                    <button class="text-red-500 text-4xl sm:text-5xl pl-4 sm:pl-8">&#9825;</button>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection

@@ -28,4 +28,4 @@ Route::get('/cart/address', [CartController::class, "Address"]);
 Route::get('/newaddress', [NewAddressController::class, "NewAddress"]);
 Route::get('/cart/shipping', [CartController::class, "Shipping"]);
 Route::get('/cart/payment', [CartController::class, "Payment"]);
-// Route::get('/afterpay', [AfterPayController::class, "AfterPay"]);
+Route::get('/afterpay', [AfterPayController::class, "AfterPay"]);

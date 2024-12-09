@@ -14,6 +14,9 @@ export default {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
                 poppins: ["Poppins", "sans-serif"],
+                "roboto-slab": ["Roboto Slab", "serif"],
+                rufina: ["Rufina", "serif"],
+                "public-sans": ["Public Sans", "sans-serif"],
             },
             colors: {
                 primary: "#002E89",

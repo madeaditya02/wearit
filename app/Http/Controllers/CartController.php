@@ -13,16 +13,16 @@ class CartController extends Controller
 
     public function Address()
     {
-        return view("address.Address");
+        return view("cart.Address");
     }
 
     public function Shipping()
     {
-        return view("shipping.Shipping");
+        return view("cart.Shipping");
     }
 
     public function Payment()
     {
-        return view("shipping.Payment");
+        return view("cart.Payment");
     }
 }

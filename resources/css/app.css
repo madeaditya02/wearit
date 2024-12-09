@@ -45,3 +45,16 @@
 .overlay.show {
     @apply block;
 }
+
+.sidebar {
+    @apply -ml-80 sm:ml-0;
+}
+.sidebar.show {
+    @apply ml-0;
+}
+.sidebar-overlay {
+    @apply hidden;
+}
+.sidebar-overlay.show {
+    @apply block sm:hidden;
+}

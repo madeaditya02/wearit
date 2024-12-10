@@ -35,3 +35,4 @@ Route::get('/afterpay', [AfterPayController::class, "AfterPay"]);
 // Admin
 Route::get('/admin', [AdminController::class, 'index']);
 Route::get('/admin/customer', [AdminCustomerController::class, 'CustomerAll']);
+Route::get('/admin/customer/detail', [AdminCustomerController::class, 'CustomerDetail']);

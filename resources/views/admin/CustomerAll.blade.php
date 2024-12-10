@@ -51,10 +51,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M11 4H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-6M18.5 5.5a2.121 2.121 0 010 3l-7.5 7.5-3 1 1-3 7.5-7.5a2.121 2.121 0 013 0z" />
                             </svg>
                         </button>
-                        <!-- Lock Icon -->
+                        <!-- Padlock Icon -->
                         <button class="hover:text-blue-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.083 0 2-.917 2-2V6a2 2 0 00-4 0v3c0 1.083.917 2 2 2zM5 11h14M7 19h10v-8H7v8z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a4 4 0 00-4 4v4H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-2V6a4 4 0 00-4-4zM9 10V6a3 3 0 016 0v4H9z" />
                             </svg>
                         </button>
                         <!-- Delete Icon -->
@@ -87,10 +87,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M11 4H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-6M18.5 5.5a2.121 2.121 0 010 3l-7.5 7.5-3 1 1-3 7.5-7.5a2.121 2.121 0 013 0z" />
                             </svg>
                         </button>
-                        <!-- Lock Icon -->
+                        <!-- Padlock Icon -->
                         <button class="hover:text-blue-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.083 0 2-.917 2-2V6a2 2 0 00-4 0v3c0 1.083.917 2 2 2zM5 11h14M7 19h10v-8H7v8z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a4 4 0 00-4 4v4H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-2V6a4 4 0 00-4-4zM9 10V6a3 3 0 016 0v4H9z" />
                             </svg>
                         </button>
                         <!-- Delete Icon -->
@@ -123,10 +123,10 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M11 4H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-6M18.5 5.5a2.121 2.121 0 010 3l-7.5 7.5-3 1 1-3 7.5-7.5a2.121 2.121 0 013 0z" />
                             </svg>
                         </button>
-                        <!-- Lock Icon -->
+                        <!-- Padlock Icon -->
                         <button class="hover:text-blue-500">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 11c1.083 0 2-.917 2-2V6a2 2 0 00-4 0v3c0 1.083.917 2 2 2zM5 11h14M7 19h10v-8H7v8z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2a4 4 0 00-4 4v4H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-2V6a4 4 0 00-4-4zM9 10V6a3 3 0 016 0v4H9z" />
                             </svg>
                         </button>
                         <!-- Delete Icon -->

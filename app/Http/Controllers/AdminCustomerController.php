@@ -10,4 +10,8 @@ class AdminCustomerController extends Controller
     public function  CustomerAll(){
         return view("admin.CustomerAll");
     }
+
+    public function  CustomerDetail(){
+        return view("admin.CustomerDetail");
+    }
 }

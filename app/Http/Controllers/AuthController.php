@@ -32,7 +32,6 @@ class AuthController extends Controller
         ]);
         return redirect('/login');
     }
-##-------------------------------------------------------------------------------------------------
     public function login() {
         return view('login');
     }
@@ -57,5 +56,13 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ])->onlyInput('email'); // Menyimpan input email agar tidak perlu mengetik ulang
+    }
+
+    public function profile() {
+        return view('profile');
+    }
+
+    public function history() {
+        return view('history');
     }
 }

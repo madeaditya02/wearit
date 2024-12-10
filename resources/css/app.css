@@ -9,3 +9,53 @@
 .navbar-nav.show {
     @apply flex;
 }
+.navbar.scrolled {
+    @apply bg-white shadow-md;
+}
+
+.size-filter button.active {
+    @apply bg-primary text-white border-primary;
+}
+.colors-filter .panel,
+.prices-filter .panel,
+.category-filter .panel {
+    max-height: 0;
+    transition: max-height 0.7s cubic-bezier(0, 1, 0, 1);
+}
+.colors-filter.show .panel,
+.prices-filter.show .panel,
+.category-filter.show .panel {
+    max-height: 500px;
+    transition: max-height 1.5s ease;
+}
+.colors-filter svg,
+.prices-filter svg,
+.category-filter svg {
+    @apply rotate-0 transition-all duration-200;
+}
+.colors-filter.show svg,
+.prices-filter.show svg,
+.category-filter.show svg {
+    @apply rotate-90;
+}
+.form-filter,
+.overlay {
+    @apply hidden md:block;
+}
+.form-filter.show,
+.overlay.show {
+    @apply block;
+}
+
+.sidebar {
+    @apply -ml-80 sm:ml-0;
+}
+.sidebar.show {
+    @apply ml-0;
+}
+.sidebar-overlay {
+    @apply hidden;
+}
+.sidebar-overlay.show {
+    @apply block sm:hidden;
+}

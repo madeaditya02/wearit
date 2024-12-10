@@ -2,15 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
-use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AfterPayController;
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\NewAddressController;
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\DetailProductController;
 use App\Http\Controllers\DetailProduct2Controller;
 
@@ -33,3 +34,5 @@ Route::get('/afterpay', [AfterPayController::class, "AfterPay"]);
 
 // Admin
 Route::get('/admin', [AdminController::class, 'index']);
+//product list
+Route:: get('/admin/product',[AdminProductController::class,"ProductList"]);

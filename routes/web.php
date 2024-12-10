@@ -13,6 +13,7 @@ use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\NewAddressController;
 use App\Http\Controllers\DetailProductController;
 use App\Http\Controllers\DetailProduct2Controller;
+use App\Http\Controllers\AdminCustomerController;
 
 // User
 Route::get('/', [MainController::class, 'index']);
@@ -35,3 +36,5 @@ Route::get('/afterpay', [AfterPayController::class, "AfterPay"]);
 
 // Admin
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/customer', [AdminCustomerController::class, 'CustomerAll']);
+Route::get('/admin/customer/detail', [AdminCustomerController::class, 'CustomerDetail']);

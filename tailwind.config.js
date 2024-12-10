@@ -14,6 +14,7 @@ export default {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
                 poppins: ["Poppins", "sans-serif"],
+                rufina: ["Rufina"]
             },
             colors: {
                 primary: "#002E89",

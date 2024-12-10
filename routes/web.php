@@ -16,6 +16,8 @@ use App\Http\Controllers\DetailProduct2Controller;
 
 // User
 Route::get('/', [MainController::class, 'index']);
+Route::get('/login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'loginAccount']);
 Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'submitAccount']);
 Route::get('/profile', [AuthController::class, 'profile']);

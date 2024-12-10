@@ -39,4 +39,8 @@ class AuthController extends Controller
     public function history() {
         return view('history');
     }
+
+    public function accSetting(){
+        return view('accSetting');
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\AdminOrderController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AfterPayController;
@@ -36,3 +37,5 @@ Route::get('/afterpay', [AfterPayController::class, "AfterPay"]);
 Route::get('/admin', [AdminController::class, 'index']);
 //product list
 Route:: get('/admin/product',[AdminProductController::class,"ProductList"]);
+Route::post('/admin/product/{id}/delete',[AdminProductController::class,"HapusProduct"]);
+Route::get('/admin/order',[AdminOrderController::class,"OrderAdmin"]);

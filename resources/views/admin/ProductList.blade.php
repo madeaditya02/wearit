@@ -8,20 +8,15 @@
 <body class="bg-gray-100 p-6">
   <div class="container mx-auto">
     
-    <!-- Search dan Filter -->
-    <div class="flex flex-wrap items-center justify-between mb-4">
-      <input
+    <!-- Search  -->
+    <form class="flex-wrap items-center justify-between mb-4">
+      <input name="search"
         id="searchInput"
         type="text"
         placeholder="Search by order id"
         class="px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
       />
-      <select
-        class="px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200"
-      >
-        <option class="text-gray-500">Filter by date range</option>
-      </select>
-    </div>
+</form>
     <!-- Judul kolom Tabel -->
     <div class="overflow-x-auto">
       <table class="min-w-full bg-white border border-gray-300 rounded-md">
@@ -35,78 +30,19 @@
         </thead>
         <tbody id="tableBody">
           <!-- iis kolom -->
+           @foreach($semuaProduk as $produk)
           <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6548</td>
-            <td class="px-6 py-4 text-sm text-gray-700">2 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$654</td>
+            <td class="px-6 py-4 text-sm text-gray-700">{{$produk->id}}</td>
+            <td class="px-6 py-4 text-sm text-gray-700">{{ $produk->created_at}}</td>
+            <td class="px-6 py-4 text-sm text-gray-700">{{ $produk->nama_produk }}</td>
+            <td class="px-6 py-4 text-sm text-gray-700">{{$produk->harga_produk }}</td>
+            
+            <td>
+              <form action="/admin/product/{{$produk->id}}/delete" method="post">@csrf<button>Hapus</button></form>
+        
+            </td>
           </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
-          <tr class="border-b hover:bg-gray-50">
-            <td class="px-6 py-4 text-sm text-gray-700">#6232</td>
-            <td class="px-6 py-4 text-sm text-gray-700">3 min ago</td>
-            <td class="px-6 py-4 text-sm text-gray-700">LONG PANTS</td>
-            <td class="px-6 py-4 text-sm text-gray-700">$454</td>
-          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>
@@ -142,11 +78,11 @@
        
         </ul>
       </div>
-      <div class="flex items-center space-x-2">
+      <!-- <div class="flex items-center space-x-2">
       <button class="px-3 py-1 text-sm text-gray-500 border rounded-md hover:bg-gray-100"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
   <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
-</svg>
-<!-- dropdown disamping -->
+</svg> -->
+<!-- dropdown disamping
 </button>
         <button class="px-3 py-1 text-sm text-gray-500 border rounded-md hover:bg-gray-100">1</button>
         <button class="px-3 py-1 text-sm text-gray-500 border rounded-md hover:bg-gray-100">2</button>
@@ -155,11 +91,12 @@
   <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
 </svg>
 </button>
-      </div>
+      </div> -->
+      {{ $semuaProduk->links() }}
     </div>
   </div>
 
-  <script>
+
  
 
 @endsection

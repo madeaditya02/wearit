@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class AdminDiscountController extends Controller
 {
-    //
+    public function  Diskon(){
+        return view("admin.Diskon");
+    }
 }

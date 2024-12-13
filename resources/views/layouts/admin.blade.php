@@ -12,7 +12,6 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @yield('css')
     <title>Wearit Admin - @yield('title')</title>
 </head>
 
@@ -181,6 +180,8 @@
         document.addEventListener('click', clickOutsideEvent)
         // document.removeEventListener('click', clickOutsideEvent)
     </script>
+
+    @yield('javascript')
 </body>
 
 </html>

@@ -12,7 +12,8 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    protected $guarded =['id'];
+    protected $primaryKey = 'id_user';
+    protected $guarded = ['id_user'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -44,7 +45,12 @@ class User extends Authenticatable
 
     public function keranjang()
     {
-        return $this->belongsToMany(Produk::class, 'keranjang', 'id_user', 'id_produk');
+        return $this->belongsToMany(Produk::class, 'keranjang', 'id_user', 'id_produk')->withPivot(['id_keranjang', 'quantity', 'size'])->withTimestamps();
+    }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(Produk::class, 'favorites', 'id_user', 'id_produk')->withTimestamps();
     }
 
     public function alamat()

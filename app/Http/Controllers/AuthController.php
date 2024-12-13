@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use Auth;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function register() {
+    public function register()
+    {
         return view('register');
     }
 
-    public function submitAccount(Request $request) {
+    public function submitAccount(Request $request)
+    {
         $data = $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -32,11 +34,13 @@ class AuthController extends Controller
         ]);
         return redirect('/login');
     }
-    public function login() {
+    public function login()
+    {
         return view('login');
     }
 
-    public function loginAccount(Request $request) {
+    public function loginAccount(Request $request)
+    {
         // Validasi input email dan password
         $credentials = $request->validate([
             'email' => 'required|email',
@@ -58,15 +62,18 @@ class AuthController extends Controller
         ])->onlyInput('email'); // Menyimpan input email agar tidak perlu mengetik ulang
     }
 
-    public function profile() {
+    public function profile()
+    {
         return view('profile');
     }
 
-    public function history() {
+    public function history()
+    {
         return view('history');
     }
 
-    public function accSetting(){
+    public function accSetting()
+    {
         return view('accSetting');
     }
 }

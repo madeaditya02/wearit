@@ -11,7 +11,6 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AfterPayController;
 use App\Http\Controllers\APIController;
-use App\Http\Controllers\CartController;
 use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\NewAddressController;
 use App\Http\Controllers\AdminProductController;
@@ -48,9 +47,9 @@ Route::post('/cart/add', [CartController::class, "addProduct"]);
 
 // Admin
 Route::get('/admin', [AdminController::class, 'index']);
-Route:: get('/admin/product',[AdminProductController::class,"ProductList"]);
-Route::post('/admin/product/{id}/delete',[AdminProductController::class,"HapusProduct"]);
-Route::get('/admin/order',[AdminOrderController::class,"OrderAdmin"]);
+Route::get('/admin/product', [AdminProductController::class, "ProductList"]);
+Route::post('/admin/product/{id}/delete', [AdminProductController::class, "HapusProduct"]);
+Route::get('/admin/order', [AdminOrderController::class, "OrderAdmin"]);
 Route::get('/admin/customer', [AdminCustomerController::class, 'CustomerAll']);
 Route::get('/admin/customer/detail', [AdminCustomerController::class, 'CustomerDetail']);
 Route::get('/admin/discount', [AdminDiscountController::class, 'Diskon']);

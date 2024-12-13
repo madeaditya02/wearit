@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('alamat', function (Blueprint $table) {
             $table->id('id_alamat');
+            $table->string('nama_alamat');
             $table->string('provinsi');
             $table->string('kota_kabupaten');
             $table->string('kecamatan');
             $table->string('desa');
+            $table->integer('province_id');
+            $table->integer('regency_id');
             $table->string('kode_pos');
             $table->string('alamat_lengkap');
             $table->unsignedBigInteger('id_user');

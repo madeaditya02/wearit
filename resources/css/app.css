@@ -59,3 +59,7 @@
 .sidebar-overlay.show {
     @apply block sm:hidden;
 }
+
+.detail-product .btn-size button.clicked {
+    @apply border-black;
+}

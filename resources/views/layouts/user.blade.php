@@ -11,8 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Rufina:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    @yield('head')
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @yield('css')
     <title>WearIt - @yield('title')</title>
 </head>
 
@@ -26,7 +26,7 @@
         <div
             class="navbar-nav gap-5 md:gap-8 pb-4 md:py-0 md:items-center uppercase absolute top-full left-0 right-0 flex-col px-6 bg-inherit md:bg-transparent shadow-md md:static md:flex-row md:shadow-none bg-white">
             <a href="/" class="px-3 py-1.5 rounded-lg hover:bg-gray-50">Home</a>
-            <a href="/favorite" class="px-3 py-1.5 rounded-lg hover:bg-gray-50">Favorite</a>
+            <a href="/favorites" class="px-3 py-1.5 rounded-lg hover:bg-gray-50">Favorite</a>
             <a href="/product" class="px-3 py-1.5 rounded-lg hover:bg-gray-50">Shop</a>
         </div>
         <div class="flex md:gap-8 gap-4 items-center">
@@ -60,6 +60,19 @@
     <div @class(['pt-28' => !Request::is('/')])>
         @yield('content')
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const alert = {!! json_encode(session('alert')) !!}
+        if (alert) {
+            Swal.fire({
+                title: alert.title,
+                icon: alert.icon,
+                text: alert.text,
+            })
+        }
+    </script>
 
     <script>
         const navbar = document.querySelector('.navbar')

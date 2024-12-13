@@ -14,13 +14,13 @@
                         <h1 class="font-semibold md:text-base text-gray-700 pl-3">Luis Suarez</h1>
                     </div>
                     <div>
-                        <h1 class="font-semibold text-xs md:text-base text-gray-700 pl-3">luissuares@gmail.com</h1>
+                        <h1 class="font-semibold text-xs md:text-base text-gray-700 pl-3">luissuarez@gmail.com</h1>
                     </div>
                 </div>
             </div>
             <div class="mt-8">
                 <a
-                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary rounded-t-md hover:bg-primary hover:border-primary hover:text-white">
+                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary rounded-t-md hover:bg-primary hover:border-primary hover:text-white" href="/profile">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-8 text-primary group-hover:text-white">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -29,7 +29,7 @@
                     <h1 class="font-semibold text-primary group-hover:text-white">Profile</h1>
                 </a>
                 <a
-                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary hover:text-white">
+                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary hover:text-white" href="/history">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="group-hover:text-white size-8 text-primary">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -38,7 +38,7 @@
                     <h1 class="font-semibold text-primary group-hover:text-white">Order History</h1>
                 </a>
                 <a
-                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary bg-primary">
+                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary bg-primary" href="/favorite">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="group-hover:text-white size-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -47,7 +47,7 @@
                     <h1 class="font-semibold text-white group-hover:text-white">Favourite</h1>
                 </a>
                 <a
-                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary">
+                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary" href="/accsetting">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="group-hover:text-white size-8 text-primary">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -56,15 +56,15 @@
                     </svg>
                     <h1 class="font-semibold text-primary group-hover:text-white">Account Setting</h1>
                 </a>
-                <a
-                    class="group flex items-center gap-5 border px-4 md:py-4 py-3 border-primary rounded-b-md  hover:bg-primary hover:border-primary">
+                <button
+                    class="confirmLogout w-full group flex items-center gap-5 border px-4 md:py-4 py-3 border-primary rounded-b-md  hover:bg-primary hover:border-primary">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="group-hover:text-white size-8 text-primary">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15m3 0 3-3m0 0-3-3m3 3H9" />
                     </svg>
                     <h1 class="font-semibold text-primary group-hover:text-white">Log Out</h1>
-                </a>
+                </button>
             </div>
 
 
@@ -100,4 +100,22 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('javascript')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.querySelector('.confirmLogout').addEventListener('click', function() {
+        Swal.fire({
+        title: "Do you want to log out?",
+        showCancelButton: true,
+        confirmButtonText: "Log Out",
+        icon: 'warning',
+        }).then((result) => {
+        if (result.isConfirmed) {
+            Swal.fire("Logged Out!", "", "success");
+        }
+        });
+    })
+</script>
 @endsection

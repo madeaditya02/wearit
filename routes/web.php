@@ -29,6 +29,7 @@ Route::get('/register', [AuthController::class, 'register']);
 Route::post('/register', [AuthController::class, 'submitAccount']);
 Route::get('/profile', [AuthController::class, 'profile']);
 Route::get('/history', [AuthController::class, 'history']);
+Route::get('/accsetting', [AuthController::class, 'accSetting']);
 Route::get('/product', [ProductController::class, "ProductDisplay"]);
 Route::get('/display', [ProductController::class, "display"]);
 Route::get('/favorites', [FavoriteController::class, "productFavorite"]);

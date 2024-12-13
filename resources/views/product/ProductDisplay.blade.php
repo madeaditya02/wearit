@@ -11,7 +11,8 @@
         <!-- Search Section -->
         <div class="flex items-center justify-center mb-6 w-80 max-w-full mx-auto">
             <div class="relative flex-grow">
-                <input type="text" placeholder="Search by name" name="search"
+                <input type="text" placeholder="Search by name" name="search" value="{{ $filters['search'] ?? '' }}"
+                    autocomplete="off"
                     class="pl-3 pr-10 py-2 border-2 border-gray-300 rounded-l-lg md:rounded-lg focus-visible:outline-none focus-visible:ring-0 w-full flex-grow items-stretch" />
                 <button class="p-2 absolute right-2 top-1/2 -translate-y-1/2">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -140,7 +141,10 @@
                     </div>
                 </div> --}}
                 <!-- Price Range Filter -->
-                <div @class(['prices-filter', 'show' => $filters['prices']->count() > 0])>
+                <div @class([
+                    'prices-filter',
+                    'show' => $filters['min_price'] || $filters['max_price'],
+                ])>
                     <div class="max-h-full button cursor-pointer">
                         <h3 class="flex items-center justify-between">
                             <span class="py-0 my-0 mb-0">Price Range</span>
@@ -152,7 +156,7 @@
                         <hr class="border-t-2 border-dashed border-gray-500 my-2">
                     </div>
                     <div class="mb-3 overflow-hidden panel">
-                        <div class="space-y-1 text-gray-500">
+                        {{-- <div class="space-y-1 text-gray-500">
                             @foreach ($price_range as $key => $price)
                                 <div class="flex items-center gap-3">
                                     <input type="checkbox" name="prices[]" id="price-{{ $key }}"
@@ -160,12 +164,24 @@
                                     <label for="price-{{ $key }}">{{ $price }}</label>
                                 </div>
                             @endforeach
+                        </div> --}}
+                        <div class="relative text-gray-600">
+                            <div class="absolute left-3 top-1/2 -translate-y-1/2">Rp</div>
+                            <input type="number" name="min_price" value="{{ $filters['min_price'] }}"
+                                class="w-full pl-10 pr-3 py-1.5 border rounded-md focus-visible:outline-none focus-visible:ring-0 focus:border-gray-500"
+                                placeholder="Minimum Price">
+                        </div>
+                        <div class="relative text-gray-600 mt-2">
+                            <div class="absolute left-3 top-1/2 -translate-y-1/2">Rp</div>
+                            <input type="number" name="max_price" value="{{ $filters['max_price'] }}"
+                                class="w-full pl-10 pr-3 py-1.5 border rounded-md focus-visible:outline-none focus-visible:ring-0 focus:border-gray-500"
+                                placeholder="Maximum Price">
                         </div>
                     </div>
                 </div>
 
                 <!-- Ratings Filter -->
-                <div class="py-2">
+                {{-- <div class="py-2">
                     <h3 class="flex items-center justify-between">
                         <span>Ratings</span>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -174,152 +190,28 @@
                         </svg>
                     </h3>
                     <hr class="border-t-2 border-dashed border-gray-500 my-2">
-                </div>
+                </div> --}}
             </div>
 
             <div class="md:hidden fixed inset-0 bg-black/30 z-40 overlay"></div>
 
             <!-- Main Content Section (Di kanan) -->
             <div class="grid grid-cols-8 gap-5 flex-grow">
-
-                <!-- Product Image with Text, | Separator and Rating -->
-                <div class="col-span-8 sm:col-span-4 lg:col-span-2 ">
-                    <img src="https://colorbox.co.id/cdn/shop/files/I-TSKKEY224L180_BLACK_4_5b6fec48-10a2-4425-98c8-f0f86b4f3896.jpg?v=1732775288&width=700"
-                        alt="Baju" class="object-cover h-80 w-full">
-                    <div class="text-center mt-2">
-                        <p class="font-semibold ">Sleeves Midi Dres</p>
-                        <div class="flex justify-center items-center">
-                            <!-- Text Separator | -->
-                            <span class="mx-2 ">IDR.250.000 | 5.0</span>
-                            <!-- Star Rating -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M10 15l-5.6 3.3 1.4-6.1L1 7.5l6.2-.5L10 1l2.8 5 6.2.5-4.8 4.7 1.4 6.1L10 15z" />
-                            </svg>
-
+                @foreach ($products as $product)
+                    <div class="col-span-8 sm:col-span-4 lg:col-span-2 ">
+                        <a href="/product/{{ $product->id_produk }}">
+                            <img src="{{ $product->gambar_produk }}" alt="Baju" class="object-cover h-80 w-full">
+                        </a>
+                        <div class="text-center mt-2.5">
+                            <a href="/product/{{ $product->id_produk }}"
+                                class="font-semibold hover:underline">{{ $product->nama_produk }}</a>
+                            <div class="flex justify-center items-center mt-1">
+                                <span
+                                    class="mx-2 text-sm">{{ Number::currency($product->harga_produk, 'IDR', 'id') }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-span-8 sm:col-span-4 lg:col-span-2">
-                    <img src="https://colorbox.co.id/cdn/shop/files/I-COGKEY224L057_LT._PINK_5_7773e51d-cec5-43f2-b3fd-84b13659d301.jpg?v=1732774965&width=700"
-                        alt="Baju" class="object-cover h-80 w-full">
-                    <div class="text-center mt-2">
-                        <p class="font-semibold">Floral Midi Dress</p>
-                        <div class="flex justify-center items-center">
-                            <!-- Text Separator | -->
-                            <span class="mx-2">IDR.300.000 | 5.0</span>
-                            <!-- Star Rating -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M10 15l-5.6 3.3 1.4-6.1L1 7.5l6.2-.5L10 1l2.8 5 6.2.5-4.8 4.7 1.4 6.1L10 15z" />
-                            </svg>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-8 sm:col-span-4 lg:col-span-2">
-                    <img src="https://colorbox.co.id/cdn/shop/files/I-BSWKEY224L184_LT._PINK_4_3369f2e4-b95a-4410-9b59-976d2943ebb3.jpg?v=1732775304&width=700"
-                        alt="Baju" class="object-cover h-80 w-full">
-                    <div class="text-center mt-2">
-                        <p class="font-semibold">Sleeve Blouse</p>
-                        <div class="flex justify-center items-center">
-                            <!-- Text Separator | -->
-                            <span class="mx-2">IDR.199.900| 5.0</span>
-                            <!-- Star Rating -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M10 15l-5.6 3.3 1.4-6.1L1 7.5l6.2-.5L10 1l2.8 5 6.2.5-4.8 4.7 1.4 6.1L10 15z" />
-                            </svg>
-
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-span-8 sm:col-span-4 lg:col-span-2">
-                    <img src="https://colorbox.co.id/cdn/shop/files/I-SWGKEY224L059_LT._PINK_4_e47f340f-728e-4f3d-8d82-89bd9f480ea5.jpg?v=1732774986&width=700"
-                        alt="Baju" class="object-cover h-80 w-full">
-                    <div class="text-center mt-2">
-                        <p class="font-semibold">Neck Crop SweateR</p>
-                        <div class="flex justify-center items-center">
-                            <!-- Text Separator | -->
-                            <span class="mx-2">IDR.150.000| 5.0</span>
-                            <!-- Star Rating -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M10 15l-5.6 3.3 1.4-6.1L1 7.5l6.2-.5L10 1l2.8 5 6.2.5-4.8 4.7 1.4 6.1L10 15z" />
-                            </svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-8 sm:col-span-4 lg:col-span-2">
-                    <img src="https://colorbox.co.id/cdn/shop/files/I-TSKKEY224L179_LT._BLUE_4_3593ad99-5d95-4e0a-ba13-07ddf0590a8e.jpg?v=1732775280&width=700"
-                        alt="Baju" class="object-cover h-80 w-full">
-                    <div class="text-center mt-2">
-                        <p class="font-semibold">Short Sleeve Top</p>
-                        <div class="flex justify-center items-center">
-                            <!-- Text Separator | -->
-                            <span class="mx-2">IDR.100.000| 5.0</span>
-                            <!-- Star Rating -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M10 15l-5.6 3.3 1.4-6.1L1 7.5l6.2-.5L10 1l2.8 5 6.2.5-4.8 4.7 1.4 6.1L10 15z" />
-                            </svg>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-8 sm:col-span-4 lg:col-span-2 ">
-                    <img src="https://colorbox.co.id/cdn/shop/files/I-LPWKEY224L152_SAND_4_cf5dd34f-aa88-4ddb-a946-4a134df345a1.jpg?v=1732775241&width=700"
-                        alt="Baju" class="object-cover h-80 w-full">
-                    <div class="text-center mt-2">
-                        <p class="font-semibold">Drawstring Pants</p>
-                        <div class="flex justify-center items-center">
-                            <!-- Text Separator | -->
-                            <span class="mx-2">IDR.259.000 | 5.0</span>
-                            <!-- Star Rating -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M10 15l-5.6 3.3 1.4-6.1L1 7.5l6.2-.5L10 1l2.8 5 6.2.5-4.8 4.7 1.4 6.1L10 15z" />
-                            </svg>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-8 sm:col-span-4 lg:col-span-2">
-                    <img src="https://colorbox.co.id/cdn/shop/files/I-SKWKEY224L097_LT._PINK_4_8cfb8cf9-386a-4a04-8d5b-b92ea6c75c5c.jpg?v=1732775105&width=700"
-                        alt="Baju" class="object-cover h-80 w-full">
-                    <div class="text-center mt-2">
-                        <p class="font-semibold">Mini Skirt</p>
-                        <div class="flex justify-center items-center">
-                            <!-- Text Separator | -->
-                            <span class="mx-2">IDR.200.000| 5.0</span>
-                            <!-- Star Rating -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M10 15l-5.6 3.3 1.4-6.1L1 7.5l6.2-.5L10 1l2.8 5 6.2.5-4.8 4.7 1.4 6.1L10 15z" />
-                            </svg>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-span-8 sm:col-span-4 lg:col-span-2">
-                    <img src="https://colorbox.co.id/cdn/shop/files/I-JKWKEY224L044_GREY_4_7e02bf76-ae18-48c5-92b1-72788c5517e0.jpg?v=1732774884&width=700"
-                        alt="Baju" class="object-cover h-80 w-full">
-                    <div class="text-center mt-2">
-                        <p class="font-semibold">Boomber Jacket</p>
-                        <div class="flex justify-center items-center">
-                            <!-- Text Separator | -->
-                            <span class="mx-2">IDR.300.000| 5.0</span>
-                            <!-- Star Rating -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-500" fill="currentColor"
-                                viewBox="0 0 20 20">
-                                <path d="M10 15l-5.6 3.3 1.4-6.1L1 7.5l6.2-.5L10 1l2.8 5 6.2.5-4.8 4.7 1.4 6.1L10 15z" />
-                            </svg>
-
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
 
         </div>
@@ -335,9 +227,8 @@
             const filter_data = {
                 size: {!! json_encode($filters['sizes']) !!} ?? [],
                 categories: {!! json_encode($filters['sizes']) !!} ?? [],
-                price_range: [],
+                // price_range: [],
                 show_colors: false,
-                show_price_range: ({!! json_encode($filters['prices']) !!} ?? []).length > 0,
                 show_category: ({!! json_encode($filters['category']) !!} ?? []).length > 0,
                 // set size(s) {
                 //     buttons.forEach(el => el.classList.remove('active'))
@@ -377,8 +268,8 @@
                     // filters.size = size
                 })
             })
-            document.querySelector('.colors-filter .button').addEventListener('click', () => filters.show_colors = !filters
-                .show_colors)
+            // document.querySelector('.colors-filter .button').addEventListener('click', () => filters.show_colors = !filters
+            //     .show_colors)
             document.querySelector('.prices-filter .button').addEventListener('click', () => filters.show_price_range = !filters
                 .show_price_range)
             document.querySelector('.category-filter .button').addEventListener('click', () => filters.show_category = !filters

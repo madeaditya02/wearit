@@ -21,7 +21,7 @@
         <div class ="w-full px-12 md:w-[60%] md:px-20">
             <div class="flex flex-col gap-3 md:flex-row items-center md:gap-5 w-full pt-20">
                 <img src="/img/logo.png" alt="WearIt" class="w-20 h-20">
-                <h1 class="font-semibold text-2xl">WearIt</h1>
+                <h1 class="drop-shadow-lg font-semibold text-2xl">WearIt</h1>
             </div>
             <form class="pt-8" action="/register" method="POST">
                 @csrf
@@ -46,6 +46,8 @@
                         @enderror
                     </div>
                 </div>
+
+
                 <div class="flex flex-col md:flex-row md:gap-5 gap-2">
                     <div class="pb-1 md:pb-3 md:w-[50%]">
                         <label class="text-slate-600 text-sm">
@@ -66,6 +68,9 @@
                         @enderror
                     </div>
                 </div>
+
+
+                
                 <div class="flex flex-col md:flex-row md:gap-5 gap-2 md:pb-1 pb-3">
                     <div class="pb-1 md:pb-3 md:w-[50%]">
                         <label class="text-slate-600 text-sm">
@@ -105,7 +110,7 @@
                     </div>
                 </div>
                 <div class="flex pt-7 pb-9 md:pt-10 place-content-center">
-                    <h1 class="text-sm text-slate-950">Already have an account? <a class="text-blue-700">Login</a></h1>
+                    <h1 class="text-sm text-slate-950">Already have an account? <a href='/login' class="text-blue-700">Login</a></h1>
             </form>
         </div>
     </div>

@@ -28,4 +28,9 @@ class Produk extends Model
     {
         return $this->hasMany(Diskon::class, 'id_produk', 'id_produk');
     }
+
+    public function favorites()
+    {
+        return $this->belongsToMany(User::class, 'favorites', 'id_user', 'id_produk')->withTimestamps();
+    }
 }

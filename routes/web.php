@@ -14,6 +14,8 @@ use App\Http\Controllers\ShippingController;
 use App\Http\Controllers\NewAddressController;
 use App\Http\Controllers\DetailProductController;
 use App\Http\Controllers\DetailProduct2Controller;
+use App\Http\Controllers\AdminCustomerController;
+use App\Http\Controllers\AdminDiscountController;
 use App\Http\Controllers\FavoriteController;
 
 // User
@@ -42,6 +44,9 @@ Route::post('/cart/add', [CartController::class, "addProduct"]);
 
 // Admin
 Route::get('/admin', [AdminController::class, 'index']);
+Route::get('/admin/customer', [AdminCustomerController::class, 'CustomerAll']);
+Route::get('/admin/customer/detail', [AdminCustomerController::class, 'CustomerDetail']);
+Route::get('/admin/discount', [AdminDiscountController::class, 'Diskon']);
 
 Route::get('/api/cekongkir', [APIController::class, 'cekOngkir']);
 Route::post('/api/midtrans-token', [APIController::class, 'midtransSnapToken']);

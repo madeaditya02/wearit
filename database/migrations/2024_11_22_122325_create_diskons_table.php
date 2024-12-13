@@ -17,7 +17,7 @@ return new class extends Migration
             $table->timestamp('waktu_mulai');
             $table->timestamp('waktu_akhir');
             $table->unsignedBigInteger('id_produk');
-            $table->foreign('id_produk')->references('id')->on('produk');
+            $table->foreign('id_produk')->references('id')->on('produk')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('size');
             $table->foreign('id_user')->references('id_user')->on('users');
-            $table->foreign('id_produk')->references('id')->on('produk');
+            $table->foreign('id_produk')->references('id')->on('produk')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class AdminOrderController extends Controller
 {
-    //
+    public function OrderAdmin (){
+        return view('admin.OrderManagement');
+    }
 }

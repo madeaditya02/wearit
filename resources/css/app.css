@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Rufina:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -57,4 +58,8 @@
 }
 .sidebar-overlay.show {
     @apply block sm:hidden;
+}
+
+.detail-product .btn-size button.clicked {
+    @apply border-black;
 }

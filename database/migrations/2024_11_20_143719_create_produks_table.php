@@ -18,6 +18,7 @@ return new class extends Migration
             // $table->integer('jumlah');
             $table->integer('harga_produk');
             $table->string('jenis_produk');
+            $table->string('gambar_produk');
             $table->timestamps();
         });
     }

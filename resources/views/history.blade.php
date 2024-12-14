@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="flex md:px-14 px-6 py-10 md:flex-row flex-col">
-        <div class="md:w-[28%] w-full flex-row">
+        <div class="md:min-w-[28%] md:w-fit w-full flex-row">
             <div class="flex w-full h-20 border border-primary rounded-md items-center px-4">
                 <img src="{{ $user->photo_profil }}" alt="WearIt" class="w-10 h-10 rounded-full">
                 <div class="ml-2">

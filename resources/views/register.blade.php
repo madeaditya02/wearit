@@ -70,7 +70,7 @@
                 </div>
 
 
-                
+
                 <div class="flex flex-col md:flex-row md:gap-5 gap-2 md:pb-1 pb-3">
                     <div class="pb-1 md:pb-3 md:w-[50%]">
                         <label class="text-slate-600 text-sm">
@@ -102,15 +102,16 @@
                             Account</button>
                     </div>
                     <div class="w-full md:w-[50%]">
-                        <button type="button"
+                        <a href="/login/oauth"
                             class="font-semibold bg-gray-700 text-white py-2 px-3 rounded-md w-full flex justify-center items-center gap-2">
                             <img src="/img/googleIcon.png" class="w-5 h-5"alt="">
                             Login with Google
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="flex pt-7 pb-9 md:pt-10 place-content-center">
-                    <h1 class="text-sm text-slate-950">Already have an account? <a href='/login' class="text-blue-700">Login</a></h1>
+                    <h1 class="text-sm text-slate-950">Already have an account? <a href='/login'
+                            class="text-blue-700">Login</a></h1>
             </form>
         </div>
     </div>

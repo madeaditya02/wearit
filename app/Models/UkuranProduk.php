@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class UkuranProduk extends Model
 {
     protected $table = 'ukuran_produk';
+    protected $guarded = [];
 
     public function produk()
     {

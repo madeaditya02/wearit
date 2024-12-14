@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <form action="/addProductSubmit" method="POST" enctype="multipart/form-data" class="flex">
+    <form action="/admin/addproduct" method="POST" enctype="multipart/form-data" class="flex">
         @csrf
         <div class="relative w-[50%] h-full border rounded-lg border-[#134563]">
             <input type="file" name="gambar_produk" required class=" w-full h-full px-20 flex flex-col place-items-center opacity-0 absolute inset-0">

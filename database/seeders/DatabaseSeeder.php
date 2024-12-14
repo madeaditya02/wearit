@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use App\Models\User;
-use App\Models\Alamat;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Alamat;
 use App\Models\Produk;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
@@ -877,8 +878,23 @@ class DatabaseSeeder extends Seeder
         $sizes_counts[2] = ['ukuran' => 'M', 'tersedia' => 0];
         $produk3->ukuranProduk()->createMany($sizes_counts);
 
+        DB::table('diskon')->insert([
+        [
+            'jumlah_diskon' => 20,
+            'waktu_mulai' => now()->add(-1, 'day'),
+            'waktu_akhir' => now()->add(7, 'day'),
+            'id_produk' => 1
+        ],
+        [
+            'jumlah_diskon' => 40,
+            'waktu_mulai' => now()->add(-3, 'day'),
+            'waktu_akhir' => now()->add(5, 'day'),
+            'id_produk' => 4
+        ],
+        ]);
+
         Alamat::create([
-            'id_user' => $user1->id_user,
+            'id_user' => $user2->id_user,
             'nama_alamat' => 'Rumah',
             'provinsi' => 'Jawa Timur',
             'kota_kabupaten' => 'Surabaya',
@@ -887,7 +903,7 @@ class DatabaseSeeder extends Seeder
             'province_id' => 11,
             'regency_id' => 444,
             'kode_pos' => '80117',
-            'alamat_lengkap' => 'Jalan Raya Kampus Unud',
+            'alamat_lengkap' => 'Jalan Raya Surabaya',
         ]);
         Alamat::create([
             'id_user' => $user2->id_user,

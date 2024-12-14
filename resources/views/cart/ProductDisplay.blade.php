@@ -11,7 +11,7 @@
         <p class="text-l font-poppins text-gray-700 ml-4">{{ $cart->count() }} ITEMS</p>
     </div>
     @if ($cart->count() > 0)
-        <div class="flex gap-6 px-12" x-data="cart">
+        <div class="flex gap-6 px-12 items-start" x-data="cart">
             <!-- Product List -->
             <div class="flex flex-col border border-none p-10 space-y-8 flex-grow">
                 @foreach ($cart as $produk)
@@ -19,13 +19,23 @@
                     <div class="flex items-start border-b border-gray-300 pb-6 space-x-4">
                         <img src="{{ $produk->gambar_produk }}" class="w-[180px] h-[180px] object-cover object-center"
                             alt="">
-                        <div class="flex items-start justify-between flex-grow mt-4">
+                        <div class="flex items-start justify-between flex-grow mt-1">
                             <div class="flex-1 flex flex-col justify-between space-y-2">
+                                @if ($produk->diskon->count())
+                                    <span
+                                        class="text-xs font-medium px-3 py-1 rounded-lg border border-red-600 bg-red-600 text-white w-fit">Diskon
+                                        {{ $produk->diskon[0]->jumlah_diskon }}%</span>
+                                @endif
                                 <p class="text-2xl font-semibold text-gray-800 capitalize">{{ $produk->nama_produk }}</p>
                                 <div class="space-y-1">
                                     {{-- <p class="text-lg font-medium text-gray-500">Color: <span class="text-black">Gray</span></p> --}}
                                     <p class="text-lg font-medium text-gray-500">Size: <span
                                             class="text-black">{{ Str::upper($produk->pivot->size) }}</span></p>
+                                    @if ($produk->diskon->count())
+                                        {{-- <p class="text-lg font-medium text-gray-500">Diskon: <span
+                                                class="text-black">{{ Str::upper($produk->diskon[0]->jumlah_diskon) }}%</span>
+                                        </p> --}}
+                                    @endif
                                 </div>
                                 <!-- Quantity and Remove Button -->
                                 <div class="flex gap-4 items-center mt-4">
@@ -61,8 +71,23 @@
                                     </form>
                                 </div>
                             </div>
-                            <p class="text-lg font-semibold text-gray-800">
-                                {{ Number::currency($produk->pivot->quantity * $produk->harga_produk, 'IDR', 'id') }}</p>
+                            <div>
+                                @if ($produk->diskon->count())
+                                    <p class="text-lg font-medium text-gray-800 line-through">
+                                        @php
+                                            $harga = $produk->pivot->quantity * $produk->harga_produk;
+                                        @endphp
+                                        {{ Number::currency($produk->pivot->quantity * $produk->harga_produk, 'IDR', 'id') }}
+                                    </p>
+                                    <p class="text-lg font-semibold text-gray-800">
+                                        {{ Number::currency($harga - ($harga * $produk->diskon[0]->jumlah_diskon) / 100, 'IDR', 'id') }}
+                                    </p>
+                                @else
+                                    <p class="text-lg font-semibold text-gray-800">
+                                        {{ Number::currency($produk->pivot->quantity * $produk->harga_produk, 'IDR', 'id') }}
+                                    </p>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 @endforeach
@@ -95,12 +120,22 @@
 
             <!-- Order Summary -->
             <div class="flex justify-end">
-                <div class="w-[376px] h-[434px] border-2 border-gray-300 p-6 space-y-6">
+                <div class="w-[376px] border-2 border-gray-300 p-6 space-y-6">
                     <p class="text-xl font-semibold font-poppins text-center capitalize">Order Summary</p>
                     <div class="flex justify-between text-lg font-medium font-poppins">
                         <p>Price</p>
-                        <p>{{ Number::currency($total_harga, 'IDR', 'id') }}</p>
+                        <p>{{ Number::currency($estimasi_total, 'IDR', 'id') }}</p>
                     </div>
+                    @if ($discounts->count())
+                        <div class="flex justify-between text-lg font-medium font-poppins">
+                            <p>Discount</p>
+                            <div>
+                                @foreach ($discounts as $diskon)
+                                    <p class="mb-1 last:mb-0">{{ $diskon->jumlah_diskon }}%</p>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
                     <div class="flex justify-between text-lg font-medium font-poppins">
                         <p>Shipping</p>
                         <p>-</p>
@@ -111,7 +146,7 @@
                     </div>
                     <div class="flex justify-between text-lg font-medium font-poppins border-t pt-4">
                         <p>Total</p>
-                        <p>{{ Number::currency($produk->pivot->quantity * $produk->harga_produk, 'IDR', 'id') }}</p>
+                        <p>{{ Number::currency($total_harga, 'IDR', 'id') }}</p>
                     </div>
                     <a href="/cart/checkout"
                         class="w-full block text-center py-2 bg-blue-900 text-white text-lg font-semibold rounded-lg">Proceed

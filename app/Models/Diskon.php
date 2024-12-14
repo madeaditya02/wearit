@@ -17,4 +17,14 @@ class Diskon extends Model
     {
         return $this->belongsToMany(User::class, 'diskon_pelanggan', 'id_diskon', 'id_user');
     }
+
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'waktu_mulai' => 'datetime',
+            'waktu_akhir' => 'datetime',
+        ];
+    }
 }

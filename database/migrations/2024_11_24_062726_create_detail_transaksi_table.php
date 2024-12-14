@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_transaksi');
             $table->unsignedBigInteger('id_diskon')->nullable();
             $table->string('size_produk');
+            $table->integer('quantity');
             $table->foreign('id_produk')->references('id')->on('produk')->onDelete('cascade');
             $table->foreign('id_transaksi')->references('id_transaksi')->on('transaksi');
             $table->foreign('id_diskon')->references('id_diskon')->on('diskon');

@@ -44,7 +44,7 @@
                     @enderror
                     <div class="flex items-center justify-between gap-5 w-full mt-4">
                         <div class="flex items-center gap-4">
-                            <input type="checkbox"
+                            <input type="checkbox" name="remember"
                                 class="w-4 h-4 shrink-0 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
                                 id="hs-default-checkbox">
                             <label for="hs-default-checkbox" class="text-sm text-slate-950">Remember Me</label>
@@ -67,11 +67,11 @@
                         </button>
                     </div>
                     <div class="w-full">
-                        <button type="button"
+                        <a href="/login/oauth"
                             class="font-semibold bg-gray-700 text-white py-2 px-3 rounded-md w-full flex justify-center items-center gap-2">
                             <img src="/img/googleIcon.png" class="w-5 h-5" alt="">
                             Login with Google
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

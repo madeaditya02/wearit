@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('photo_profil');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('social');
             $table->rememberToken();
             $table->timestamps();
         });

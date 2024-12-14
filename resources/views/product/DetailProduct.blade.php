@@ -24,22 +24,33 @@
             <!-- Detail Produk -->
             <div class="bg-white rounded-lg sm:mb-8 flex-grow">
                 <!-- Nama Produk -->
-                <div class="flex items-center justify-between gap-4 mt-6">
-                    <h1 class="text-gray-600 font-bold text-2xl">{{ $produk->nama_produk }}</h1>
+                <div class="flex items-center justify-between gap-4 mt-6 mb-2">
+                    <h1 class="text-gray-600 font-bold text-3xl">{{ $produk->nama_produk }}</h1>
                     {{-- <div class="ml-auto flex items-center text-xl">
                         <p class="text-gray-600 mr-2">5.0</p>
                         <span class="text-yellow-500">&#9733;</span>
                     </div> --}}
                 </div>
 
-                <!-- Harga dan Rating -->
-                <p class="text-xl text-blue-600 font-semibold mt-2">
-                    {{ Number::currency($produk->harga_produk, 'IDR', 'id') }}</p>
-
-
+                <!-- Harga -->
+                {{-- <p class="text-xl text-blue-600 font-semibold mt-2">
+                    {{ Number::currency($produk->harga_produk, 'IDR', 'id') }}
+                </p> --}}
+                @if ($produk->diskon->count())
+                    <p class="text-blue-600 font-medium line-through text-sm">
+                        {{ Number::currency($produk->harga_produk, 'IDR', 'id') }}
+                    </p>
+                @endif
+                <p class="text-2xl text-blue-600 font-semibold mt-px flex gap-4 items-center">
+                    {{ Number::currency($produk->harga_setelah_diskon, 'IDR', 'id') }}
+                    @if ($produk->diskon->count())
+                        <span class="px-3 py-1 rounded-lg border border-blue-600 text-blue-600 text-xs">Diskon
+                            {{ $produk->diskon[0]->jumlah_diskon }}%</span>
+                    @endif
+                </p>
                 <!-- Deskripsi Produk -->
                 <p class="mt-4 text-gray-600">
-                    Relaxed-fit shirt. Camp collar and short sleeves. Button-up front.
+                    {{ $produk->deskripsi_produk }}
                 </p>
 
                 <!-- Pilihan Warna -->

@@ -44,7 +44,7 @@
             @endguest
             @auth
                 <a href="/profile">
-                    <img src="{{ asset('/img/user.png') }}" class="size-6 rounded-full" alt="">
+                    <img src="{{ auth()->user()->photo_profil }}" class="size-8 rounded-full" alt="">
                 </a>
             @endauth
             <button class="px-1.5 py-1.5 hover:bg-gray-50 bar-btn md:hidden">
@@ -80,6 +80,7 @@
         const btn = document.querySelector('.bar-btn').addEventListener('click', () => {
             navbarNav.classList.toggle('show')
         })
+        navbar.classList.toggle('scrolled', window.scrollY > 0)
         document.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 0)
         })

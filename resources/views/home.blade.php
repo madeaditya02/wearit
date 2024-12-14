@@ -4,7 +4,7 @@
     Home
 @endsection
 
-@section('css')
+@section('head')
     <style>
         .swiper {
             width: 100%;
@@ -32,7 +32,7 @@
                 tailored
                 to
                 your unique taste.</p>
-            <a href="" class="px-12 py-4 uppercase bg-primary text-white sm:text-lg rounded">Explore Now</a>
+            <a href="/product" class="px-12 py-4 uppercase bg-primary text-white sm:text-lg rounded">Explore Now</a>
         </div>
         <img src="/img/landing-page-2.png" alt=""
             class="hidden md:block w-[40%] h-[480px] object-cover object-top rounded-[36px]">
@@ -51,41 +51,41 @@
         <div class="swiper-pagination"></div>
     </div> --}}
 
-    <div class="my-28 bg-primary swiper mySwiper">
+    <div class="my-28 bg-primary swiper mySwiper" x-data="discounts">
         <div class="swiper-wrapper bg-transparent">
-            @for ($i = 0; $i < 3; $i++)
+            <template x-for="diskon in discounts">
                 <div
                     class="flex gap-x-20 gap-y-5 justify-between swiper-slide !bg-transparent p-10 pb-16 md:px-36 md:py-12 flex-col md:flex-row">
-                    <img src="/img/model-1.png" alt=""
+                    <img :src="diskon.produk.gambar_produk" alt=""
                         class="h-[300px] md:h-[400px] w-full md:w-[40%] object-cover hidden md:block">
                     <div class="pt-3 sm:pr-10 text-left">
                         <h2 class="text-white text-3xl font-roboto-slab">Exclusive offer</h2>
                         <p class="text-white leading-normal text-xl mt-5">
-                            Unlock the ultimate style upgrade with our exclusive offer Enjoy savings of up to 40% off on our
-                            latest
-                            New
-                            Arrivals
+                            Unlock the ultimate style upgrade with our exclusive offer Enjoy savings of up to
+                            <span class="font-semibold" x-text="`${diskon.jumlah_diskon}%`"></span> off on our <span
+                                class="font-semibold" x-text="diskon.produk.nama_produk"></span>
                         </p>
                         <div class="mt-10 mb-14 flex gap-4 sm:gap-9">
                             <div class="bg-white flex flex-col justify-center items-center w-24 h-24 text-primary rounded">
-                                <h3 class="text-2xl sm:text-3xl font-semibold">01</h3>
+                                <h3 class="text-2xl sm:text-3xl font-semibold" x-text="diskon.days">0</h3>
                                 <p class="sm:text-lg">Days</p>
                             </div>
                             <div class="bg-white flex flex-col justify-center items-center w-24 h-24 text-primary rounded">
-                                <h3 class="text-2xl sm:text-3xl font-semibold">18</h3>
+                                <h3 class="text-2xl sm:text-3xl font-semibold" x-text="diskon.hours">0</h3>
                                 <p class="sm:text-lg">Hours</p>
                             </div>
                             <div class="bg-white flex flex-col justify-center items-center w-24 h-24 text-primary rounded">
-                                <h3 class="text-2xl sm:text-3xl font-semibold">35</h3>
+                                <h3 class="text-2xl sm:text-3xl font-semibold" x-text="diskon.mins">0</h3>
                                 <p class="sm:text-lg">Min</p>
                             </div>
                         </div>
-                        <a href="" class="px-12 py-4 uppercase bg-white text-primary text-lg rounded font-medium">
+                        <a :href="`/product/${diskon.produk.id_produk}`"
+                            class="px-12 py-4 uppercase bg-white text-primary text-lg rounded font-medium">
                             Buy Now
                         </a>
                     </div>
                 </div>
-            @endfor
+            </template>
         </div>
         <div class="swiper-button-prev ml-5 text-white hidden md:block"></div>
         <div class="swiper-button-next mr-5 text-white hidden md:block"></div>
@@ -93,13 +93,13 @@
     </div>
     <div class="px-8 sm:px-16 lg:px-52 grid grid-cols-4 gap-x-9 gap-y-12">
         <h2 class="col-span-4 text-4xl text-center font-rufina font-medium mb-4">Our Best Seller</h2>
-        @for ($i = 0; $i < 8; $i++)
+        @foreach ($products as $produk)
             <div class="col-span-4 sm:col-span-2 lg:col-span-1">
-                <img src="/img/model-{{ ($i % 5) + 1 }}.png" alt="" class="w-full mb-5 h-[280px] object-cover">
-                <h4 class="font-semibold text-center mb-1">Spread Collar Shirt</h4>
+                <img src="{{ $produk->gambar_produk }}" alt="" class="w-full mb-5 h-[280px] object-cover">
+                <h4 class="font-semibold text-center mb-1">{{ $produk->nama_produk }}</h4>
                 <div class="flex gap-5 font-medium items-stretch justify-center">
-                    <div>$48.99</div>
-                    <div class="w-px bg-black"></div>
+                    <div>{{ Number::currency($produk->harga_produk, 'IDR', 'id') }}</div>
+                    {{-- <div class="w-px bg-black"></div>
                     <div class="flex items-center gap-1">
                         <span>5.0</span>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
@@ -108,13 +108,12 @@
                                 d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z"
                                 clip-rule="evenodd" />
                         </svg>
-
-                    </div>
+                    </div> --}}
                 </div>
             </div>
-        @endfor
+        @endforeach
         <div class="col-span-4 text-center">
-            <a href="#" class="px-9 py-2 inline-flex items-center gap-2 border border-black">
+            <a href="/product" class="px-9 py-2 inline-flex items-center gap-2 border border-black">
                 <span>See all</span>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-4">
@@ -194,10 +193,10 @@
 @endsection
 
 @section('javascript')
-    <!-- Swiper JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- Initialize Swiper -->
     <script>
         var swiper = new Swiper(".mySwiper", {
             loop: true,
@@ -213,9 +212,34 @@
                 prevEl: '.swiper-button-prev',
             },
         });
+        const discounts = {!! json_encode($discounts) !!} ?? []
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('discounts', () => ({
+                discounts: discounts,
+                init() {
+                    setInterval(() => {
+                        this.discounts = this.discounts.map(d => {
+                            const dday = dayjs(d.waktu_akhir)
+                            const now = dayjs()
+                            // const dday = dayjs('2024-12-01')
+                            const days = dday.diff(now, 'day');
+                            const hours = dday.diff(now, 'hour') % 24;
+                            const minutes = dday.diff(now, 'minute') % 60;
+                            const seconds = dday.diff(now, 'seconds') % 60;
+                            return {
+                                ...d,
+                                days: days <= 0 && hours <= 0 && minutes <= 0 ? 0 :
+                                    days,
+                                hours: days <= 0 && hours <= 0 && minutes <= 0 ? 0 :
+                                    hours,
+                                mins: days <= 0 && hours <= 0 && minutes <= 0 ? 0 :
+                                    minutes,
+                            }
+                        })
+                        console.log(this.discounts);
+                    }, 1000);
+                }
+            }))
+        })
     </script>
 @endsection
-
-{{-- @section('javascript')
-    @vite(['resources/js/home.js'])
-@endsection --}}

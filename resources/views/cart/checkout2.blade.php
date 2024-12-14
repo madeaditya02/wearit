@@ -32,24 +32,24 @@
                             <input type="radio" id="address-{{ $i }}" name="address"
                                 value="{{ $address->id_alamat }}"
                                 :checked="selectedAddress?.id_alamat == {{ $address->id_alamat }}"
-                                class="w-5 h-5 border rounded-full cursor-pointer border-blue-800 checked:bg-blue-800 checked:border-blue-800">
+                                class="w-5 h-5 border rounded-full cursor-pointer border-blue-800 checked:bg-blue-800 checked:border-blue-800 mt-1.5">
                             <div class="flex flex-col gap-4">
                                 <label for="address-{{ $i }}"
                                     class="font-poppins text-2xl capitalize cursor-pointer">{{ $address->nama_alamat }}</label>
                                 <span class="font-poppins text-lg capitalize">{{ $address->alamat_lengkap }}</span>
                                 {{-- <span class="font-poppins text-lg capitalize">Contact - 0815555444</span> --}}
                             </div>
-                            <div class="ml-auto flex gap-4 text-lg font-poppins">
+                            {{-- <div class="ml-auto flex gap-4 text-lg font-poppins">
                                 <span class="cursor-pointer hover:text-blue-800">Edit</span>
                                 <span class="text-gray-400">|</span>
                                 <span class="cursor-pointer text-red-500 hover:text-red-500">Remove</span>
-                            </div>
+                            </div> --}}
                         </div>
                     @endforeach
                     <div class="w-full max-w-[900px] h-px bg-gray-300"></div>
 
                     <!-- icon + add new address -->
-                    <div class="flex justify-start gap-3">
+                    {{-- <div class="flex justify-start gap-3">
                         <!-- Plus Icon Button -->
                         <button type="button"
                             class="w-8 h-8 flex items-center justify-center bg-blue-800 text-white text-3xl font-bold rounded-full hover:bg-blue-700 focus:outline-none">
@@ -57,11 +57,12 @@
                         </button>
                         <!-- Text 'Add New Address' -->
                         <span class="text-lg text-blue-800">Add New Address</span>
-                    </div>
+                    </div> --}}
 
                     <!-- Back to Cart -->
-                    <button type="button" class="font-poppins font-semibold text-2xl text-blue-900 capitalize">Back To
-                        Cart</button>
+                    <a href="/cart"
+                        class="font-poppins font-semibold text-2xl text-blue-900 capitalize inline-block mt-6">Back To
+                        Cart</a>
                 </div>
             </template>
             <template x-if="state == 'shipping'">
@@ -146,6 +147,16 @@
                     <p>Price</p>
                     <p x-text="formatter.format(estimated_total)">Rp. 150.000,00</p>
                 </div>
+                <template x-if="discounts.length">
+                    <div class="flex justify-between text-lg font-medium font-poppins">
+                        <p>Discount</p>
+                        <div>
+                            <template x-for="discount in discounts">
+                                <p class="mb-1 last:mb-0" x-text="`${discount.jumlah_diskon}%`"></p>
+                            </template>
+                        </div>
+                    </div>
+                </template>
                 <div class="flex justify-between text-lg font-medium font-poppins">
                     <p>Shipping</p>
                     <template x-if="!loadingOngkir">
@@ -168,7 +179,8 @@
                     <p x-text="formatter.format(total_harga)">Rp. 150.000,00</p>
                 </div>
                 <button type="button" x-on:click="submitNext"
-                    class="w-full py-2 bg-blue-900 text-white text-lg font-semibold rounded-lg">Continue
+                    class="w-full py-2 bg-blue-900 text-white text-lg font-semibold rounded-lg"
+                    x-text="`${state == 'address' ? 'Continue To Shipping' : 'Process Payment'}`">Continue
                     To
                     Shipping</button>
             </div>
@@ -185,6 +197,8 @@
         })
         const addresses = {!! json_encode($addresses) !!} ?? []
         const cart = {!! json_encode($cart) !!} ?? []
+        const estimasi_total = {!! json_encode($estimasi_total) !!} ?? []
+        const discounts = {!! json_encode($discounts) !!} ?? []
         const total_harga = {!! json_encode($total_harga) !!} ?? []
         console.log(addresses);
         document.addEventListener('alpine:init', () => {
@@ -197,8 +211,9 @@
                     tiki: null,
                 },
                 cart: cart,
-                estimated_total: total_harga,
+                estimated_total: estimasi_total,
                 total_harga: total_harga,
+                discounts: discounts,
                 loadingOngkir: false,
                 selectedCourier: null,
                 async setState(state) {
@@ -224,6 +239,8 @@
                         })
                         const token = await res.json()
                         const id_alamat = this.selectedAddress.id_alamat
+                        const ongkir = this.ongkir[this.selectedCourier]
+                        const kurir = this.selectedCourier
                         window.snap.pay(token.token, {
                             onSuccess: async function(result) {
                                 console.log(id_alamat);
@@ -238,6 +255,8 @@
                                 Swal.showLoading()
                                 const formData = new FormData()
                                 formData.append('id_alamat', id_alamat)
+                                formData.append('courier', kurir)
+                                formData.append('ongkir', ongkir)
                                 await fetch('/api/new-transaction', {
                                     method: 'POST',
                                     body: formData,
@@ -341,7 +360,7 @@
                     this.getCost(this.selectedCourier)
                 },
                 async getCost(courier) {
-                    this.total_harga = this.estimated_total
+                    // this.total_harga = this.total_harga
                     console.log(this.selectedAddress.regency_id);
 
                     if (!this.ongkir[courier]) {
@@ -363,7 +382,7 @@
                         }
                         this.loadingOngkir = false
                     }
-                    this.total_harga = this.estimated_total + this.ongkir[courier]
+                    this.total_harga += this.ongkir[courier]
                 }
             }))
         })

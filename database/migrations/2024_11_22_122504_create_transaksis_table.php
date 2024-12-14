@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id('id_transaksi');
             $table->unsignedBigInteger('id_user');
             $table->timestamp('waktu_transaksi');
+            $table->integer('estimasi_total');
+            $table->string('jenis_pengantaran');
+            $table->integer('ongkir');
             $table->integer('total_harga');
             $table->string('status_transaksi');
             $table->unsignedBigInteger('id_alamat');

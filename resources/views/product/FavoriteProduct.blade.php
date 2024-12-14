@@ -6,21 +6,21 @@
 @section('content')
     <div class="flex md:px-14 px-6 py-10 md:flex-row flex-col">
         <!-- Bagain kiri -->
-        <div class="md:w-[28%] w-full flex-row">
+        <div class="md:min-w-[28%] md:w-fit w-full flex-row">
             <div class="flex w-full h-20 border border-primary rounded-md items-center px-4">
-                <img src="/img/user.png" alt="WearIt" class="w-10 h-10">
+                <img src="{{ $user->photo_profil }}" alt="WearIt" class="w-10 h-10 rounded-full">
                 <div class="ml-2">
                     <div>
-                        <h1 class="font-semibold md:text-base text-gray-700 pl-3">Luis Suarez</h1>
+                        <h1 class="font-semibold md:text-base text-gray-700 pl-3">{{ $user->fullName }}</h1>
                     </div>
                     <div>
-                        <h1 class="font-semibold text-xs md:text-base text-gray-700 pl-3">luissuarez@gmail.com</h1>
+                        <h1 class="font-semibold text-xs md:text-base text-gray-700 pl-3">{{ $user->email }}</h1>
                     </div>
                 </div>
             </div>
             <div class="mt-8">
-                <a
-                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary rounded-t-md hover:bg-primary hover:border-primary hover:text-white" href="/profile">
+                <a class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary rounded-t-md hover:bg-primary hover:border-primary hover:text-white"
+                    href="/profile">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-8 text-primary group-hover:text-white">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -28,8 +28,8 @@
                     </svg>
                     <h1 class="font-semibold text-primary group-hover:text-white">Profile</h1>
                 </a>
-                <a
-                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary hover:text-white" href="/history">
+                <a class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary hover:text-white"
+                    href="/history">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="group-hover:text-white size-8 text-primary">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -37,8 +37,8 @@
                     </svg>
                     <h1 class="font-semibold text-primary group-hover:text-white">Order History</h1>
                 </a>
-                <a
-                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary bg-primary" href="/favorite">
+                <a class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary bg-primary"
+                    href="/favorites">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="group-hover:text-white size-8 text-white">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -46,8 +46,8 @@
                     </svg>
                     <h1 class="font-semibold text-white group-hover:text-white">Favourite</h1>
                 </a>
-                <a
-                    class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary" href="/accsetting">
+                <a class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary"
+                    href="/accsetting">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="group-hover:text-white size-8 text-primary">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -70,9 +70,9 @@
 
         </div>
         <!-- Main Content Section (Di kanan) -->
-        <div class="container mx-auto p-6">
+        <div class="p-6">
             <div class="grid grid-cols-12 gap-5 ">
-                @foreach ($favorites as $produk)
+                @forelse ($favorites as $produk)
                     <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 h-80 mb-3 relative">
                         <a href="/product/{{ $produk->id_produk }}">
                             <img src="{{ $produk->gambar_produk }}" alt="Baju" class="object-cover h-full w-full">
@@ -96,26 +96,29 @@
                             </div>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <h2 class="text-4xl font-semibold col-span-12 ml-10">There is no favorite product</h2>
+                @endforelse
             </div>
         </div>
     </div>
 @endsection
 
 @section('javascript')
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    document.querySelector('.confirmLogout').addEventListener('click', function() {
-        Swal.fire({
-        title: "Do you want to log out?",
-        showCancelButton: true,
-        confirmButtonText: "Log Out",
-        icon: 'warning',
-        }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire("Logged Out!", "", "success");
-        }
-        });
-    })
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.querySelector('.confirmLogout').addEventListener('click', function() {
+            Swal.fire({
+                title: "Do you want to log out?",
+                showCancelButton: true,
+                confirmButtonText: `
+                <form action="/logout" method="POST">
+                  <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                  <button type="submit">Log Out</button>
+                </form>
+                `,
+                icon: 'warning',
+            })
+        })
+    </script>
 @endsection

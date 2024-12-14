@@ -83,7 +83,7 @@
                 <!-- Category Filter -->
                 <div @class([
                     'category-filter',
-                    'show' => $filters['category']->count() > 0,
+                    'show' => $filters['category']->count() > 0 || $type,
                 ])>
                     <div class="py-0 cursor-pointer button">
                         <h3 class="flex items-center justify-between ">
@@ -98,11 +98,13 @@
                     <div class="mb-3 overflow-hidden panel">
                         <div class="space-y-1 text-gray-500">
                             <div class="flex items-center gap-3">
-                                <input type="checkbox" name="type" id="type-new" value="new">
+                                <input type="checkbox" name="type" id="type-new"
+                                    value="new"{{ $type == 'new' ? ' checked' : '' }}>
                                 <label for="type-new">New</label>
                             </div>
                             <div class="flex items-center gap-3">
-                                <input type="checkbox" name="type" id="type-best" value="best">
+                                <input type="checkbox" name="type" id="type-best"
+                                    value="best"{{ $type == 'best' ? ' checked' : '' }}>
                                 <label for="type-best">Best Seller</label>
                             </div>
                             <hr class="my-1">
@@ -274,6 +276,13 @@
                 .show_price_range)
             document.querySelector('.category-filter .button').addEventListener('click', () => filters.show_category = !filters
                 .show_category)
+            const typeInputs = document.querySelectorAll('input[name=type]')
+            typeInputs.forEach(input => input.addEventListener('input', function(event) {
+                if (input.checked) {
+                    typeInputs.forEach(i => i.checked = false)
+                    input.checked = true
+                }
+            }))
 
             document.querySelector('form.products').addEventListener('submit', event => {
                 // event.preventDefault()

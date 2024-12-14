@@ -147,6 +147,16 @@
                     <p>Price</p>
                     <p x-text="formatter.format(estimated_total)">Rp. 150.000,00</p>
                 </div>
+                <template x-if="discounts.length">
+                    <div class="flex justify-between text-lg font-medium font-poppins">
+                        <p>Discount</p>
+                        <div>
+                            <template x-for="discount in discounts">
+                                <p class="mb-1 last:mb-0" x-text="`${discount.jumlah_diskon}%`"></p>
+                            </template>
+                        </div>
+                    </div>
+                </template>
                 <div class="flex justify-between text-lg font-medium font-poppins">
                     <p>Shipping</p>
                     <template x-if="!loadingOngkir">
@@ -187,6 +197,8 @@
         })
         const addresses = {!! json_encode($addresses) !!} ?? []
         const cart = {!! json_encode($cart) !!} ?? []
+        const estimasi_total = {!! json_encode($estimasi_total) !!} ?? []
+        const discounts = {!! json_encode($discounts) !!} ?? []
         const total_harga = {!! json_encode($total_harga) !!} ?? []
         console.log(addresses);
         document.addEventListener('alpine:init', () => {
@@ -199,8 +211,9 @@
                     tiki: null,
                 },
                 cart: cart,
-                estimated_total: total_harga,
+                estimated_total: estimasi_total,
                 total_harga: total_harga,
+                discounts: discounts,
                 loadingOngkir: false,
                 selectedCourier: null,
                 async setState(state) {
@@ -347,7 +360,7 @@
                     this.getCost(this.selectedCourier)
                 },
                 async getCost(courier) {
-                    this.total_harga = this.estimated_total
+                    // this.total_harga = this.total_harga
                     console.log(this.selectedAddress.regency_id);
 
                     if (!this.ongkir[courier]) {
@@ -369,7 +382,7 @@
                         }
                         this.loadingOngkir = false
                     }
-                    this.total_harga = this.estimated_total + this.ongkir[courier]
+                    this.total_harga += this.ongkir[courier]
                 }
             }))
         })

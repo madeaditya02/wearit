@@ -70,13 +70,17 @@ class APIController extends Controller
         $id_alamat = $request->input('id_alamat');
         $ongkir = $request->input('ongkir');
         $courier = $request->input('courier');
-        $cart = Auth::user()->keranjang;
+        $cart = Auth::user()->keranjang()->with('diskon')->get();
         if ($cart->count() > 0) {
             $products = $cart->map(function ($item) {
                 return [$item->id => ['quantity' => $item->pivot->quantity]];
             });
+            // $total_harga = $cart->sum(function ($k) {
+            //     return $k->pivot->quantity * $k->harga_produk;
+            // });
             $total_harga = $cart->sum(function ($k) {
-                return $k->pivot->quantity * $k->harga_produk;
+                $harga = $k->pivot->quantity * $k->harga_produk;
+                return $k->diskon->count() ? $harga - ($harga * $k->diskon[0]->jumlah_diskon / 100) : $harga;
             });
             $transaksi = Transaksi::create([
                 'id_user' => 2,
@@ -98,6 +102,7 @@ class APIController extends Controller
                 'id_produk' => $c->id,
                 'size_produk' => $c->pivot->size,
                 'quantity' => $c->pivot->quantity,
+                'id_diskon' => $c->diskon->count() ? $c->diskon[0]->id_diskon : null
             ])->all());
             // $ids = $cart->pluck('id');
             // $sizes = $cart->map(fn($c) => $c->pivot->size);

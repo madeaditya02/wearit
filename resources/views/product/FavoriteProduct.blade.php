@@ -70,7 +70,7 @@
 
         </div>
         <!-- Main Content Section (Di kanan) -->
-        <div class="container mx-auto p-6">
+        <div class="p-6">
             <div class="grid grid-cols-12 gap-5 ">
                 @forelse ($favorites as $produk)
                     <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 h-80 mb-3 relative">

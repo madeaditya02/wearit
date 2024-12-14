@@ -13,11 +13,17 @@ class CartController extends Controller
 {
     public function cart()
     {
-        $cart = Auth::user()->keranjang;
-        $total_harga = $cart->sum(function ($k) {
+        $cart = Auth::user()->keranjang()->with('diskon')->get();
+        $discounts = $cart->pluck('diskon')->flatten();
+        $estimasi_total = $cart->sum(function ($k) {
             return $k->pivot->quantity * $k->harga_produk;
         });
-        return view("cart.ProductDisplay", compact('cart', 'total_harga'));
+        $total_harga = $cart->sum(function ($k) {
+            $harga = $k->pivot->quantity * $k->harga_produk;
+            return $k->diskon->count() ? $harga - ($harga * $k->diskon[0]->jumlah_diskon / 100) : $harga;
+        });
+        // dd($total_harga);
+        return view("cart.ProductDisplay", compact('cart', 'estimasi_total', 'total_harga', 'discounts'));
     }
 
     public function Address()
@@ -37,11 +43,16 @@ class CartController extends Controller
         if ($cart->count() == 0) {
             return redirect('/cart');
         }
-        $total_harga = $cart->sum(function ($k) {
+        $discounts = $cart->pluck('diskon')->flatten();
+        $estimasi_total = $cart->sum(function ($k) {
             return $k->pivot->quantity * $k->harga_produk;
         });
+        $total_harga = $cart->sum(function ($k) {
+            $harga = $k->pivot->quantity * $k->harga_produk;
+            return $k->diskon->count() ? $harga - ($harga * $k->diskon[0]->jumlah_diskon / 100) : $harga;
+        });
         // dump($addresses);
-        return view("cart.checkout2", compact('addresses', 'cart', 'total_harga'));
+        return view("cart.checkout2", compact('addresses', 'cart', 'estimasi_total', 'discounts', 'total_harga'));
     }
 
     public function Payment()

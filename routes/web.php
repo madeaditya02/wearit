@@ -53,6 +53,8 @@ Route::get('/admin/order', [AdminOrderController::class, "OrderAdmin"]);
 Route::get('/admin/customer', [AdminCustomerController::class, 'CustomerAll']);
 Route::get('/admin/customer/detail', [AdminCustomerController::class, 'CustomerDetail']);
 Route::get('/admin/discount', [AdminDiscountController::class, 'Diskon']);
+Route::get('/admin/addproduct', [AdminProductController::class, "addProduct"]);
+Route::post('/admin/addproduct', [AdminProductController::class, "addProductSubmit"]);
 
 Route::get('/api/cekongkir', [APIController::class, 'cekOngkir']);
 Route::post('/api/midtrans-token', [APIController::class, 'midtransSnapToken']);

@@ -69,6 +69,7 @@ class APIController extends Controller
     {
         $id_alamat = $request->input('id_alamat');
         $ongkir = $request->input('ongkir');
+        $courier = $request->input('courier');
         $cart = Auth::user()->keranjang;
         if ($cart->count() > 0) {
             $products = $cart->map(function ($item) {
@@ -83,6 +84,7 @@ class APIController extends Controller
                 'estimasi_total' => $total_harga,
                 'ongkir' => $ongkir,
                 'total_harga' => $total_harga + $ongkir,
+                'jenis_pengantaran' => $courier,
                 'status_transaksi' => 'pending',
                 'id_alamat' => $id_alamat,
             ]);

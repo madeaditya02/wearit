@@ -227,6 +227,7 @@
                         const token = await res.json()
                         const id_alamat = this.selectedAddress.id_alamat
                         const ongkir = this.ongkir[this.selectedCourier]
+                        const kurir = this.selectedCourier
                         window.snap.pay(token.token, {
                             onSuccess: async function(result) {
                                 console.log(id_alamat);
@@ -241,6 +242,7 @@
                                 Swal.showLoading()
                                 const formData = new FormData()
                                 formData.append('id_alamat', id_alamat)
+                                formData.append('courier', kurir)
                                 formData.append('ongkir', ongkir)
                                 await fetch('/api/new-transaction', {
                                     method: 'POST',

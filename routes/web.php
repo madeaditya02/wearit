@@ -60,3 +60,7 @@ Route::get('/admin/discount', [AdminDiscountController::class, 'Diskon']);
 Route::get('/api/cekongkir', [APIController::class, 'cekOngkir']);
 Route::post('/api/midtrans-token', [APIController::class, 'midtransSnapToken']);
 Route::post('/api/new-transaction', [APIController::class, 'newTransaction']);
+
+Route::get('/login/oauth', [AuthController::class, 'redirectToProvider']);
+Route::get('/login/oauth/callback', [AuthController::class, 'handleProviderCallback']);
+// Route::post('/auth/{provider}/callback', [AuthController::class, 'newUser']);

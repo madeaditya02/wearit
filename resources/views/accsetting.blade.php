@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="flex md:px-14 px-6 py-10 md:flex-row flex-col">
-        <div class="md:w-[28%] w-full flex-row">
+        <div class="md:min-w-[28%] md:w-fit w-full flex-row">
             <div class="flex w-full h-20 border border-primary rounded-md items-center px-4">
                 <img src="{{ $user->photo_profil }}" alt="WearIt" class="w-10 h-10 rounded-full">
                 <div class="ml-2">
@@ -71,14 +71,18 @@
             <h1 class="md:text-3xl text-xl font-semibold">ACCOUNT SETTING</h1>
             <form action="/accsetting/edit-password" method="POST">
                 @csrf
-                <div class="mt-4">
-                    <h1 class="text-gray-700">Old Password</h1>
-                    <input type="password" name="old_password" placeholder="Type your current password"
-                        class="border border-gray-400 rounded-md w-full py-2 px-3 mt-3">
-                    @error('old_password')
-                        <p class="text-red-600 mt-1">{{ $message }}</p>
-                    @enderror
-                </div>
+                @if (!$noPass)
+                    <div class="mt-4">
+                        <h1 class="text-gray-700">Old Password</h1>
+                        <input type="password" name="old_password" placeholder="Type your current password"
+                            class="border border-gray-400 rounded-md w-full py-2 px-3 mt-3">
+                        @error('old_password')
+                            <p class="text-red-600 mt-1">{{ $message }}</p>
+                        @enderror
+                    </div>
+                @else
+                    <div class="mt-4 font-medium">You previously logged in using Google, please set your password.</div>
+                @endif
                 <div class="mt-4">
                     <h1 class="text-gray-700">New Password</h1>
                     <input type="password" name="new_password" placeholder="Type your new password"
@@ -97,7 +101,7 @@
                 </div>
                 <button
                     class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium rounded-lg text-sm px-16 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700">
-                    Change Password
+                    {{ $noPass ? 'Set' : 'Change' }} Password
                 </button>
             </form>
             {{-- <div class="flex-col md:mt-8 mt-5">

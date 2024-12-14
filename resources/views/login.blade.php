@@ -67,11 +67,11 @@
                         </button>
                     </div>
                     <div class="w-full">
-                        <button type="button"
+                        <a href="/login/oauth"
                             class="font-semibold bg-gray-700 text-white py-2 px-3 rounded-md w-full flex justify-center items-center gap-2">
                             <img src="/img/googleIcon.png" class="w-5 h-5" alt="">
                             Login with Google
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>

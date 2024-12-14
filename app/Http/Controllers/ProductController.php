@@ -74,7 +74,7 @@ class ProductController extends Controller
    public function DetailProduct($id_produk)
    {
       $produk = Produk::where('id_produk', $id_produk)->get()->first();
-      $favorited = DB::table('favorites')->where('id_user', 2)->where('id_produk', $produk->id)->count();
+      $favorited = DB::table('favorites')->where('id_user', auth()->id())->where('id_produk', $produk->id)->count();
       return view("product.DetailProduct", compact('produk', 'favorited'));
    }
 

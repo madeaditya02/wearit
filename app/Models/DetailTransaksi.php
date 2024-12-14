@@ -12,4 +12,9 @@ class DetailTransaksi extends Pivot
     {
         return $this->belongsTo(Diskon::class, 'id_diskon', 'id_diskon');
     }
+    
+    public function transaksi()
+    {
+        return $this->belongsTo(Transaksi::class, 'id_transaksi', 'id_transaksi');
+    }
 }

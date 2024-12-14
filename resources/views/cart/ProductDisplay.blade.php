@@ -34,18 +34,20 @@
                                         <div class="flex items-center border border-gray-400 rounded w-[160px] h-[52px]">
                                             <button type="button"
                                                 class="px-7 text-gray-800 hover:text-gray-600 focus:outline-none"
-                                                x-on:click="decreaseQuantity({{ $produk->id }})">-</button>
+                                                x-on:click="decreaseQuantity({{ $produk->pivot->id_keranjang }})">-</button>
                                             <span class="mx-auto font-semibold text-lg text-gray-800"
-                                                x-text="cart.filter(c => c.id == {{ $produk->id }})[0].pivot.quantity">1</span>
+                                                x-text="cart.filter(c => c.pivot.id_keranjang == {{ $produk->pivot->id_keranjang }})[0].pivot.quantity">1</span>
                                             <input type="hidden" name="quantity"
-                                                :value="cart.filter(c => c.id == {{ $produk->id }})[0].pivot.quantity">
+                                                :value="cart.filter(c => c.pivot.id_keranjang ==
+                                                    {{ $produk->pivot->id_keranjang }})[0].pivot.quantity">
                                             <input type="hidden" name="produk"
                                                 value="{{ $produk->id }}-{{ $produk->pivot->size }}">
                                             <button type="button"
                                                 class="px-7 text-gray-800 hover:text-gray-600 focus:outline-none"
-                                                x-on:click="addQuantity({{ $produk->id }})">+</button>
+                                                x-on:click="addQuantity({{ $produk->pivot->id_keranjang }})">+</button>
                                         </div>
-                                        <template x-if="cart.filter(c => c.id == {{ $produk->id }})[0].showSave">
+                                        <template
+                                            x-if="cart.filter(c => c.pivot.id_keranjang == {{ $produk->pivot->id_keranjang }})[0].showSave">
                                             <button
                                                 class="text-blue-600 font-medium hover:text-blue-800 focus:outline-none">Save</button>
                                         </template>
@@ -139,14 +141,15 @@
             Alpine.data('cart', () => ({
                 cart,
                 addQuantity(id) {
-                    this.cart.filter(c => c.id == id)[0].pivot.quantity++
-                    this.cart.filter(c => c.id == id)[0].showSave = true
+                    console.log(id);
+                    this.cart.filter(c => c.pivot.id_keranjang == id)[0].pivot.quantity++
+                    this.cart.filter(c => c.pivot.id_keranjang == id)[0].showSave = true
                 },
                 decreaseQuantity(id) {
-                    const item = this.cart.filter(c => c.id == id)[0]
+                    const item = this.cart.filter(c => c.pivot.id_keranjang == id)[0]
                     if (item.pivot.quantity > 1) {
-                        this.cart.filter(c => c.id == id)[0].pivot.quantity--
-                        this.cart.filter(c => c.id == id)[0].showSave = true
+                        this.cart.filter(c => c.pivot.id_keranjang == id)[0].pivot.quantity--
+                        this.cart.filter(c => c.pivot.id_keranjang == id)[0].showSave = true
                     }
                 },
             }))

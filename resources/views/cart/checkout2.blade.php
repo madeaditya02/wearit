@@ -32,24 +32,24 @@
                             <input type="radio" id="address-{{ $i }}" name="address"
                                 value="{{ $address->id_alamat }}"
                                 :checked="selectedAddress?.id_alamat == {{ $address->id_alamat }}"
-                                class="w-5 h-5 border rounded-full cursor-pointer border-blue-800 checked:bg-blue-800 checked:border-blue-800">
+                                class="w-5 h-5 border rounded-full cursor-pointer border-blue-800 checked:bg-blue-800 checked:border-blue-800 mt-1.5">
                             <div class="flex flex-col gap-4">
                                 <label for="address-{{ $i }}"
                                     class="font-poppins text-2xl capitalize cursor-pointer">{{ $address->nama_alamat }}</label>
                                 <span class="font-poppins text-lg capitalize">{{ $address->alamat_lengkap }}</span>
                                 {{-- <span class="font-poppins text-lg capitalize">Contact - 0815555444</span> --}}
                             </div>
-                            <div class="ml-auto flex gap-4 text-lg font-poppins">
+                            {{-- <div class="ml-auto flex gap-4 text-lg font-poppins">
                                 <span class="cursor-pointer hover:text-blue-800">Edit</span>
                                 <span class="text-gray-400">|</span>
                                 <span class="cursor-pointer text-red-500 hover:text-red-500">Remove</span>
-                            </div>
+                            </div> --}}
                         </div>
                     @endforeach
                     <div class="w-full max-w-[900px] h-px bg-gray-300"></div>
 
                     <!-- icon + add new address -->
-                    <div class="flex justify-start gap-3">
+                    {{-- <div class="flex justify-start gap-3">
                         <!-- Plus Icon Button -->
                         <button type="button"
                             class="w-8 h-8 flex items-center justify-center bg-blue-800 text-white text-3xl font-bold rounded-full hover:bg-blue-700 focus:outline-none">
@@ -57,11 +57,12 @@
                         </button>
                         <!-- Text 'Add New Address' -->
                         <span class="text-lg text-blue-800">Add New Address</span>
-                    </div>
+                    </div> --}}
 
                     <!-- Back to Cart -->
-                    <button type="button" class="font-poppins font-semibold text-2xl text-blue-900 capitalize">Back To
-                        Cart</button>
+                    <a href="/cart"
+                        class="font-poppins font-semibold text-2xl text-blue-900 capitalize inline-block mt-6">Back To
+                        Cart</a>
                 </div>
             </template>
             <template x-if="state == 'shipping'">
@@ -168,7 +169,8 @@
                     <p x-text="formatter.format(total_harga)">Rp. 150.000,00</p>
                 </div>
                 <button type="button" x-on:click="submitNext"
-                    class="w-full py-2 bg-blue-900 text-white text-lg font-semibold rounded-lg">Continue
+                    class="w-full py-2 bg-blue-900 text-white text-lg font-semibold rounded-lg"
+                    x-text="`${state == 'address' ? 'Continue To Shipping' : 'Process Payment'}`">Continue
                     To
                     Shipping</button>
             </div>
@@ -224,6 +226,7 @@
                         })
                         const token = await res.json()
                         const id_alamat = this.selectedAddress.id_alamat
+                        const ongkir = this.ongkir[this.selectedCourier]
                         window.snap.pay(token.token, {
                             onSuccess: async function(result) {
                                 console.log(id_alamat);
@@ -238,6 +241,7 @@
                                 Swal.showLoading()
                                 const formData = new FormData()
                                 formData.append('id_alamat', id_alamat)
+                                formData.append('ongkir', ongkir)
                                 await fetch('/api/new-transaction', {
                                     method: 'POST',
                                     body: formData,

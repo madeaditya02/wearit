@@ -6,8 +6,9 @@ use App\Models\User;
 use App\Models\Transaksi;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class APIController extends Controller
@@ -37,7 +38,7 @@ class APIController extends Controller
     public function midtransSnapToken(Request $request)
     {
         $total_harga = $request->input('total_harga');
-        $user = User::find(2);
+        $user = Auth::user();
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'SB-Mid-server-8zUze__nJ8Fv-1IsMDri73yQ';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -67,7 +68,8 @@ class APIController extends Controller
     public function newTransaction(Request $request)
     {
         $id_alamat = $request->input('id_alamat');
-        $cart = User::find(2)->keranjang;
+        $ongkir = $request->input('ongkir');
+        $cart = Auth::user()->keranjang;
         if ($cart->count() > 0) {
             $products = $cart->map(function ($item) {
                 return [$item->id => ['quantity' => $item->pivot->quantity]];
@@ -78,7 +80,9 @@ class APIController extends Controller
             $transaksi = Transaksi::create([
                 'id_user' => 2,
                 'waktu_transaksi' => now(),
-                'total_harga' => $total_harga,
+                'estimasi_total' => $total_harga,
+                'ongkir' => $ongkir,
+                'total_harga' => $total_harga + $ongkir,
                 'status_transaksi' => 'pending',
                 'id_alamat' => $id_alamat,
             ]);
@@ -93,9 +97,13 @@ class APIController extends Controller
                 'size_produk' => $c->pivot->size,
                 'quantity' => $c->pivot->quantity,
             ])->all());
-            $ids = $cart->pluck('id');
-            $sizes = $cart->pluck('size');
-            DB::table('ukuran_produk')->whereIn('id_produk', $ids)->whereIn('tersedia', $sizes)->decrement('tersedia');
+            // $ids = $cart->pluck('id');
+            // $sizes = $cart->map(fn($c) => $c->pivot->size);
+            // dd($ids, $sizes);
+            // DB::table('ukuran_produk')->whereIn('id_produk', $ids)->whereIn('ukuran', $sizes)->decrement('tersedia');
+            $cart->each(function ($produk) {
+                DB::table('ukuran_produk')->where('id_produk', $produk->id)->where('ukuran', $produk->pivot->size)->decrement('tersedia', $produk->pivot->quantity);
+            });
             DB::table('keranjang')->delete();
             // $transaksi->produk()->attach($products);
             return response()->json(['success' => true]);

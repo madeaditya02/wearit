@@ -80,6 +80,7 @@
         const btn = document.querySelector('.bar-btn').addEventListener('click', () => {
             navbarNav.classList.toggle('show')
         })
+        navbar.classList.toggle('scrolled', window.scrollY > 0)
         document.addEventListener('scroll', () => {
             navbar.classList.toggle('scrolled', window.scrollY > 0)
         })

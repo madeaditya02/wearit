@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Alamat extends Model
 {
     protected $table = 'alamat';
+    protected $guarded = ['id_alamat'];
+    protected $primaryKey = 'id_alamat';
 
     public function user()
     {

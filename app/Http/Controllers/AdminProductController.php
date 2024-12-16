@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class AdminProductController extends Controller
 {
-    public function  ProductList(Request $request){
+    public function index(Request $request){
         $search = $request->input('search');
-        $semuaProduk = Produk::where('nama_produk', 'LIKE', "%$search%")->paginate(5);
+        $semuaProduk = Produk::where('nama_produk', 'LIKE', "%$search%")->paginate(10);
         return view("admin.ProductList", compact('semuaProduk'));
-     } public function HapusProduct($id){
+    }
+    public function destroy($id){
         Produk::destroy($id);
-        return redirect('/admin/product');
-     }
-
+        return redirect('/admin/product')->with('alert', ['icon' => 'success', 'title' => 'Product', 'text' => 'Product deleted successfully']);
+    }
 }
 

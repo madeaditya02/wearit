@@ -89,7 +89,7 @@ class APIController extends Controller
                 'ongkir' => $ongkir,
                 'total_harga' => $total_harga + $ongkir,
                 'jenis_pengantaran' => $courier,
-                'status_transaksi' => 'pending',
+                'status_transaksi' => 'processing',
                 'id_alamat' => $id_alamat,
             ]);
             // $transaksi->produk()->createMany($cart->map(fn($c) => [

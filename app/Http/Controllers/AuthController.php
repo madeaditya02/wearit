@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Alamat;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\DetailTransaksi;
@@ -71,7 +72,7 @@ class AuthController extends Controller
 
         // Jika gagal, kembali ke halaman login dengan pesan error
         return back()->withErrors([
-            'email' => 'Email atau password salah.',
+            'email' => 'Email or password incorrect.',
         ])->onlyInput('email'); // Menyimpan input email agar tidak perlu mengetik ulang
     }
 
@@ -174,5 +175,44 @@ class AuthController extends Controller
         }
         Auth::login($findUser);
         return redirect('/');
+    }
+
+    public function address()
+    {
+        $user = auth()->user();
+        $user->load('alamat');
+        return view('address', compact('user'));
+    }
+    
+    public function newAddress()
+    {
+        $user = auth()->user();
+        $user->load('alamat');
+        return view('new-address', compact('user'));
+    }
+    
+    public function storeAddress(Request $request)
+    {
+        $user = auth()->user();
+        $data = $request->validate([
+            'nama_alamat' => 'required',
+            'provinsi' => 'required',
+            'kabupaten' => 'required',
+            'kecamatan' => 'required',
+            'desa' => 'required',
+            'kode_pos' => 'required',
+            'alamat_lengkap' => 'required',
+        ]);
+        $data['province_id'] = 11;
+        $data['regency_id'] = 444;
+        $data['id_user'] = auth()->id();
+        Alamat::create($data);
+        return redirect('/profile/address');
+    }
+    
+    public function deleteAddress($id)
+    {
+        Alamat::destroy($id);
+        return redirect('/profile/address');
     }
 }

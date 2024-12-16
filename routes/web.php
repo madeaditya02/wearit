@@ -29,6 +29,12 @@ Route::get('/register', [AuthController::class, 'register'])->middleware('guest'
 Route::post('/register', [AuthController::class, 'submitAccount'])->middleware('guest');
 Route::get('/profile', [AuthController::class, 'profile'])->middleware('auth');
 Route::post('/profile', [AuthController::class, 'updateProfile'])->middleware('auth');
+Route::get('/profile/address', [AuthController::class, 'address'])->middleware('auth');
+Route::get('/profile/address/new', [AuthController::class, 'newAddress'])->middleware('auth');
+Route::post('/profile/address/new', [AuthController::class, 'storeAddress'])->middleware('auth');
+Route::get('/profile/address/{id_alamat}/edit', [AuthController::class, 'editAddress'])->middleware('auth');
+Route::post('/profile/address/{id_alamat}/edit', [AuthController::class, 'updateAddress'])->middleware('auth');
+Route::delete('/profile/address/{id_alamat}', [AuthController::class, 'deleteAddress'])->middleware('auth');
 Route::get('/history', [AuthController::class, 'history'])->middleware('auth');
 Route::get('/accsetting', [AuthController::class, 'accSetting'])->middleware('auth');
 Route::post('/accsetting/edit-password', [AuthController::class, 'editPassword'])->middleware('auth');
@@ -50,12 +56,17 @@ Route::post('/cart/add', [CartController::class, "addProduct"])->middleware('aut
 
 // Admin
 Route::get('/admin', [AdminController::class, 'index']);
-Route::get('/admin/product', [AdminProductController::class, "ProductList"]);
-Route::post('/admin/product/{id}/delete', [AdminProductController::class, "HapusProduct"]);
+Route::resource('/admin/product', AdminProductController::class)->except(['show']);
+// Route::post('/admin/product/{id}/delete', [AdminProductController::class, "HapusProduct"]);
 Route::get('/admin/order', [AdminOrderController::class, "OrderAdmin"]);
+Route::post('/admin/order/status', [AdminOrderController::class, "updateStatus"]);
 Route::get('/admin/customer', [AdminCustomerController::class, 'CustomerAll']);
-Route::get('/admin/customer/detail', [AdminCustomerController::class, 'CustomerDetail']);
-Route::get('/admin/discount', [AdminDiscountController::class, 'Diskon']);
+Route::get('/admin/customer/{user:id_user}', [AdminCustomerController::class, 'CustomerDetail']);
+Route::get('/admin/customer/{user:id_user}/edit', [AdminCustomerController::class, 'editCustomer']);
+Route::post('/admin/customer/{user:id_user}/edit', [AdminCustomerController::class, 'updateCustomer']);
+Route::post('/admin/customer/delete', [AdminCustomerController::class, 'deleteCustomer']);
+// Route::get('/admin/discount', [AdminDiscountController::class, 'Diskon']);
+Route::resource('/admin/discount', AdminDiscountController::class)->except(['show']);
 
 Route::get('/api/cekongkir', [APIController::class, 'cekOngkir']);
 Route::post('/api/midtrans-token', [APIController::class, 'midtransSnapToken']);

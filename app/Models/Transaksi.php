@@ -17,7 +17,7 @@ class Transaksi extends Model
 
     public function produk()
     {
-        return $this->belongsToMany(Produk::class, 'detail_transaksi', 'id_produk', 'id_transaksi')->using(DetailTransaksi::class)->withPivot(['id_diskon']);
+        return $this->belongsToMany(Produk::class, 'detail_transaksi', 'id_transaksi', 'id_produk')->using(DetailTransaksi::class)->withPivot(['id_diskon', 'size_produk', 'quantity']);
     }
 
     public function alamat()

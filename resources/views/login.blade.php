@@ -37,7 +37,7 @@
                     @enderror
                 </div>
                 <div class="pb-20 md:pb-0 relative font-poppins">
-                    <input type="text" name="password" id="password" placeholder="Password"
+                    <input type="password" name="password" id="password" placeholder="Password"
                         class="border border-slate-300 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
                     @error('password')
                         <div class="text-red-500 text-sm mt-1">{{ $message }}</div>

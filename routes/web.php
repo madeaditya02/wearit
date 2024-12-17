@@ -71,6 +71,8 @@ Route::resource('/admin/discount', AdminDiscountController::class)->except(['sho
 Route::get('/api/cekongkir', [APIController::class, 'cekOngkir']);
 Route::post('/api/midtrans-token', [APIController::class, 'midtransSnapToken']);
 Route::post('/api/new-transaction', [APIController::class, 'newTransaction']);
+Route::get('/api/province', [APIController::class, 'getProvince']);
+Route::get('/api/regency', [APIController::class, 'getRegency']);
 
 Route::get('/login/oauth', [AuthController::class, 'redirectToProvider']);
 Route::get('/login/oauth/callback', [AuthController::class, 'handleProviderCallback']);

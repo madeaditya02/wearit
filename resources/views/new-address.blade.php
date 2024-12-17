@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="flex md:px-14 px-6 py-10 md:flex-row flex-col">
+    <div class="flex md:px-14 px-6 py-10 md:flex-row flex-col" x-data="address">
         <div class="md:min-w-[28%] md:w-fit w-full flex-row">
             <div class="flex w-full h-20 border border-primary rounded-md items-center px-4">
                 <img src="{{ $user->photo_profil }}" alt="WearIt" class="w-10 h-10 rounded-full">
@@ -38,7 +38,7 @@
                     <h1 class="font-semibold text-primary">Order History</h1>
                 </a>
                 <a class="flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary bg-primary text-white"
-                    href="/history">
+                    href="/profile/address">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-8">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -92,19 +92,37 @@
                 </div>
                 <div>
                     <label for="provinsi">Provinsi</label>
-                    <input type="text" id="provinsi" name="provinsi" placeholder="Provinsi"
+                    {{-- <input type="text" id="provinsi" name="provinsi" placeholder="Provinsi"
                         value="{{ old('provinsi') }}"
-                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600">
+                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600"> --}}
+                    <select name="provinsi" id="province"
+                        class="px-3 py-2 rounded-lg border block w-full mt-2 focus-visible:outline-none focus:border-gray-600"
+                        :disabled="!province_data" x-on:change="getRegency">
+                        <option value="" selected disabled>Pilih Provinsi</option>
+                        <template x-for="province in province_data">
+                            <option :value="province.province_id + '_' + province.province" x-text="province.province">
+                            </option>
+                        </template>
+                    </select>
                     @error('provinsi')
                         <p class="text-red-600 mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div>
                     <label for="kabupaten">Kota / Kabupaten</label>
-                    <input type="text" id="kabupaten" name="kabupaten" placeholder="Kota / Kabupaten"
+                    {{-- <input type="text" id="kabupaten" name="kabupaten" placeholder="Kota / Kabupaten"
                         value="{{ old('kabupaten') }}"
-                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600">
-                    @error('kabupaten')
+                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600"> --}}
+                    <select name="kota_kabupaten" id="regency"
+                        class="px-3 py-2 rounded-lg border block w-full mt-2 focus-visible:outline-none focus:border-gray-600"
+                        :disabled="!regency_data">
+                        <option value="" selected disabled>Pilih Kota/Kabupaten</option>
+                        <template x-for="regency in regency_data">
+                            <option :value="regency.city_id + '_' + regency.city_name" x-text="regency.city_name">
+                            </option>
+                        </template>
+                    </select>
+                    @error('kota_kabupaten')
                         <p class="text-red-600 mt-1">{{ $message }}</p>
                     @enderror
                 </div>
@@ -156,6 +174,7 @@
 
 @section('javascript')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <script>
         document.querySelector('.confirmLogout').addEventListener('click', function() {
             Swal.fire({
@@ -171,5 +190,32 @@
                 icon: 'warning',
             })
         })
+
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('address', () => ({
+                province_data: null,
+                regency_data: null,
+                selectedProvince: null,
+                selectedRegency: null,
+                async init() {
+                    const res = await fetch('/api/province')
+                    this.province_data = await res.json()
+                    console.log(this.province_data);
+                },
+                async getRegency(event) {
+                    const [id, province] = event.target.value.split('_')
+                    this.selectedProvince = id
+                    const res = await fetch('/api/regency?provinceId=' + id)
+                    this.regency_data = await res.json()
+                    console.log(this.regency_data)
+                }
+            }))
+        })
+        // let province_data;
+        // (async function() {
+        //     const res = await fetch('/api/province')
+        //     province_data = await res.json()
+        //     console.log(province_data);
+        // })()
     </script>
 @endsection

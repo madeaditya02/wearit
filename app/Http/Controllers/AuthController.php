@@ -78,7 +78,7 @@ class AuthController extends Controller
 
     public function profile()
     {
-        $user = auth()->user();
+        $user = Auth::user();
         return view('profile', compact('user'));
     }
     
@@ -89,7 +89,7 @@ class AuthController extends Controller
             'last_name' => 'required',
             'phone_number' => 'required|numeric',
         ]);
-        $user = auth()->user();
+        $user = Auth::user();
         $user->first_name = $data['first_name'];
         $user->last_name = $data['last_name'];
         $user->phone_number = $data['phone_number'];
@@ -106,7 +106,7 @@ class AuthController extends Controller
     
     public function history()
     {
-        $user = auth()->user();
+        $user = Auth::user();
         // $user->load(['transaksi', 'transaksi.produk']);
         // $products = $user->transaksi->pluck('produk')->flatten();
         // DB::table('transaksi')->where('id_user', $user->id)->join('');
@@ -123,14 +123,14 @@ class AuthController extends Controller
     
     public function accSetting()
     {
-        $user = auth()->user();
+        $user = Auth::user();
         $noPass = !$user->password && $user->social;
         return view('accSetting', compact('user', 'noPass'));
     }
     
     public function editPassword(Request $request)
     {
-        $user = auth()->user();
+        $user = Auth::user();
         $rules = [
             'new_password' => 'required|confirmed',
             'new_password_confirmation' => 'required',

@@ -61,6 +61,10 @@ Route::resource('/admin/product', AdminProductController::class)->except(['show'
 Route::get('/admin/order', [AdminOrderController::class, "OrderAdmin"]);
 Route::post('/admin/order/status', [AdminOrderController::class, "updateStatus"]);
 Route::get('/admin/customer', [AdminCustomerController::class, 'CustomerAll']);
+Route::get('/admin/customer/detail', [AdminCustomerController::class, 'CustomerDetail']);
+Route::get('/admin/discount', [AdminDiscountController::class, 'Diskon']);
+Route::get('/admin/addproduct', [AdminProductController::class, "addProduct"]);
+Route::post('/admin/addproduct', [AdminProductController::class, "addProductSubmit"]);
 Route::get('/admin/customer/{user:id_user}', [AdminCustomerController::class, 'CustomerDetail']);
 Route::get('/admin/customer/{user:id_user}/edit', [AdminCustomerController::class, 'editCustomer']);
 Route::post('/admin/customer/{user:id_user}/edit', [AdminCustomerController::class, 'updateCustomer']);

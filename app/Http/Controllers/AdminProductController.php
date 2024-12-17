@@ -11,13 +11,14 @@ use App\Models\UkuranProduk;
 
 class AdminProductController extends Controller
 {
-    public function  ProductList(Request $request){
+    public function index(Request $request){
         $search = $request->input('search');
-        $semuaProduk = Produk::where('nama_produk', 'LIKE', "%$search%")->paginate(5);
+        $semuaProduk = Produk::where('nama_produk', 'LIKE', "%$search%")->paginate(10);
         return view("admin.ProductList", compact('semuaProduk'));
-     } public function HapusProduct($id){
+    }
+    public function destroy($id){
         Produk::destroy($id);
-        return redirect('/admin/product');
+        return redirect('/admin/product')->with('alert', ['icon' => 'success', 'title' => 'Delete Product', 'text' => 'Product deleted successfully']);
      }
 
      public function addProduct(){
@@ -48,8 +49,7 @@ class AdminProductController extends Controller
         $path = $request->file('gambar_produk')->storeAs('product-img', "$produk->id_produk", 'public');
         $produk->gambar_produk = asset("storage/product-img/$produk->id_produk");
         $produk->save();
-        return redirect('/admin');
+        return redirect('/admin/product')->with('alert', ['icon' => 'success', 'title' => 'Add Product', 'text' => 'Product created successfully']);
      }
-
 }
 

@@ -28,13 +28,33 @@ class APIController extends Controller
         ]);
         $costs = collect($response->object()->rajaongkir->results[0]->costs);
         // $cost = $costs->first(function ($c) {
-        //     return $c->service == 'REG';
-        // });
-        // dd($cost);
-        return response()->json($costs);
-        // dd($response->object()->rajaongkir->results[0]->costs);
+            //     return $c->service == 'REG';
+            // });
+            // dd($cost);
+            return response()->json($costs);
+            // dd($response->object()->rajaongkir->results[0]->costs);
+        }
+        
+        public function getProvince()
+        {
+            $response = Http::get('https://api.rajaongkir.com/starter/province', [
+                'key' => '4c78d927c71f660f7df5adb36d7a9aff',
+            ]);
+            $provinces = $response->object()->rajaongkir->results;
+            return response()->json($provinces);
+        }
+        
+    public function getRegency(Request $request)
+    {
+        $provinceId = $request->input('provinceId');
+        $response = Http::get('https://api.rajaongkir.com/starter/city', [
+            'key' => '4c78d927c71f660f7df5adb36d7a9aff',
+            'province' => $provinceId,
+        ]);
+        $regencies = $response->object()->rajaongkir->results;
+        return response()->json($regencies);
     }
-
+    
     public function midtransSnapToken(Request $request)
     {
         $total_harga = $request->input('total_harga');
@@ -89,7 +109,7 @@ class APIController extends Controller
                 'ongkir' => $ongkir,
                 'total_harga' => $total_harga + $ongkir,
                 'jenis_pengantaran' => $courier,
-                'status_transaksi' => 'pending',
+                'status_transaksi' => 'processing',
                 'id_alamat' => $id_alamat,
             ]);
             // $transaksi->produk()->createMany($cart->map(fn($c) => [

@@ -51,7 +51,7 @@
                     </svg>
                     <span>Add Product</span>
                 </a>
-                <a href="#"
+                <a href="/admin/product"
                     class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -65,7 +65,7 @@
         <div class="mt-8">
             <h3 class="uppercase mb-2">Management</h3>
             <div class="flex flex-col gap-4 w-full">
-                <a href="#"
+                <a href="/admin/order"
                     class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -74,7 +74,7 @@
                     </svg>
                     <span>Order Management</span>
                 </a>
-                <a href="#"
+                <a href="/admin/customer"
                     class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -83,7 +83,7 @@
                     </svg>
                     <span>Customers</span>
                 </a>
-                <a href="#"
+                <a href="/admin/discount"
                     class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -92,7 +92,7 @@
                     </svg>
                     <span>Discount Product</span>
                 </a>
-                <a href="#"
+                {{-- <a href="#"
                     class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
@@ -100,7 +100,7 @@
                             d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                     </svg>
                     <span>Transactions</span>
-                </a>
+                </a> --}}
             </div>
         </div>
     </nav>
@@ -114,7 +114,7 @@
                         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
             </button>
-            <h1 class="text-2xl font-semibold">Dashboard</h1>
+            <h1 class="text-2xl font-semibold">@yield('title')</h1>
             <div class="relative">
                 <img src="/img/user.png" alt="" class="size-7 popover-btn cursor-pointer">
                 <div class="w-56 absolute top-[calc(100%+.5rem)] right-0 bg-white border rounded-lg hidden popover">
@@ -151,6 +151,19 @@
             @yield('content')
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        const alert = {!! json_encode(session('alert')) !!}
+        if (alert) {
+            Swal.fire({
+                title: alert.title,
+                icon: alert.icon,
+                text: alert.text,
+            })
+        }
+    </script>
 
     <script>
         const sidebar = document.querySelector('.sidebar')

@@ -41,6 +41,8 @@ class DatabaseSeeder extends Seeder
             'harga_produk' => 300000,
             'jenis_produk' => "dresses",
             'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWFCR224L165_LT._PINK_2_77c94d75-a0e1-4d9d-bca2-f53f7d4cf404.jpg?v=1732775256&width=600",
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         $produk2 = Produk::create([
             'id_produk' => Str::uuid(),
@@ -48,6 +50,8 @@ class DatabaseSeeder extends Seeder
             'harga_produk' => 400000,
             'jenis_produk' => "shirts-blouses",
             'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWFCR224L165_LT._PINK_2_77c94d75-a0e1-4d9d-bca2-f53f7d4cf404.jpg?v=1732775256&width=600",
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         $produk3 = Produk::create([
             'id_produk' => Str::uuid(),
@@ -55,6 +59,8 @@ class DatabaseSeeder extends Seeder
             'harga_produk' => 400000,
             'jenis_produk' => "outerwear",
             'gambar_produk' => "https://image.uniqlo.com/UQ/ST3/id/imagesgoods/470182/item/idgoods_69_470182_3x4.jpg?width=648",
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
         
         $dataProduk = [
@@ -65,6 +71,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Bold and casual, this short sleeve graphic crop t-shirt features a trendy design for a stylish, laid-back look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSKBBT224L305_BLACK_2_1ed8a2e4-9a80-4db0-b35c-7e4964a77449.jpg?v=1732775319&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -73,6 +81,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Flirty and feminine, this off-shoulder short sleeve top adds a stylish, breezy touch to any outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSKKEY224L180_BLACK_2_8abda58c-1ce7-44a9-834a-95197c4580c5.jpg?v=1732775288&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -81,6 +91,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Chic and elegant, this off-shoulder long sleeve top offers a sophisticated, trendy look with a touch of allure.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TLKKEY224L174_OFF_WHITE_2_99827334-2d41-4dc8-8366-7feec1f5af9d.jpg?v=1732775272&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -89,6 +101,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Casual and stylish, this sleeveless drawstring cropped top features an adjustable design for a comfortable, flattering fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TTWKEY224L135_OFF_WHITE_2_0cb3e931-72d9-4df2-8bfd-0da684e2885f.jpg?v=1732775186&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -97,6 +111,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Trendy and comfortable, this drawstring details ribbed top offers a flattering fit with a unique touch of style.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSKKEY224L130_OFF_WHITE_2_3ad3a3d0-8607-4ec3-808e-993d311eb992.jpg?v=1732775163&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -105,6 +121,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Chic and versatile, this side tie long sleeve top features a flattering fit with a stylish tie detail for a touch of elegance.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TLKKEY224L072_BLACK_2_32162cb7-2819-465a-8c35-11b2ba4fa16e.jpg?v=1732775029&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -113,6 +131,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "This printed square neck short sleeve top combines a bold design with a flattering neckline, perfect for a trendy and casual look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWKEY224L053_MULTICOLOR_2_33d7d863-1609-4858-a820-59d0b47effbe.jpg?v=1732774928&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -121,6 +141,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Vibrant and eye-catching, this full print short sleeve t-shirt features a bold design, perfect for adding style and personality to any casual outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSKBBT224L310_OFF_WHITE_2_8d60489d-1611-4d4c-a4c3-817452411ce7.jpg?v=1732160526&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -129,6 +151,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Trendy and edgy, this short sleeve cropped stopper top features a bold design, perfect for a casual yet fashionable look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSKKEY224L178_LT._PINK_2_d7a35963-4ca9-4a03-b54a-83c579ed4d86.jpg?v=1732160446&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -137,6 +161,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Stylish and modern, this contrast neck cropped t-shirt features a bold neckline design, adding a fresh twist to your casual wardrobe.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSKKEY224L139_LT._BLUE_2_56bfd60b-1a72-46fe-8eaa-1e783a8af46b.jpg?v=1732160347&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -145,6 +171,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "Relaxed and comfortable, this oversized short sleeve t-shirt offers a laid-back fit with a stylish, effortlessly cool look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSKKEY224L068_RED_2_f9bf9e87-3061-428e-ac7e-f205624d21cf.jpg?v=1732160131&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -153,6 +181,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "This sleeveless drawstring cropped top offers a trendy, relaxed fit with adjustable ties, perfect for a stylish and comfortable look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TTWKEY224L031_SAND_2_5e6c7d3f-5055-4899-9890-5bc6220f8f4b.jpg?v=1732160049&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -161,6 +191,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "basics",
                 'deskripsi_produk' => "A sporty and chic sleeveless cropped polo top for a modern, stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I_TTGFJN224L019_OFF_WHITE_2_1d0736e2-b4a5-4b20-9c4f-615988b5cf7e.jpg?v=1732159982&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -169,6 +201,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "A stylish short sleeve midi dress with a side slit, perfect for a sleek and effortless look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DDKKEY224L138_GREY_1_cbbe59e0-9931-4875-add3-39f6615b2274.jpg?v=1732775210&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -177,6 +211,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "A playful ribbon halter mini dress, offering a chic and feminine silhouette.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DIWKEY224L092_DARK_RED_2_911e70d2-fb49-4db8-b4b2-e87886152eb5.jpg?v=1732775087&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -185,6 +221,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "This heart neck puff sleeve mini dress features a cute and feminine design, perfect for any playful occasion.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DIWKEY224L064_DARK_GREEN_1_8e9cbbb9-5c89-4143-b82d-4414d859cb68.jpg?v=1732775021&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -193,6 +231,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Floral printed sleeveless midi dress with a soft, feminine design, ideal for a breezy, effortless look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DDWFCR224L016_MULTICOLOR_1_c1f639b6-7b7b-432c-b333-3f7d4b7ffc40.jpg?v=1732774835&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -201,6 +241,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Smocked detail puff sleeves midi dress, offering a romantic and flattering fit for a chic, elegant look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DDWKEY224K067_LT._BLUE_1_c8cb8c46-edd8-4e67-b701-a7bec79f5b2a.jpg?v=1732774774&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -209,6 +251,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Ribbon halter mini dress with a playful and feminine design, perfect for a fun, stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DIWKEY224L091_BLACK_2_363d2c45-dbbd-43a6-8e2a-18e36343b6e5.jpg?v=1732160256&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -217,6 +261,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Asymmetric ruched printed dress featuring a bold design and flattering fit, ideal for a unique and stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DDKFCT224L008_MULTICOLOR_1_12e7b7c2-dccf-48ca-8b25-1438c5b7515f.jpg?v=1732159957&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -225,6 +271,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Sleeveless mini denim dress with a classic, timeless design, perfect for casual and chic everyday wear.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I3DIDFJN224K021_MED_BLUE_2_788f1fb5-3bf1-4d50-8110-410a5ed2b3a5.jpg?v=1730710747&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -233,6 +281,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Sleeveless volume mini dress with a playful, flattering silhouette, perfect for a bold and stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I3DIWFCR224K101_OFF_WHITE_2_6360d616-d10b-44a1-88cd-d867bcb9460d.jpg?v=1730274055&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -241,6 +291,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Side ruched mini dress with a figure-hugging fit, offering a stylish and flattering silhouette.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DIKKEY224K045_BLACK_2_787f2e91-75ac-442d-b4f5-3ee854f72455.jpg?v=1729760039&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -249,6 +301,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Cowl neck midi slip dress featuring a sleek, elegant design, perfect for a sophisticated and feminine look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I3DDWFNC224K023_SILVER_2_7fcda145-9157-44d1-84a8-2e7864b346c7.jpg?v=1729759952&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -257,6 +311,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Smocked details midi dress with a fitted, flattering shape, offering a chic and comfortable style.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DDWKEY224K068_OFF_WHITE_2_b9b1e8a1-e72c-483e-9a46-517570ec0546.jpg?v=1729750697&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -265,6 +321,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Puff sleeves textured mini dress with a playful, feminine design, perfect for a trendy and eye-catching look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/IDIWFCR224J014_OFF_WHITE_2_f109192b-0e8e-4caa-8cfe-4177c73c5cc5.jpg?v=1727246735&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -273,6 +331,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Lettuce hem midi dress with a side slit, offering a stylish and flattering fit for a chic, casual look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DDKKEY224J119_MISTY_BLUE_2_b4f99b9c-d2d4-41ac-9ff2-5796e26b13fd.jpg?v=1727234417&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -281,6 +341,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Embroidered sleeveless mini dress with intricate detailing, perfect for a feminine and elegant look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DIWFCR224I012_OFF_WHITE_2_7fe0b230-c96c-4861-a119-e53d3bb8d095.jpg?v=1724309549&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -289,6 +351,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "dresses",
                 'deskripsi_produk' => "Short sleeve mini dress with a simple, versatile design, perfect for casual or dressed-up occasions.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DIKKEY224H096_NAVY_2_c4483f9e-1045-4165-ad39-0ffd4df4ffdb.jpg?v=1722243433&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -297,6 +361,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Parachute midi skirt with a flowy, relaxed fit, offering a comfortable and stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SDWKEY224L104_GREY_2_7b88d7e3-7ea8-4ff1-a7e1-05c2d543ebf4.jpg?v=1732775121&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -305,6 +371,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Balloon mini skirt with a voluminous, playful design, perfect for adding a fun and trendy touch to any outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SIWKEY224L190_OFF_WHITE_2_2344a585-cb21-4d24-9f55-932c9dcd4560.jpg?v=1732775312&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -313,6 +381,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Ribbon details mini skirt featuring a chic design with playful accents, perfect for a feminine and stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SIWFCR224L015_SAND_2_fcacaf9d-91fb-4c44-a177-1b001f811621.jpg?v=1732774826&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -321,6 +391,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Bow pleated mini skirt with a cute, flirty design, adding a touch of elegance and playfulness to your outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SIWFOV224L123_DARK_GREY_2_b5823a93-5cf0-42cb-95ba-bd356393eda3.jpg?v=1732160320&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -329,6 +401,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Floral print mini skirt with a vibrant, feminine design, perfect for adding a fresh and playful touch to your wardrobe.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SIWFCR224K012_MULTICOLOR_2_47d6fb18-55e1-46c9-97af-3f055b5fd3ef.jpg?v=1730274017&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -337,6 +411,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Ribbed slit midi skirt featuring a textured design with a side slit, offering a stylish and comfortable fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SDKKEY224K049_BLACK_2_6aad76f6-bb6a-4d47-9ea9-1b84f43f3342.jpg?v=1729760049&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -345,6 +421,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Lace-up mini skirt with a trendy design, featuring adjustable laces for a chic and customizable fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SIWFCT224K005_BLACK_2_73387b90-8cf2-4bf4-b2c8-4a2aa4780dac.jpg?v=1729750477&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -353,6 +431,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Twill mini skirt with a sleek, versatile design, perfect for a stylish and casual look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SIWKEY224J042_BLACK_2_3ba0497e-52bc-4522-a5ff-e1fc2585f42c.jpg?v=1727689393&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -361,6 +441,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Textured tiered mini skirt with a layered design, adding dimension and a playful touch to your outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SIWFCR224J012_OFF_WHITE_2_d5764892-3610-472b-88d1-ae2a1f570867.jpg?v=1727689254&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -369,6 +451,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Cargo maxi skirt with a relaxed, utilitarian design, featuring multiple pockets for a practical and stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SDWKEY224J117_OFF_WHITE_2_3e0a7752-39ce-42bb-94df-44383cc07288.jpg?v=1727689165&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -377,6 +461,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Side pocket parachute midi skirt with a relaxed, flowy design, offering both comfort and functionality for a casual, stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SDWKEY224J045_BLACK_2_c8b398a8-7c61-4cb5-aef1-e4e14d3f49cd.jpg?v=1727676862&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -385,6 +471,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Box pleats mini skirt with a structured design, offering a classic, chic look that's perfect for both casual and semi-formal occasions.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SKWFOV224J025_LT._GREY_2_b1ba049a-06b5-4556-87e3-b716da48b87e.jpg?v=1727689580&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -393,6 +481,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Mini cargo skirt with a trendy, utilitarian design, featuring functional pockets for a stylish and practical look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SIWFCT224J006_BLACK_2_770eb3b5-78c0-409d-b7a8-843118d08399.jpg?v=1727689327&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -401,6 +491,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Rubberwaist midi skirt with an elastic waistband, offering a comfortable, flexible fit and a sleek, modern silhouette.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SDKKEY224I053_BLACK_2_85ac8fed-f738-4b85-80d5-18df127637da.jpg?v=1724657345&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -409,6 +501,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "skirts",
                 'deskripsi_produk' => "Printed midi skirt featuring a vibrant design, perfect for adding a touch of style and flair to any outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I3SDKFCT224I005_MULTICOLOR_1_eac78f81-5183-4578-9c79-4075ff842292.jpg?v=1724657225&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -417,6 +511,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Comfortable and stylish, these striped shorts feature an elastic waistband for a secure and adjustable fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWFOV224J027_YELLOW_1_8e96233d-83f6-4c1a-a69b-820f47602a9a.jpg?v=1727690348",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -425,6 +521,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Stylish and functional, these parachute cargo Bermuda pants feature a relaxed fit and multiple pockets for added utility.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWKEY124G050_BLACK_4_6de6baec-e4b7-44f2-8679-9932f1ba0a4b.jpg?v=1727690405",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -433,6 +531,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Chic and feminine, these lettuce edge trim shorts feature a delicate wavy hem for a touch of elegance.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWFCR224H012_BLACK_4_34a65d43-848c-4c76-9387-afe8fa52b5d2.jpg?v=1722243043",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -441,6 +541,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Versatile and comfortable, these drawstring parachute pants feature a relaxed fit and adjustable waist for a perfect fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/ISPWKEY224H047_BLACK_2_a4b90341-8737-42a7-a2be-bd040ed7f31c.jpg?v=1722243204",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -449,6 +551,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Lightweight and breathable, these drawstring chambray shorts offer a relaxed fit and adjustable waist for all-day comfort.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPDKEY124G098_MED_BLUE_1_fa8e2e07-1733-42e9-bf0b-4d279aba627e.jpg?v=1721643699",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -457,6 +561,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Classic and versatile, these regular fit roll-up shorts feature a timeless design with adjustable hems for a customized look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWKEY124G074_ECRU_1_d5ef8dc4-da02-46be-8e0f-16bb20458796.jpg?v=1720175708",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -465,6 +571,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Stylish and textured, these pleated corduroy shorts feature a classic design with a soft, durable fabric.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWFSC124F170_BROWN_2_d7f2cafc-5490-4676-86ee-e399de321784.jpg?v=1716970434",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -473,6 +581,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Casual and trendy, this short corduroy dungaree features a soft, durable fabric with adjustable straps for a perfect fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-DGWFJN124F020_BROWN_4_d1a35498-f847-4110-bc78-a4ec3d0821e2.jpg?v=1717150847",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -481,6 +591,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Bright and stylish, these floral-printed short pants feature a vibrant design perfect for casual outings or warm-weather wear.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWFCR124G015_MULTICOLOR_4_ae1cd411-0faf-45b8-b38d-66bd1ba28548.jpg?v=1720175545",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -489,6 +601,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Durable and versatile, these twill short pants offer a classic design and a comfortable fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWKEY124F096_OFF_WHITE_4_b4f6105f-4702-4db2-801c-5fb0b3cf5318.jpg?v=1717398614",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -497,6 +611,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Sophisticated and stylish, these belted pinstripe shorts feature a sleek, tailored design with a flattering fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWFCR124E013_LT._BLUE_4_ac100007-5b04-446f-9e93-bdc16c22eb62.jpg?v=1715010385",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -505,6 +621,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Effortlessly cool and breathable, these basic linen-look short pants offer a relaxed fit and light, airy fabric.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWBSC523O516_BLACK_4_8b1e007a-962f-4383-a690-e27e1f9bbdaf.jpg?v=1697788290",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -513,6 +631,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Casual and comfortable, these rolled-up short pants feature a relaxed fit with cuffs for a laid-back, stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWKEY224K092_LT._BROWN_1_378b71dd-6d45-4686-97bb-829cfa3cfefd.jpg?v=1729750781",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -521,6 +641,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Chic and functional, these high-waist shorts feature a flattering fit with convenient pockets.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SPWFJN224J021_DARK_GREEN_2_75a250e6-2380-4981-8a89-d01d6b3db6fb.jpg?v=1727690060&width=500",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -529,6 +651,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "short",
                 'deskripsi_produk' => "Stylish and comfortable, these paperbag drawstring shorts feature a relaxed, high-waisted fit with an adjustable drawstring for a customizable look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/products/ISPWKEY124B060_BLACK_4_T.jpg?v=1706525446",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -537,6 +661,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Elegant and trendy, this voluminous sleeve blouse features a flowy, statement design that adds a touch of drama to any outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWKEY224L184_LT._PINK_2_4d1c0a42-25ee-46bd-9809-ea943d59f5ee.jpg?v=1732775303&width=400",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -545,6 +671,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "This balloon short sleeve blouse features a chic and playful design, perfect for elevating any casual or semi-formal look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWFCR224L165_LT._PINK_1_597a5369-48b0-4956-8f36-4c8b5bb2f600.jpg?v=1732775256&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -553,6 +681,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Elegant and airy, this short sleeve organza blouse is a perfect blend of style and sophistication.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/IBSWKEY224L128_ECRU_1_b7d7c67e-3f9c-492a-898b-a72228ffe027.jpg?v=1732775155&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -561,6 +691,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Chic and refined, this long sleeve shirt features elegant ribbon details for a stylish touch.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BLWKEY224L087_OFF_WHITE_1_454d5f28-18ae-457f-8cd5-9423b0b6e409.jpg?v=1732775069&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -569,6 +701,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Feminine and chic, this ruffled sleeveless blouse adds a stylish flair to any outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWKEY224L082_DARK_RED_1_60f3ef78-8ba2-4b99-8e7a-6dad5c8ce8c1.jpg?v=1732775053&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -577,6 +711,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Classic and versatile, this long sleeve button-up shirt is perfect for any occasion.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BLWKEY224L074_OFF_WHITE_1_46fea7a9-92a3-4687-bec0-8ba8b1543196.jpg?v=1732775037&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -585,6 +721,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Elegant and stylish, this wide-collar long sleeve blouse adds a sophisticated touch to any look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BLWKEY224L056_SAGE_1_4b8362e7-0b43-46fb-be33-c45db55db184.jpg?v=1732774955&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -593,6 +731,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Vibrant and trendy, this printed square neck short sleeve top adds a pop of style to your casual wardrobe.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWKEY224L054_LT._PINK_1_8ea514d1-d451-48da-91ed-ab1ea5502fe5.jpg?v=1732774937&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -601,6 +741,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Short-sleeve blouse with elegant collar detail, perfect for casual or semi-formal wear.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWKEY224L051_OFF_WHITE_1_53e40c9c-37ca-42e3-aad0-19cc5cb8618b.jpg?v=1732774919&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -609,6 +751,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Long-sleeve blouse with a unique double-collar design, blending elegance and sophistication.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BLWFCR224L010_OFF_WHITE_1_e7943118-36f5-4c62-b566-652d53c3342e.jpg?v=1732774790&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -617,6 +761,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Chic balloon short-sleeve blouse, offering a stylish and airy look for any occasion.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWFCR224L009_OFF_WHITE_1_5e95af92-4416-47a4-b7ea-42a726b565b3.jpg?v=1732774782&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -625,6 +771,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Boxy shirt with roll-up short sleeves, combining comfort and casual style.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWKEY224L132_MULTICOLOR_1_f3134049-b639-458c-bffb-e94da40ca467.jpg?v=1732161084&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -633,6 +781,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Charming gingham short-sleeve peplum blouse, perfect for a cute and feminine look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWKEY224L084_DARK_RED_1_de18a788-dfbe-4367-91e9-00f59818e69c.jpg?v=1732160219&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -641,6 +791,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Elegant sheer shirt with a tie-front design, ideal for a chic and breezy style.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BLWFCT224L005_BLACK_1_41cd71ed-d08e-4820-81d1-d68f357f1757.jpg?v=1732159929&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -649,6 +801,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "shirts-blouses",
                 'deskripsi_produk' => "Long-sleeve striped blouse with practical pockets, combining style and functionality.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BLWKEY224L041_MULTICOLOR_1_4ff028e4-9e41-44fb-b52c-d096df01a203.jpg?v=1732160087&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -657,6 +811,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Trendy cropped varsity jacket, blending sporty and casual vibes effortlessly.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/IJKKKEY224L134_ECRU_1_18aecf16-7114-4bca-826c-cbfffc9074e5.jpg?v=1732775178&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -665,6 +821,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Sophisticated square-neck button-up vest, perfect for layering or a chic standalone look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I3VEWKEY224L062_LT._PINK_1_f10a665a-bcef-4ab1-8ce1-1e09bff1f055.jpg?v=1732775013&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -673,6 +831,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Stylish cropped satin bomber jacket, offering a sleek and trendy look with a touch of luxury.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-JKWKEY224L044_GREY_1_5800b18f-3403-4ac6-bd2f-8ba5fa78f8a8.jpg?v=1732774884&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -681,6 +841,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Floral printed sleeveless top, perfect for a fresh and feminine summer look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I3VEWFCR224L011_MULTICOLOR_1_9cea9d22-57ee-4baa-88e5-f0af0a3c9af8.jpg?v=1732774799",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -689,6 +851,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Trendy colorblock knit vest, offering a stylish and modern twist on a classic piece.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/IVEGFOV224L124_MULTICOLOR_1_1b9232f1-444a-49f4-a5a5-fb0feba59a9f.jpg?v=1732160329&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -697,6 +861,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Chic open blazer with bow details, adding a touch of elegance and sophistication to any outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BZWFOV224L121_OFF_WHITE_1_cdbfb192-c198-4787-88ba-8c96b16bde9e.jpg?v=1732160302&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -705,6 +871,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Relaxed oversized graphic sweatshirt, featuring bold designs for a comfortable and stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SWKKEY224L078_LT._BLUE_1_5038a8cc-2e6b-46e4-9d46-52053577c6e3.jpg?v=1732160200&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -713,6 +881,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Cozy sweatshirt with a unique double collar design, combining comfort and stylish detail.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-SWKKEY224L076_LT._BLUE_1_da414771-a654-4646-9da2-7e15c70e89b3.jpg?v=1732160182&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -721,6 +891,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Edgy cropped biker jacket, offering a bold and stylish look with a rebellious flair.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-JKWFCT224L003_BLACK_1_9353bfc6-990f-4c5c-8d5c-f8e309c76caf.jpg?v=1732159912&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -729,6 +901,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Trendy tied crop vest, featuring a stylish knot detail for a chic and casual look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-VEWKEY224K058_MINT.jpg_1_92c2870d-8d53-4b34-a20d-4f1aace66cf5.jpg?v=1729750650&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -737,6 +911,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Chic collared crop vest, blending a smart, structured look with a relaxed, cropped fit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-VEWKEY224J055_LT._PINK_1_06189da0-a816-4045-b708-d727ecc8157f.jpg?v=1727246898&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -745,6 +921,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Relaxed oversized long sleeve jacket, offering a comfortable, laid-back fit with a stylish silhouette.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/IJKWFJN224J017_DARK_GREEN_1_b457f25f-7c53-4294-856d-716a4eebb1f8.jpg?v=1727246762&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -753,6 +931,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Practical zipped utility vest, featuring multiple pockets and a functional design for a rugged, stylish look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/IVEWFJN224J015_DUSTY_GREEN_1_add38938-3e24-4392-981c-b34b082b9eea.jpg?v=1727246744&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -761,6 +941,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Fashion-forward long sleeve jacket with contrast stitching, adding a bold, eye-catching detail to a classic design.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-JKWKEY224J041_BLACK_1_5efcc75a-f826-4ec7-98f3-82b9865b2990.jpg?v=1727234205&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -769,6 +951,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "outerwear",
                 'deskripsi_produk' => "Casual zip-up drawstring crop jacket, offering a comfortable fit with adjustable waist for a sporty, trendy look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-JKKKEY224I048_BLACK_1_79e8676f-a8e1-4c68-abc8-ef257376e4f8.jpg?v=1724657311&width=700",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -777,6 +961,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Cable knit button-up top with a textured design, offering a cozy and stylish look that's perfect for cooler weather.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-COGKEY224L038_OFF_WHITE_1_b80d4e08-f19f-4a8c-a651-4a4c7c7070e8.jpg?v=1732774867",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -785,6 +971,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Oversized cable knit cardigan with a cozy, relaxed fit, perfect for layering and adding warmth to any casual outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-COGFCR224I009_LT._BLUE_1_4f493a0d-1bd6-48cd-9e2d-6c797492a49e.jpg?v=1724309515",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -793,6 +981,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Collar button-up knit top with a classic design, offering a polished yet comfortable look for everyday wear.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSGKEY224H052_LT._BLUE_1_7d83b27a-202b-4470-a74e-ebdeec1df1dc.jpg?v=1722243234",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -801,6 +991,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Short sleeve fur knit top with a soft, luxurious texture, offering a cozy and stylish look for cooler days.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TSGKEY224K084_LT._PINK_1_44539485-28a5-494e-be03-2b5b171bf571.jpg?v=1729760190",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -809,6 +1001,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Crop knit cardigan with a cozy, fitted design, perfect for layering over casual or dressy outfits.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-COGKEY224K039_LT._PINK_1_e2ab82ab-b3bd-4118-9cb4-df5e2d130964.jpg?v=1729760018",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -817,6 +1011,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear ",
                 'deskripsi_produk' => "Collaged color knit vest with a bold, unique design, adding a stylish and vibrant touch to any outfit.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-VEGKEY224I084_LT._BLUE_1_edc7e3aa-bf65-4d44-9d55-e4de4208da82.jpg?v=1724309861",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -825,6 +1021,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Collared short sleeve knit top with a classic, refined design, perfect for a smart and casual look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-BSWKEY124G061_DUSTY_PINK_1_dfc94423-930b-429c-8e97-dd3d322e6f2b.jpg?v=1720175623",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -833,6 +1031,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Oversized knit vest with a relaxed fit, offering a cozy and stylish layer for a casual, laid-back look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/IVEGKEY124G046_BLACK_1_1a78e52b-b271-450d-b44f-6cce0fdad55e.jpg?v=1719920642",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -841,6 +1041,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Printed crop knit top with a vibrant design, offering a stylish and comfortable fit for a chic, casual look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/files/I-TLGKEY124D122_BLACK_1_T_7b733d2a-c44f-4615-892f-71f8fbda3a21.jpg?v=1719223529",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
                 'id_produk' => Str::uuid(),
@@ -849,6 +1051,8 @@ class DatabaseSeeder extends Seeder
                 'jenis_produk' => "knitwear",
                 'deskripsi_produk' => "Strappy sleeveless knit top with a lightweight, breathable design, perfect for a stylish and relaxed look.",
                 'gambar_produk' => "https://colorbox.co.id/cdn/shop/products/I-TTGFCT223K002_BLACK_1.jpg?v=1698207959",
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
         ];
         DB::table('produk')->insert($dataProduk);

@@ -197,22 +197,48 @@ class AuthController extends Controller
         $data = $request->validate([
             'nama_alamat' => 'required',
             'provinsi' => 'required',
-            'kabupaten' => 'required',
+            'kota_kabupaten' => 'required',
             'kecamatan' => 'required',
             'desa' => 'required',
             'kode_pos' => 'required',
             'alamat_lengkap' => 'required',
         ]);
-        $data['province_id'] = 11;
-        $data['regency_id'] = 444;
+        [$data['province_id'], $data['provinsi']] = explode('_', $data['provinsi']);
+        [$data['regency_id'], $data['kota_kabupaten']] = explode('_', $data['kota_kabupaten']);
         $data['id_user'] = auth()->id();
         Alamat::create($data);
-        return redirect('/profile/address');
+        return redirect('/profile/address')->with('alert', ['icon' => 'success', 'title' => 'New Address', 'text' => 'Address successfully created']);
+    }
+
+    public function editAddress($id)
+    {
+        $alamat = Alamat::find($id);
+        $user = auth()->user();
+        return view('edit-address', compact('user', 'alamat'));
     }
     
     public function deleteAddress($id)
     {
         Alamat::destroy($id);
-        return redirect('/profile/address');
+        return redirect('/profile/address')->with('alert', ['icon' => 'success', 'title' => 'Delete Address', 'text' => 'Address successfully deleted']);
+    }
+
+    public function updateAddress($id, Request $request)
+    {
+        $user = auth()->user();
+        $data = $request->validate([
+            'nama_alamat' => 'required',
+            'provinsi' => 'required',
+            'kota_kabupaten' => 'required',
+            'kecamatan' => 'required',
+            'desa' => 'required',
+            'kode_pos' => 'required',
+            'alamat_lengkap' => 'required',
+        ]);
+        [$data['province_id'], $data['provinsi']] = explode('_', $data['provinsi']);
+        [$data['regency_id'], $data['kota_kabupaten']] = explode('_', $data['kota_kabupaten']);
+        $data['id_user'] = auth()->id();
+        DB::table('alamat')->where('id_alamat', $id)->update($data);
+        return redirect('/profile/address')->with('alert', ['icon' => 'success', 'title' => 'Edit Address', 'text' => 'Address data updated successfully']);
     }
 }

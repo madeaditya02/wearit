@@ -37,6 +37,16 @@
                     </svg>
                     <h1 class="font-semibold text-primary group-hover:text-white">Order History</h1>
                 </a>
+                <a class="flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary bg-white text-primary hover:bg-primary hover:text-white"
+                    href="/profile/address">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                    </svg>
+                    <h1 class="font-semibold">Addresses</h1>
+                </a>
                 <a class="group flex items-center gap-5 border border-b-0 px-4 md:py-4 py-3 border-primary  hover:bg-primary hover:border-primary bg-primary"
                     href="/favorites">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

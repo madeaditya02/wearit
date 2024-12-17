@@ -1,11 +1,11 @@
 @extends('layouts.user')
 
 @section('title')
-    Address
+    New Address
 @endsection
 
 @section('content')
-    <div class="flex md:px-14 px-6 py-10 md:flex-row flex-col">
+    <div class="flex md:px-14 px-6 py-10 md:flex-row flex-col" x-data="address">
         <div class="md:min-w-[28%] md:w-fit w-full flex-row">
             <div class="flex w-full h-20 border border-primary rounded-md items-center px-4">
                 <img src="{{ $user->photo_profil }}" alt="WearIt" class="w-10 h-10 rounded-full">
@@ -79,38 +79,101 @@
         </div>
         <div class="md:w-[72%] w-full md:pl-16 md:mt-0 mt-8">
             <h1 class="text-3xl font-semibold mb-4">ADDRESS</h1>
-            <a href="/profile/address/new"
-                class="px-4 py-2 mb-4 bg-blue-600 text-white text-sm font-semibold rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 inline-flex gap-3 items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="size-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                </svg>
-                Add New Address
-            </a>
-            @foreach ($user->alamat as $i => $address)
-                <!-- alamat pertama -->
-                <div class="flex items-start gap-6 p-4 border rounded-lg mb-4">
-                    <div class="flex flex-col gap-4">
-                        <label for="address-{{ $i }}"
-                            class="font-poppins text-2xl capitalize cursor-pointer">{{ $address->nama_alamat }}</label>
-                        <span class="font-poppins text-lg capitalize">{{ $address->alamat_lengkap }}</span>
-                        {{-- <span class="font-poppins text-lg capitalize">Contact - 0815555444</span> --}}
-                    </div>
-                    <div class="ml-auto flex gap-4 text-lg font-poppins">
-                        <a href="/profile/address/{{ $address->id_alamat }}/edit"
-                            class="cursor-pointer hover:text-blue-800">Edit</a>
-                        <span class="text-gray-400">|</span>
-                        <span class="cursor-pointer text-red-500 hover:text-red-500 delete"
-                            data-id="{{ $address->id_alamat }}">Remove</span>
-                    </div>
+            <form method="POST" class="grid grid-cols-2 gap-x-12 gap-y-8">
+                @csrf
+                <div>
+                    <label for="nama_alamat">Nama Alamat</label>
+                    <input type="text" id="nama_alamat" name="nama_alamat" placeholder="Nama Alamat"
+                        value="{{ $alamat->nama_alamat }}"
+                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600">
+                    @error('nama_alamat')
+                        <p class="text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
-            @endforeach
+                <div>
+                    <label for="provinsi">Provinsi</label>
+                    <select name="provinsi" id="province"
+                        class="px-3 py-2 rounded-lg border block w-full mt-2 focus-visible:outline-none focus:border-gray-600"
+                        :disabled="!province_data" x-on:change="getRegency">
+                        <option value="" selected disabled>Pilih Provinsi</option>
+                        <template x-for="province in province_data">
+                            <option :value="province.province_id + '_' + province.province" x-text="province.province"
+                                :selected="province.province_id == {{ $alamat->province_id }}">
+                            </option>
+                        </template>
+                    </select>
+                    @error('provinsi')
+                        <p class="text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label for="kabupaten">Kota / Kabupaten</label>
+                    {{-- <input type="text" id="kabupaten" name="kabupaten" placeholder="Kota / Kabupaten"
+                        value="{{ old('kabupaten') }}"
+                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600"> --}}
+                    <select name="kota_kabupaten" id="regency"
+                        class="px-3 py-2 rounded-lg border block w-full mt-2 focus-visible:outline-none focus:border-gray-600"
+                        :disabled="!regency_data">
+                        <option value="" selected disabled>Pilih Kota/Kabupaten</option>
+                        <template x-for="regency in regency_data">
+                            <option :value="regency.city_id + '_' + regency.city_name" x-text="regency.city_name"
+                                :selected="regency.city_id == {{ $alamat->regency_id }}">
+                            </option>
+                        </template>
+                    </select>
+                    @error('kota_kabupaten')
+                        <p class="text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label for="kecamatan">Kecamatan</label>
+                    <input type="text" id="kecamatan" name="kecamatan" placeholder="Kecamatan"
+                        value="{{ $alamat->kecamatan }}"
+                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600">
+                    @error('kecamatan')
+                        <p class="text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label for="desa">Desa</label>
+                    <input type="text" id="desa" name="desa" placeholder="Desa" value="{{ $alamat->desa }}"
+                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600">
+                    @error('desa')
+                        <p class="text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div>
+                    <label for="kode_pos">Kode Pos</label>
+                    <input type="text" id="kode_pos" name="kode_pos" placeholder="Kode Pos"
+                        value="{{ $alamat->kode_pos }}"
+                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600">
+                    @error('kode_pos')
+                        <p class="text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-span-2">
+                    <label for="alamat_lengkap">Alamat Lengkap</label>
+                    {{-- <input type="text" id="nama_alamat" name="nama_alamat" placeholder="Nama Alamat"
+                        value="{{ old('nama_alamat') }}"
+                        class="block w-full mt-2 px-3 py-2 rounded-lg border focus-visible:outline-none focus:border-gray-600"> --}}
+                    <textarea name="alamat_lengkap" id="alamat_lengkap" rows="3"
+                        class="w-full border mt-2 rounded-lg px-3 py-2 focus-visible:outline-none focus:border-gray-600">{{ $alamat->alamat_lengkap }}</textarea>
+                    @error('alamat_lengkap')
+                        <p class="text-red-600 mt-1">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-span-2">
+                    <button class="px-3 py-2 bg-primary-light text-white rounded-lg hover:bg-blue-700">Add
+                        Address</button>
+                </div>
+            </form>
         </div>
     </div>
 @endsection
 
 @section('javascript')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
     <script>
         document.querySelector('.confirmLogout').addEventListener('click', function() {
             Swal.fire({
@@ -126,24 +189,34 @@
                 icon: 'warning',
             })
         })
-    </script>
-    <script>
-        document.querySelectorAll('.delete').forEach(btn => {
-            const id = btn.getAttribute('data-id')
-            btn.addEventListener('click', () => {
-                Swal.fire({
-                    title: "Do you want to delete this address?",
-                    showCancelButton: true,
-                    confirmButtonText: `
-                <form action="/profile/address/${id}" method="POST">
-                  <input name="_method" type="hidden" value="DELETE">
-                  <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                  <button type="submit">Delete</button>
-                </form>
-                `,
-                    icon: 'warning',
-                })
-            })
+        const province = {!! json_encode($alamat->province_id) !!}
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('address', () => ({
+                province_data: null,
+                regency_data: null,
+                selectedProvince: province ?? null,
+                selectedRegency: null,
+                async init() {
+                    const res = await fetch('/api/province')
+                    this.province_data = await res.json()
+                    console.log(this.province_data);
+                    this.getRegency()
+                },
+                async getRegency(event = null) {
+                    console.log('Hello');
+                    const [id] = event ? event.target.value.split('_') : [this.selectedProvince]
+                    this.selectedProvince = id
+                    const res = await fetch('/api/regency?provinceId=' + id)
+                    this.regency_data = await res.json()
+                    console.log(this.regency_data)
+                }
+            }))
         })
+        // let province_data;
+        // (async function() {
+        //     const res = await fetch('/api/province')
+        //     province_data = await res.json()
+        //     console.log(province_data);
+        // })()
     </script>
 @endsection

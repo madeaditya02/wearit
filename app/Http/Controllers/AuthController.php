@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Alamat;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -11,7 +12,9 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Database\Query\JoinClause;
 
 class AuthController extends Controller
@@ -61,13 +64,19 @@ class AuthController extends Controller
             return redirect('/login/oauth');
         }
 
-        // Cek kredensial menggunakan Auth
-        if (Auth::attempt($credentials, $remember)) {
-            // Regenerate session untuk keamanan
-            $request->session()->regenerate();
+        // if ($user && Hash::check($credentials['password'], $user->password)) {
+        //     $admin = Admin::where('id_user', $user->id_user)->first();
+        //     if ($admin) {
+        //         Auth::guard('admin')->login($user, $remember);
+        //         return redirect()->intended('/admin');
+        //     } else {
+        //         Auth::login($user, $remember);
+        //         return redirect()->intended('/');
+        //     }
+        // }
 
-            // Redirect ke dashboard atau halaman lain setelah login berhasil
-            return redirect()->intended('/');
+        if (Auth::attempt($credentials, $remember)) {
+            return redirect()->intended($user->admin ? '/admin' : '/');
         }
 
         // Jika gagal, kembali ke halaman login dengan pesan error
@@ -240,5 +249,52 @@ class AuthController extends Controller
         $data['id_user'] = auth()->id();
         DB::table('alamat')->where('id_alamat', $id)->update($data);
         return redirect('/profile/address')->with('alert', ['icon' => 'success', 'title' => 'Edit Address', 'text' => 'Address data updated successfully']);
+    }
+
+    public function forgotPassword()
+    {
+        return view('forgot-password');
+    }
+    
+    public function sendResetPassword(Request $request)
+    {
+        $request->validate(['email' => 'required|email']);
+        
+        $status = Password::sendResetLink($request->only('email'));
+        
+        return $status === Password::RESET_LINK_SENT
+                ? back()->with(['alert' => ['icon' => 'success', 'title' => 'Forgot Password', 'text' => __($status)]])
+                : back()->withErrors(['email' => __($status)]);
+    }
+
+    public function resetPassword($token)
+    {
+        return view('reset-password', ['token' => $token]);
+    }
+    
+    public function submitResetPassword(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
+        ]);
+     
+        $status = Password::reset(
+            $request->only('email', 'password', 'password_confirmation', 'token'),
+            function (User $user, string $password) {
+                $user->forceFill([
+                    'password' => Hash::make($password)
+                ])->setRememberToken(Str::random(60));
+     
+                $user->save();
+     
+                event(new PasswordReset($user));
+            }
+        );
+     
+        return $status === Password::PASSWORD_RESET
+                    ? redirect()->route('login')->with(['alert' => ['icon' => 'success', 'title' => 'Reset Password', 'text' => __($status)]])
+                    : back()->withErrors(['email' => [__($status)]]);
     }
 }

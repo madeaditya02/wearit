@@ -14,7 +14,7 @@
 </head>
 
 <body class="font-poppins">
-    <form class="flex items-stretch" action="" method="post">
+    <form class="flex items-stretch" action="/reset-password" method="post">
         @csrf
         <div class="w-[60%] px-16 py-10">
             <div>
@@ -24,59 +24,51 @@
                 </div>
                 <h1
                     class='font-rufina'style="font-size: 2rem; color: #1d4ed8; font-weight: bold; padding-bottom: 1rem;">
-                    Your first step towards discovering your unique style
+                    Reset Password
                 </h1>
             </div>
 
             <div>
-                <div class="pb-4 md:pd-6 font-poppins", style>
-                    <input type="text" name="email" id="email" placeholder="Email"
-                        class="border border-slate-300 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
+                <input type="hidden" name="token" value="{{ $token }}">
+                <div class="font-poppins mb-3">
+                    <label for="email" class="text-lg">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Your email"
+                        class="border border-slate-300 mt-2 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
                     @error('email')
                         <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                     @enderror
                 </div>
-                <div class="pb-20 md:pb-0 relative font-poppins">
-                    <input type="password" name="password" id="password" placeholder="Password"
-                        class="border border-slate-300 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
+                <div class="font-poppins mb-3">
+                    <label for="password" class="text-lg">Password</label>
+                    <input type="password" name="password" id="password" placeholder="New password"
+                        class="border border-slate-300 mt-2 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
                     @error('password')
                         <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                     @enderror
-                    <div class="flex items-center justify-between gap-5 w-full mt-4">
-                        <div class="flex items-center gap-4">
-                            <input type="checkbox" name="remember"
-                                class="w-4 h-4 shrink-0 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                                id="hs-default-checkbox">
-                            <label for="hs-default-checkbox" class="text-sm text-slate-950">Remember Me</label>
-                        </div>
-                        <a href="/forgot-password" class="text-sm text-blue-800 cursor-pointer">Forgot Password?</a>
-                    </div>
                 </div>
-
+                <div class="font-poppins mb-3">
+                    <label for="password_confirmation" class="text-lg">Password Confirmation</label>
+                    <input type="password" name="password_confirmation" id="password_confirmation"
+                        placeholder="New Password Confirmation"
+                        class="border border-slate-300 mt-2 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
+                    @error('password_confirmation')
+                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
 
             <div>
 
 
             </div>
-            <div class="flex items-center justify-center"> <!-- Flexbox untuk memusatkan konten -->
-                <div class="pt-10 flex flex-col gap-5 w-60"> <!-- Atur tata letak tombol -->
+            <div class="flex flex-col items-center justify-center mt-8">
+                <div class="flex flex-col gap-5 w-60 mt-3">
                     <div class="w-full">
                         <button class="font-semibold bg-blue-700 text-white py-2 px-3 rounded-md w-full">
-                            Login
+                            Reset Password
                         </button>
                     </div>
-                    <div class="w-full">
-                        <a href="/login/oauth"
-                            class="font-semibold bg-gray-700 text-white py-2 px-3 rounded-md w-full flex justify-center items-center gap-2">
-                            <img src="/img/googleIcon.png" class="w-5 h-5" alt="">
-                            Login with Google
-                        </a>
-                    </div>
                 </div>
-            </div>
-            <div class="text-center mt-6 justify-center">Don't have an account? <a
-                    href="/register"class="text-blue-700 cursor-pointer">Sign Up</a>
             </div>
         </div>
         <div class="w-[40%] hidden md:block">

@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title')
-    Products
+    Order Management
 @endsection
 
 @section('content')
@@ -9,9 +9,12 @@
     <body class="bg-gray-100 p-6">
         <div class="container mx-auto">
             <!-- Search and Filter -->
-            <form class="flex justify-between mb-4">
+            <form class="flex gap-4 mb-4">
                 <input type="text" name="search" placeholder="Search by order id"
                     class="px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-200" />
+                <button
+                    class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Search
+                </button>
             </form>
 
             <!-- Table -->
@@ -32,7 +35,7 @@
                         @foreach ($dataTransaksi as $transaksi)
                             <tr class="border-b hover:bg-gray-50">
                                 <td class="px-4 py-3">#{{ $transaksi->id_transaksi }}</td>
-                                <td class="px-4 py-3">{{ $transaksi->created_at->diffForHumans() }}</td>
+                                <td class="px-4 py-3">{{ $transaksi->waktu_transaksi->diffForHumans() }}</td>
                                 <td class="px-4 py-3">{{ $transaksi->user->fullName }}</td>
                                 <td class="px-4 py-3">{{ Number::currency($transaksi->total_harga, 'IDR', 'id') }}</td>
                                 {{-- <td class="px-4 py-3">Rp.150.000</td> --}}

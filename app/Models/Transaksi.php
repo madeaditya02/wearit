@@ -24,4 +24,11 @@ class Transaksi extends Model
     {
         return $this->belongsTo(Alamat::class, 'id_alamat', 'id_alamat');
     }
+
+    protected function casts(): array
+{
+    return [
+        'waktu_transaksi' => 'datetime:Y-m-d',
+    ];
+}
 }

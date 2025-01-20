@@ -24,59 +24,39 @@
                 </div>
                 <h1
                     class='font-rufina'style="font-size: 2rem; color: #1d4ed8; font-weight: bold; padding-bottom: 1rem;">
-                    Your first step towards discovering your unique style
+                    Forgot Password
                 </h1>
             </div>
 
             <div>
-                <div class="pb-4 md:pd-6 font-poppins", style>
-                    <input type="text" name="email" id="email" placeholder="Email"
-                        class="border border-slate-300 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
+                <div class="font-poppins">
+                    <label for="email" class="text-lg">Email</label>
+                    <input type="text" name="email" id="email" placeholder="Your email"
+                        class="border border-slate-300 mt-2 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
                     @error('email')
                         <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="pb-20 md:pb-0 relative font-poppins">
-                    <input type="password" name="password" id="password" placeholder="Password"
-                        class="border border-slate-300 px-5 py-4 rounded-md w-full focus:border-blue-500 focus:outline-none">
-                    @error('password')
-                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
-                    @enderror
                     <div class="flex items-center justify-between gap-5 w-full mt-4">
-                        <div class="flex items-center gap-4">
-                            <input type="checkbox" name="remember"
-                                class="w-4 h-4 shrink-0 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                                id="hs-default-checkbox">
-                            <label for="hs-default-checkbox" class="text-sm text-slate-950">Remember Me</label>
-                        </div>
-                        <a href="/forgot-password" class="text-sm text-blue-800 cursor-pointer">Forgot Password?</a>
+                        <a href="/login" class="text-sm text-blue-800 cursor-pointer">Remember your password? Login</a>
                     </div>
                 </div>
-
             </div>
 
             <div>
 
 
             </div>
-            <div class="flex items-center justify-center"> <!-- Flexbox untuk memusatkan konten -->
-                <div class="pt-10 flex flex-col gap-5 w-60"> <!-- Atur tata letak tombol -->
+            <div class="flex flex-col items-center justify-center mt-8">
+                <p>Click submit to send the password change request to your email</p>
+                <div class="flex flex-col gap-5 w-60 mt-3">
                     <div class="w-full">
                         <button class="font-semibold bg-blue-700 text-white py-2 px-3 rounded-md w-full">
-                            Login
+                            Submit
                         </button>
                     </div>
-                    <div class="w-full">
-                        <a href="/login/oauth"
-                            class="font-semibold bg-gray-700 text-white py-2 px-3 rounded-md w-full flex justify-center items-center gap-2">
-                            <img src="/img/googleIcon.png" class="w-5 h-5" alt="">
-                            Login with Google
-                        </a>
-                    </div>
                 </div>
-            </div>
-            <div class="text-center mt-6 justify-center">Don't have an account? <a
-                    href="/register"class="text-blue-700 cursor-pointer">Sign Up</a>
             </div>
         </div>
         <div class="w-[40%] hidden md:block">

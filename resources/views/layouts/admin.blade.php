@@ -22,7 +22,10 @@
             <div>
                 <h3 class="uppercase mb-2">Main Menu</h3>
                 <div class="flex flex-col gap-4 w-full">
-                    <a href="#" class="flex gap-3 px-2 py-2 items-center w-full rounded-lg font-medium">
+                    <a href="/admin" @class([
+                        'flex gap-3 px-2 py-2 items-center w-full rounded-lg font-medium',
+                        'text-white/60 hover:text-white' => request()->path() != 'admin',
+                    ])>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="size-6">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -42,8 +45,11 @@
         <div class="mt-8">
             <h3 class="uppercase mb-2">Products</h3>
             <div class="flex flex-col gap-4 w-full">
-                <a href="#"
-                    class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
+                <a href="/admin/product/create" @class([
+                    'flex gap-3 px-2 py-2 items-center w-full rounded-lg font-medium',
+                    'text-white/60 hover:text-white' =>
+                        request()->path() != 'admin/product/create',
+                ])>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -51,8 +57,13 @@
                     </svg>
                     <span>Add Product</span>
                 </a>
-                <a href="/admin/product"
-                    class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
+                <a href="/admin/product" @class([
+                    'flex gap-3 px-2 py-2 items-center w-full rounded-lg font-medium',
+                    'text-white/60 hover:text-white' => !(
+                        request()->path() == 'admin/product' ||
+                        request()->is('admin/product/*/edit')
+                    ),
+                ])>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -65,8 +76,10 @@
         <div class="mt-8">
             <h3 class="uppercase mb-2">Management</h3>
             <div class="flex flex-col gap-4 w-full">
-                <a href="/admin/order"
-                    class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
+                <a href="/admin/order" @class([
+                    'flex gap-3 px-2 py-2 items-center w-full rounded-lg font-medium',
+                    'text-white/60 hover:text-white' => !request()->is('admin/order*'),
+                ])>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -74,8 +87,10 @@
                     </svg>
                     <span>Order Management</span>
                 </a>
-                <a href="/admin/customer"
-                    class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
+                <a href="/admin/customer" @class([
+                    'flex gap-3 px-2 py-2 items-center w-full rounded-lg font-medium',
+                    'text-white/60 hover:text-white' => !request()->is('admin/customer*'),
+                ])>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -83,8 +98,10 @@
                     </svg>
                     <span>Customers</span>
                 </a>
-                <a href="/admin/discount"
-                    class="flex gap-3 px-2 mt-2 items-center w-full rounded-lg font-medium text-white/60 hover:text-white">
+                <a href="/admin/discount" @class([
+                    'flex gap-3 px-2 py-2 items-center w-full rounded-lg font-medium',
+                    'text-white/60 hover:text-white' => !request()->is('admin/discount*'),
+                ])>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="size-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -118,7 +135,7 @@
             <div class="relative">
                 <img src="/img/user.png" alt="" class="size-7 popover-btn cursor-pointer">
                 <div class="w-56 absolute top-[calc(100%+.5rem)] right-0 bg-white border rounded-lg hidden popover">
-                    <a href="/dashboard/profile-settings" class="px-4 py-3 hover:bg-gray-100 flex items-center gap-2">
+                    {{-- <a href="/dashboard/profile-settings" class="px-4 py-3 hover:bg-gray-100 flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke-width="1.5" stroke="currentColor" class="size-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -135,15 +152,18 @@
                                 d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                         </svg>
                         Account Settings
-                    </a>
-                    <a href="#" class="px-4 py-3 hover:bg-gray-100 flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                            stroke-width="1.5" stroke="currentColor" class="size-5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
-                        </svg>
-                        Logout
-                    </a>
+                    </a> --}}
+                    <form action="/logout" method="POST">
+                        @csrf
+                        <button href="#" class="px-4 py-3 hover:bg-gray-100 flex items-center gap-2 w-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" class="size-5">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 16.5 21h-6a2.25 2.25 0 0 1-2.25-2.25V15m-3 0-3-3m0 0 3-3m-3 3H15" />
+                            </svg>
+                            Logout
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

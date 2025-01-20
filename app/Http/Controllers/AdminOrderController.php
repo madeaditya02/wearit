@@ -13,10 +13,10 @@ class AdminOrderController extends Controller
         $search = $request->only('search');
         $dataTransaksi = Transaksi::with('user');
         if ($search) {
-            $dataTransaksi = $dataTransaksi->where('id_transaksi', $search)->paginate(10);
+            $dataTransaksi = $dataTransaksi->where('id_transaksi', $search)->orderBy('waktu_transaksi', 'desc')->paginate(10);
             $dataTransaksi->appends(['search' => $search]);
         } else {
-            $dataTransaksi = $dataTransaksi->paginate(10);
+            $dataTransaksi = $dataTransaksi->orderBy('waktu_transaksi', 'desc')->paginate(10);
         }
         return view('admin.OrderManagement', compact('dataTransaksi'));
     }

@@ -7,7 +7,7 @@
     <div class="container mx-auto">
         <div class="flex justify-between mb-4">
             <!-- Search Bar -->
-            <a href="/admin/discount/create"
+            <a href="/admin/product/create"
                 class="px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 inline-flex gap-3 items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="size-5">
@@ -24,7 +24,7 @@
             </form>
         </div>
         <!-- Judul kolom Tabel -->
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto mb-4">
             {{-- <table class="min-w-full bg-white border border-gray-300 rounded-md">
                     <thead>
                         <tr class="border-b">
@@ -75,9 +75,9 @@
                             <td class="px-6 py-4">{{ Number::currency($produk->harga_produk, 'IDR', 'id') }}</td>
                             <td class="px-6 py-4 flex space-x-4 text-gray-500">
                                 <!-- Visit Icon -->
-                                <a href="/admin/product/{{ $produk->id }}" class="hover:text-blue-500 font-extrabold">
+                                {{-- <a href="/admin/product/{{ $produk->id }}" class="hover:text-blue-500 font-extrabold">
                                     &#37;
-                                </a>
+                                </a> --}}
                                 <!-- Edit Icon -->
                                 <a href="/admin/product/{{ $produk->id }}/edit" class="hover:text-blue-500">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
@@ -141,8 +141,7 @@
                     title: "Do you want to delete this product?",
                     showCancelButton: true,
                     confirmButtonText: `
-                  <form action="/admin/product/${id}" method="POST">
-                    <input name="_method" type="hidden" value="DELETE">
+                  <form action="/admin/product/${id}/delete" method="POST">
                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
                     <button type="submit">Delete</button>
                   </form>

@@ -95,7 +95,9 @@
         <h2 class="col-span-4 text-4xl text-center font-rufina font-medium mb-4">Our Best Seller</h2>
         @foreach ($products as $produk)
             <div class="col-span-4 sm:col-span-2 lg:col-span-1">
-                <img src="{{ $produk->gambar_produk }}" alt="" class="w-full mb-5 h-[280px] object-cover">
+                <a href="/product/{{ $produk->id_produk }}">
+                    <img src="{{ $produk->gambar_produk }}" alt="" class="w-full mb-5 h-[280px] object-cover">
+                </a>
                 <h4 class="font-semibold text-center mb-1">{{ $produk->nama_produk }}</h4>
                 <div class="flex gap-5 font-medium items-stretch justify-center">
                     <div>{{ Number::currency($produk->harga_produk, 'IDR', 'id') }}</div>

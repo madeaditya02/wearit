@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Edit Customer')
+@section('title', 'Add Discount')
 
 @section('content')
     <form method="POST" action="/admin/discount" class="grid grid-cols-2 gap-x-12 gap-y-8">

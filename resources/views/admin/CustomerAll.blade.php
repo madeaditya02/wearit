@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Customer Detail')
+@section('title', 'Customers')
 
 @section('content')
     <form class="flex items-center border border-gray-300 rounded-md bg-white p-2 w-80">

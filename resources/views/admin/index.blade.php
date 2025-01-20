@@ -5,13 +5,13 @@
         <div class="flex items-center shadow-lg px-8 py-4 rounded-lg col-span-12 gap-5">
             <div class="flex-grow">
                 <h1 class="text-3xl font-semibold">Total Sales</h1>
-                <h1 class="text-4xl mt-4 font-semibold text-green-600">$350K</h1>
+                <h1 class="text-4xl mt-4 font-semibold text-green-600">Rp {{ Number::abbreviate($totalSales, 2) }}</h1>
             </div>
             <div class="w-9/12">
                 <canvas id="myChart"></canvas>
             </div>
         </div>
-        <div class="col-span-7 shadow-lg p-5">
+        <div class="col-span-12 shadow-lg p-5">
             <div class="flex justify-between mb-5">
                 <h2 class="font-semibold">Last Transaction</h2>
                 <a href="#" class="text-sm text-blue-600">View All</a>
@@ -27,28 +27,31 @@
                                 Date
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                total
+                                Customer
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Actions
+                                total
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                            <td class="px-6 py-4">
-                                #5089
-                            </td>
-                            <td scope="row" class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                31 March 2024
-                            </td>
-                            <td class="px-6 py-4">
-                                $1200
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="text-blue-600">View Detail</a>
-                            </td>
-                        </tr>
+                        @foreach ($lastTransactions as $transaksi)
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                <td class="px-6 py-4">
+                                    #{{ $transaksi->id_transaksi }}
+                                </td>
+                                <td scope="row" class="px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ $transaksi->waktu_transaksi->format('j F Y') }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="/admin/customer/{{ $transaksi->user->id_user }}"
+                                        class="text-blue-600">{{ $transaksi->user->fullName }}</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ Number::currency($transaksi->total_harga, 'IDR', 'id') }}
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -61,13 +64,17 @@
     <script>
         const ctx = document.getElementById('myChart');
 
+        const labels = {!! json_encode($dataLabels) !!}
+        const sales = {!! json_encode($dataSales) !!}
+        console.log(labels, sales);
+
         new Chart(ctx, {
             type: 'line',
             data: {
-                labels: ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni'],
+                labels: labels,
                 datasets: [{
                     label: 'Profit',
-                    data: [12, 19, 3, 5, 2, 3],
+                    data: sales,
                     // borderWidth: 1,
                     borderColor: '#3751FE',
                     fill: false,
